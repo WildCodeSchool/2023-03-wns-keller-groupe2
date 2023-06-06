@@ -1,13 +1,17 @@
 services:
   backend:
-    build: ./back
-    ports:  4000:4000
-    volumes: ./back/src:/app/src
+    build: ./backend
+    ports:
+      - 4000:4000
+    volumes:
+      - ./backend/src:/app/src
 
   frontend:
-    build: ./front
-    ports: 3000:3000
-    volumes: ./front/src:/app/src
+    build: ./frontend
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend/src:/app/src
 
   db:
     image: postgres
@@ -18,4 +22,5 @@ services:
   adminer:
     image: adminer
     restart: always
-    ports: 8080:8080
+    ports:
+      - 8080:8080
