@@ -3,7 +3,7 @@ import "./style.scss";
 
 export default function LoginForm() {
   return (
-    <>
+    <div className="loginForm">
       <div className="logHeader">
         {/* <img src={logo} alt="users_icon" /> */}
         <h1>Déjà client</h1>
@@ -19,6 +19,6 @@ export default function LoginForm() {
         </label>
         <button type="submit">Se connecter</button>
       </form>
-    </>
+    </div>
   );
 }
