@@ -1,9 +1,32 @@
+.loginRegisterForm {
+  text-align: center;
+}
+
 .form {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.loginForm {
+.loginForm,
+.registerForm {
   max-width: 40vw;
   border: 1px solid yellowgreen;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputLoginForm,
+.inputRegisterForm {
+  border: solid 1px black;
+  box-shadow: 0px 10px 9px -3px rgba(0, 0, 0, 0.5);
+}
+
+.formSubmitButton {
+  color: #fff;
+  background-color: #163244;
+  padding: 0.5rem 3rem;
 }

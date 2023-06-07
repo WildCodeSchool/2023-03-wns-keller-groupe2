@@ -11,13 +11,25 @@ export default function LoginForm() {
       <form className="logForm" action="">
         <label className="labelForm" htmlFor="mail">
           Email:
-          <input type="email" name="mail" id="mail" />
+          <input
+            className="inputLoginForm"
+            type="email"
+            name="mail"
+            id="mail"
+          />
         </label>
         <label className="labelForm" htmlFor="password">
           Mots de passe:
-          <input type="password" name="password" id="password" />
+          <input
+            className="inputLoginForm"
+            type="password"
+            name="password"
+            id="password"
+          />
         </label>
-        <button type="submit">Se connecter</button>
+        <button className="formSubmitButton" type="submit">
+          Se connecter
+        </button>
       </form>
     </div>
   );
