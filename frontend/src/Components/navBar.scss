@@ -1,0 +1,25 @@
+.logo {
+  width: 5%;
+  aspect-ratio: 1/1;
+}
+
+.navBar {
+  background-color: #99bdd8;
+  padding: 1rem;
+}
+.item {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.link {
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
+}
+.link:hover {
+  background-color: #163244;
+}

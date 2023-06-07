@@ -1,27 +1,51 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./navBar.scss";
+import logo from "../Assets/Logo.png";
 
-
-export default function navBar() {
+export default function NavBar() {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Accueil</Link>
+    <nav className="navBar">
+      <ul className="item">
+        <img src={logo} alt="Logo Rent Bike" className="logo" />
+        <li className="list">
+          <Link to="/" className="link">
+            Accueil
+          </Link>
         </li>
-        <li>
-          <Link to="/veloElec">Vélo électrique</Link>
+        <li className="list">
+          <Link to="/veloElec" className="link">
+            Vélo électrique
+          </Link>
         </li>
-        <li>
-          <Link to="/vtt">VTT</Link>
+        <li className="list">
+          <Link to="/vtt" className="link">
+            VTT
+          </Link>
         </li>
-        <li>
-          <Link to="/veloPro">Vélo professionelles</Link>
+        <li className="list">
+          <Link to="/veloPro" className="link">
+            Vélo professionelles
+          </Link>
         </li>
-        <li>
-          <Link to="/veloVintage">Vélo Vintage</Link>
+        <li className="list">
+          <Link to="/veloVintage" className="link">
+            Vélo Vintage
+          </Link>
         </li>
-        <li>
-          <Link to="/accessoires">Accessoires vélos</Link>
+        <li className="list">
+          <Link to="/accessoires" className="link">
+            Accessoires vélos
+          </Link>
+        </li>
+        <li className="list">
+          <Link to="/panier" className="link">
+            Mon panier
+          </Link>
+        </li>
+        <li className="list">
+          <Link to="/compte" className="link">
+            Mon compte
+          </Link>
         </li>
       </ul>
     </nav>
