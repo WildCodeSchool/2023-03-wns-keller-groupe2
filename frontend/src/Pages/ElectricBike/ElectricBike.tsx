@@ -7,7 +7,7 @@ export default function ElectricBike() {
     <div>
       <NavBar />
       <h1 className="electric-bike-title">Vélos Electriques</h1>
-      <div>
+      <div className="electric-bike-card">
         <CardProduct />
       </div>
     </div>

@@ -9,6 +9,19 @@
   margin: 1rem;
   border: 1px solid variables.$black-color;
   border-radius: 10px;
-  width: 25%;
+  width: 100%;
   padding: 1em;
+  list-style-type: none;
+}
+.cardproduct-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+.cardproduct-display-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
