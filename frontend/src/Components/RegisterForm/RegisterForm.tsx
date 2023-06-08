@@ -46,7 +46,7 @@ export default function RegisterForm() {
           />
         </label>
         <label className="labelForm" htmlFor="confPassword">
-          Confirmer mots de passe:
+          Confirmer mot de passe:
           <input
             className="inputRegisterForm"
             type="password"
