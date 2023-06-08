@@ -6,7 +6,7 @@ export default function Home() {
     <div>
       <NavBar />
       <div className="resumeProject">
-        <ResumeProject title={"qui sommes nous"} description="welcome" />
+        <ResumeProject title={""} description={""} />
       </div>
       
     </div>

@@ -14,9 +14,31 @@ const ResumeProject: React.FC<ResumeProjectProps> = ({
   return (
     <div>
       <h1>{title}</h1>
-      
-      <p>{description}</p>
-      
+      "qui sommes nous"
+      <h2>{description}</h2>
+      "le projet"
+      <h1>{title}</h1>
+      "qui sommes nous"
+      <h2>{description}</h2>
+      "le projet"
+      <h1>{title}</h1>
+      "qui sommes nous"
+      <h2>{description}</h2>
+      "le projet"
+      <h1>{title}</h1>
+      "qui sommes nous"
+      <h2>{description}</h2>
+      "le projet"
+      <h1>{title}</h1>
+      "qui sommes nous"
+      <h2>{description}</h2>
+      "le projet"<h1>{title}</h1>
+      "qui sommes nous"
+      <h2>{description}</h2>
+      "le projet"<h1>{title}</h1>
+      "qui sommes nous"
+      <h2>{description}</h2>
+      "le projet"
     </div>
   );
 };
