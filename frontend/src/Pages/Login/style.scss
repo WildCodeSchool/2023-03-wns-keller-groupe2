@@ -5,14 +5,19 @@
 .form {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  height: 80vh;
+}
+
+.partition{
+  height: 100%;
+  border: 1px solid #163244;
 }
 
 .loginForm,
 .registerForm {
   max-width: 40vw;
-  border: 1px solid yellowgreen;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,5 +33,6 @@
 .formSubmitButton {
   color: #fff;
   background-color: #163244;
-  padding: 0.5rem 3rem;
+  height: 2rem;
+  width: 12rem;
 }

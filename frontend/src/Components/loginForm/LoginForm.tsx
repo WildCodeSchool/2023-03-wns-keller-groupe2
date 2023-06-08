@@ -19,7 +19,7 @@ export default function LoginForm() {
           />
         </label>
         <label className="labelForm" htmlFor="password">
-          Mots de passe:
+          Mot de passe:
           <input
             className="inputLoginForm"
             type="password"

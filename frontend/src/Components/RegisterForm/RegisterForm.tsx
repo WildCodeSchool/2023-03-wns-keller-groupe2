@@ -33,7 +33,7 @@ export default function RegisterForm() {
           />
         </label>
         <label className="labelForm" htmlFor="password">
-          Mots de passe:
+          Mot de passe:
           <input
             className="inputRegisterForm"
             type="password"
