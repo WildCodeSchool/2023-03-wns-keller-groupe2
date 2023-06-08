@@ -1,4 +1,4 @@
-import NavBar from "../Components/NavBar/NavBar";
+import NavBar from "../Components/NarBar/NavBar";
 import ResumeProject from "../Components/ResumeProject/ResumeProject";
 
 export default function Home() {
