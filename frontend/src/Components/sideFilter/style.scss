@@ -1,0 +1,51 @@
+@use "../../../src/variables.scss";
+
+.sideFilter{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    max-width: 15vw;
+    height: 75vh;
+    background-color: variables.$darkblue-color;
+    color: variables.$white-color;
+    font-family: variables.$font-family;
+}
+
+//Side filter closed
+.sideFilterClose{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    max-width: 2vw;
+    height: 75vh;
+    background-color: variables.$darkblue-color;
+    color: variables.$white-color;
+    font-family: variables.$font-family;
+}
+
+.coverButton{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.filter{
+    padding: 0 1.5rem;
+}
+
+//Side filter close
+.filterClose{
+    display: none;
+}
+
+.filter ul{
+    list-style: none;
+}
+
+.coverButton button{
+    background-color: transparent;
+    border: none;
+    color: variables.$white-color;
+    font-size: 2rem;
+    cursor: pointer;
+}
