@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Footer from "./Components/Footer/Footer";
-import Home from "./Pages/Login/Home/Home";
+import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import ElectricBike from "./Pages/ElectricBike/ElectricBike";
 import "./App.scss";
