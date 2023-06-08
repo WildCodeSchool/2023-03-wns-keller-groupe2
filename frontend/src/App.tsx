@@ -3,6 +3,7 @@ import Footer from "./Components/Footer/Footer";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login/Login";
 import "./App.scss";
+import SideFilter from "./Components/sideFilter/SideFilter";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/test" element={<SideFilter/>}/>
       </Routes>
       <Footer />
     </>
