@@ -1,0 +1,17 @@
+.logHeader {
+  display: flex;
+  width: 12rem;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.usersLogo{
+  height: 3rem;
+  width: 3rem;
+}
+
+.labelForm {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
