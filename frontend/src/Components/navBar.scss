@@ -1,25 +1,33 @@
-.logo {
+.navbar-logo {
   width: 5%;
   aspect-ratio: 1/1;
 }
-
-.navBar {
+.navbar {
   background-color: #99bdd8;
   padding: 1rem;
 }
-.item {
+.navbar-item {
   list-style-type: none;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
 }
-
-.link {
+.navbar-link {
   list-style-type: none;
   text-decoration: none;
   color: black;
 }
-.link:hover {
+.navbar-link:hover {
   background-color: #163244;
+  color: #fff;
+  transform: rotate(45deg) scale(1.2);
+}
+.navbar-list-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.navbar-icon {
+  font-size: 1.5rem;
 }
