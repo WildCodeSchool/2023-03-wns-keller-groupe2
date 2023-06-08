@@ -1,0 +1,14 @@
+@use "../../../src/variables.scss";
+
+.cardproduct-image {
+  width: 20rem;
+  height: auto;
+}
+
+.cardproduct-contour {
+  margin: 1rem;
+  border: 1px solid variables.$black-color;
+  border-radius: 10px;
+  width: 25%;
+  padding: 1em;
+}
