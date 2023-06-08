@@ -1,9 +1,14 @@
-import NavBar from "../Components/NarBar/NavBar";
+import NavBar from "../Components/NavBar/NavBar";
+import ResumeProject from "../Components/ResumeProject/ResumeProject";
 
 export default function Home() {
   return (
     <div>
       <NavBar />
+      <div className="resumeProject">
+        <ResumeProject title={"qui sommes nous"} description="welcome" />
+      </div>
+      
     </div>
   );
 }
