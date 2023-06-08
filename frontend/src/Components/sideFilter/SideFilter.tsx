@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
-import "./style.scss";
 import Filter from "../Filter/Filter";
+import "./style.scss";
 
 export default function SideFilter(){
-    const [isOpen, setIsOpen] = useState(false);
-    console.log(isOpen);
+    const [isOpen, setIsOpen] = useState(true);
     return(
     <div className={isOpen?"sideFilter":"sideFilterClose"}>
         <div className="coverButton">
