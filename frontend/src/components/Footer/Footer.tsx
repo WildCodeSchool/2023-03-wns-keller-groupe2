@@ -4,9 +4,6 @@ import { FaFacebookF } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer>
-      {/* <a href="#" className="footer_logo">
-        Romain
-      </a> */}
       <ul className="permalinks">
         <li>
           <a href="#top">Home</a>
