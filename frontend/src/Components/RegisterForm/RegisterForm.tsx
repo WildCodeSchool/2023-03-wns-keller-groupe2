@@ -1,7 +1,11 @@
+import logo from "../../assets/userIcon.png";
+import "./style.scss";
+
 export default function RegisterForm() {
   return (
     <div className="registerForm">
-      <div>
+      <div className="registerHeader">
+        <img className="usersLogo" src={logo} alt="users_icon" />
         <h1>Nouveau client</h1>
       </div>
       <form action="">

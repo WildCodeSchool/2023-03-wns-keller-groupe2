@@ -28,11 +28,18 @@
 .inputRegisterForm {
   border: solid 1px black;
   box-shadow: 0px 10px 9px -3px rgba(0, 0, 0, 0.5);
+  height: 1.25rem;
+  margin-top: 0.25rem;
+}
+
+.inputLoginForm,
+.inputRegisterForm,
+.formSubmitButton{
+  width: 12rem;
 }
 
 .formSubmitButton {
   color: #fff;
   background-color: #163244;
   height: 2rem;
-  width: 12rem;
 }

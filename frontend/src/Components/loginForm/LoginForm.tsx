@@ -1,11 +1,11 @@
-import logo from "../../public/assets/userIcon.png";
+import logo from "../../assets/userIcon.png";
 import "./style.scss";
 
 export default function LoginForm() {
   return (
     <div className="loginForm">
       <div className="logHeader">
-        {/* <img src={logo} alt="users_icon" /> */}
+        <img className="usersLogo" src={logo} alt="users_icon" />
         <h1>Déjà client</h1>
       </div>
       <form className="logForm" action="">
