@@ -21,6 +21,7 @@
   list-style-type: none;
   text-decoration: none;
   color: variables.$black-color;
+  cursor: pointer;
 }
 .navbar-link:hover {
   color: variables.$white-color;

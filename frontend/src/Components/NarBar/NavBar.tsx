@@ -25,7 +25,7 @@ export default function NavBar() {
           </Link>
         </li>
         <li className="navbar-list">
-          <Link to="/" className="navbar-link">
+          <Link to="/veloPro" className="navbar-link">
             Vélos professionnels
           </Link>
         </li>
