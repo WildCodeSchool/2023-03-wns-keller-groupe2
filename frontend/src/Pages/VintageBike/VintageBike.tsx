@@ -10,7 +10,7 @@ export default function VintageBike() {
       <div className="bike-display">
         <SideFilter />
         <div className="bike-parent-title-card">
-          <h1 className="bike-title">Vélos Professionnels</h1>
+          <h1 className="bike-title">Vélos Vintages</h1>
           <div className="bike-card"></div>
           <CardProduct />
         </div>
