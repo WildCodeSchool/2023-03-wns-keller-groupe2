@@ -1,12 +1,12 @@
 @use "../../../src/variables.scss";
 
 .navbar-logo {
-  width: 5%;
+  width: 4%;
   aspect-ratio: 1/1;
 }
 .navbar {
   background-color: variables.$lightblue-color;
-  padding: 1rem;
+  padding: 0.1em;
 }
 .navbar-item {
   list-style-type: none;
