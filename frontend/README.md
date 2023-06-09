@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+**RENT_BIKE**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Desktop front-end of the Rent Bike application.
+This project is created for the WILD CODE SCHOOL's project.
+
+Rent Bike front end is the desktop version so that: - users can rent a bike, - users can create account, - users can login, - users can logout, - users can see their profile, - users can see their history, - users can see their current rental.
 
 ## Available Scripts
 
@@ -39,8 +42,25 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+**env.sample**
+The env.sample file provides a template for creating an environment configuration file. It contains a list of environment variables and their default values, which can be used as a starting point for creating a .env file.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The .env file is used to store sensitive information such as API keys, database credentials, and other configuration settings that should not be hard-coded in the application code. We recommend that you copy env.sample to .env and customize it with your own configuration settings.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Recommended IDE Setup**
+
+An IDE: Visual Studio Code is recommended for this project.
+
+**Used:**
+
+[ESLint]: ESLint is a popular open-source static code analysis tool for JavaScript code. It is designed to identify and report potential problems or issues in JavaScript code, as well as enforce consistent coding styles and best practices.
+
+[TypeScript]: The goal of TypeScript is to improve the quality and maintainability of large-scale JavaScript applications. By adding features such as static data types, classes, interfaces, and stronger type checking, TypeScript helps catch errors earlier in the development process and improve code readability. TypeScript also facilitates interoperability between different JavaScript libraries and frameworks. Ultimately, TypeScript aims to make JavaScript programming more enjoyable and productive.
+
+[Sass] https://sass-lang.com/: SASS, an acronym for "Syntactically Awesome Style Sheets," is a powerful and popular extension of CSS (Cascading Style Sheets). It introduces various features and enhancements to the standard CSS syntax, making it more efficient and easier to work with when creating styles for websites or applications.
+
+[React]: React is a popular open-source JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications.
+
+[React Router]: React Router is a popular open-source routing solution for React, a JavaScript library for building user interfaces. It is maintained by React Training and a community of individual developers and companies.
+
+[Create React App]: Create React App is a popular open-source framework for creating React applications. It is maintained by Facebook and a community of individual developers and companies.
