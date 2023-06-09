@@ -1,0 +1,15 @@
+@use "../../../src/variables.scss";
+
+.accessories-title {
+  font-family: variables.$font-family;
+  color: variables.$darkblue-color;
+  font-size: 2rem;
+  text-align: center;
+  margin: 1rem;
+}
+.accessories-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

@@ -15,27 +15,27 @@ export default function NavBar() {
           </Link>
         </li>
         <li className="navbar-list">
-          <Link to="/" className="navbar-link">
+          <Link to="/veloElec" className="navbar-link">
             Vélos électriques
           </Link>
         </li>
         <li className="navbar-list">
-          <Link to="/" className="navbar-link">
+          <Link to="/vtt" className="navbar-link">
             VTT
           </Link>
         </li>
         <li className="navbar-list">
-          <Link to="/" className="navbar-link">
+          <Link to="/proBike" className="navbar-link">
             Vélos professionnels
           </Link>
         </li>
         <li className="navbar-list">
-          <Link to="/" className="navbar-link">
+          <Link to="/vintageBike" className="navbar-link">
             Vélos Vintages
           </Link>
         </li>
         <li className="navbar-list">
-          <Link to="/" className="navbar-link">
+          <Link to="/accessories" className="navbar-link">
             Accessoires vélos
           </Link>
         </li>
