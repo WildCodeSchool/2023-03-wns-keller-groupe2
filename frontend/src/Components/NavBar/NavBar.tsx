@@ -43,7 +43,7 @@ export default function NavBar() {
           <div className="navbar-icon">
             <AiOutlineShoppingCart />
           </div>
-          <Link to="/" className="navbar-link">
+          <Link to="/cart" className="navbar-link">
             Mon panier
           </Link>
         </li>
