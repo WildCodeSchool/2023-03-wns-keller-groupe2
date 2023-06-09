@@ -4,7 +4,9 @@ import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import ElectricBike from "./Pages/ElectricBike/ElectricBike";
 import VTT from "./Pages/VTT/VTT";
-import VeloPro from "./Pages/VeloPro/VeloPro";
+import ProBike from "./Pages/ProBike/ProBike";
+import VintageBike from "./Pages/VintageBike/VintageBike";
+import Accessories from "./Pages/Accessories/Accessories";
 import "./App.scss";
 
 function App() {
@@ -15,7 +17,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/veloElec" element={<ElectricBike />} />
         <Route path="/vtt" element={<VTT />} />
-        <Route path="/veloPro" element={<VeloPro />} />
+        <Route path="/proBike" element={<ProBike />} />
+        <Route path="/vintageBike" element={<VintageBike />} />
+        <Route path="/accessories" element={<Accessories />} />
       </Routes>
       <Footer />
     </>

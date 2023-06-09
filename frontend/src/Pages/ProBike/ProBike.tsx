@@ -1,8 +1,8 @@
 import CardProduct from "../../Components/CardProduct/CardProduct";
 import NavBar from "../../Components/NarBar/NavBar";
-import "./veloPro.scss";
+import "./proBike.scss";
 
-export default function VeloPro() {
+export default function ProBike() {
   return (
     <div>
       <NavBar />
