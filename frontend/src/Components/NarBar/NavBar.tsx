@@ -15,12 +15,12 @@ export default function NavBar() {
           </Link>
         </li>
         <li className="navbar-list">
-          <Link to="/" className="navbar-link">
+          <Link to="/veloElec" className="navbar-link">
             Vélos électriques
           </Link>
         </li>
         <li className="navbar-list">
-          <Link to="/" className="navbar-link">
+          <Link to="/vtt" className="navbar-link">
             VTT
           </Link>
         </li>
