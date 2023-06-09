@@ -3,6 +3,7 @@ import Footer from "./Components/Footer/Footer";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import ElectricBike from "./Pages/ElectricBike/ElectricBike";
+import VTT from "./Pages/VTT/VTT";
 import "./App.scss";
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/electricBike" element={<ElectricBike />} />
+        <Route path="/veloElec" element={<ElectricBike />} />
+        <Route path="/vtt" element={<VTT />} />
       </Routes>
       <Footer />
     </>
