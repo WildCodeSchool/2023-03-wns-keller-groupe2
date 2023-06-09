@@ -1,0 +1,15 @@
+@use "../../../src/variables.scss";
+
+.cartPage{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.partitionHorizontal{
+    border-top: 1px solid variables.$darkblue-color;
+    width: 90vw;
+    margin: 4rem 0;
+}

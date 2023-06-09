@@ -1,0 +1,29 @@
+@use "../../../src/variables.scss";
+
+.mySum{
+    width: 40vw;
+    font-family: variables.$font-family;
+}
+
+.totalTtc,
+.totalShippingCosts,
+.sum,
+.actionButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sumPartition{
+    border-top: 1px solid variables.$darkblue-color;
+}
+
+.actionButton button{
+    background-color: variables.$darkblue-color;
+    color: variables.$white-color;
+    border: none;
+    width: 12rem;
+    height: 2rem;
+    cursor: pointer;
+}

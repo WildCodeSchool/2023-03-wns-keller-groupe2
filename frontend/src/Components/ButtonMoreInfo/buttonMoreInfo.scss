@@ -1,0 +1,16 @@
+@use "../../../src/variables.scss";
+
+.button-more-info {
+  font-family: variables.$font-family;
+  font-weight: bold;
+  color: variables.$white-color;
+  background-color: variables.$darkblue-color;
+  border: none;
+  padding: 1vh 2vw;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: variables.$lightblue-color;
+  }
+}

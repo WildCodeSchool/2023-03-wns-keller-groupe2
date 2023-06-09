@@ -1,0 +1,59 @@
+@use "../../../src/variables.scss";
+
+.navbar-logo {
+  width: 4%;
+  aspect-ratio: 1/1;
+}
+.navbar {
+  background-color: variables.$lightblue-color;
+  padding: 0.1em;
+}
+.navbar-item {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.navbar-link {
+  position: relative;
+  display: inline-block;
+  list-style-type: none;
+  text-decoration: none;
+  color: variables.$black-color;
+  cursor: pointer;
+}
+.navbar-link:hover {
+  color: variables.$white-color;
+}
+
+.navbar-list-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.navbar-icon {
+  font-size: 1.5rem;
+}
+
+.navbar-list {
+  position: relative;
+}
+
+.navbar-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: skewX(-20deg);
+  background-color: variables.$darkblue-color;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+}
+
+.navbar-list:hover .navbar-link::before {
+  opacity: 1;
+}
