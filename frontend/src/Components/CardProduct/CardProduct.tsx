@@ -33,34 +33,28 @@ export default function CardProduct() {
     },
   ]);
   return (
-    <ul>
+    <ul className="cardproduct-display">
       {products.map((product) => {
         return (
-          <ul className="cardproduct-display">
-            {products.map((product) => {
-              return (
-                <div key={product.id} className="cardproduct-contour">
-                  <li>
-                    <img
-                      src={bike}
-                      alt={product.name}
-                      className="cardproduct-image "
-                    />
-                  </li>
-                  <div className="cardproduct-display-button">
-                    <div>
-                      <li>{product.name}</li>
-                      <li>{product.price}</li>
-                    </div>
+          <div key={product.id} className="cardproduct-contour">
+            <li>
+              <img
+                src={bike}
+                alt={product.name}
+                className="cardproduct-image "
+              />
+            </li>
+            <div className="cardproduct-display-button">
+              <div>
+                <li>{product.name}</li>
+                <li>{product.price}</li>
+              </div>
 
-                    <div>
-                      <ButtonMoreInfo />
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </ul>
+              <div>
+                <ButtonMoreInfo />
+              </div>
+            </div>
+          </div>
         );
       })}
     </ul>
