@@ -1,6 +1,6 @@
 import MyCart from "../../Components/MyCart/MyCart";
 import MySum from "../../Components/MySum/MySum";
-import NavBar from "../../Components/NarBar/NavBar";
+import NavBar from "../../Components/NavBar/NavBar";
 import "./style.scss";
 
 export default function Cart(){
