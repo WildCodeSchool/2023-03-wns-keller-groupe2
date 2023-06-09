@@ -6,12 +6,16 @@
     justify-content: space-around;
     align-items: center;
     width: 85vw;
+    //padding: 2rem 0;
 }
 
 .moreInfo{
     background-color: variables.$darkblue-color;
     color: variables.$white-color;
-    padding: 0.25rem 1rem;
+    border: none;
+    width: 12rem;
+    height: 2rem;
+    cursor: pointer;
 }
 
 .moreLessProduct{
