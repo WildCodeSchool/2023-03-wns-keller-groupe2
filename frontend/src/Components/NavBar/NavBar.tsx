@@ -51,7 +51,7 @@ export default function NavBar() {
           <div className="navbar-icon">
             <VscAccount />
           </div>
-          <Link to="/" className="navbar-link">
+          <Link to="/login" className="navbar-link">
             Mon compte
           </Link>
         </li>
