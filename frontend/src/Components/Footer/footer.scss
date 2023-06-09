@@ -1,13 +1,14 @@
+@use "../../../src/variables.scss";
+
 footer {
-  background-color: #99bdd8;
+  background-color: variables.$lightblue-color;
   padding: 2rem 0;
   text-align: center;
   font-size: 0.9rem;
-  margin-top: 7rem;
 }
 
 footer a {
-  color: var(--color-bg);
+  color: variables.$darkblue-color;
 }
 
 .permalinks {

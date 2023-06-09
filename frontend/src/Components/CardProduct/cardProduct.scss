@@ -1,27 +1,44 @@
 @use "../../../src/variables.scss";
 
 .cardproduct-image {
-  width: 20rem;
+  width: 15vw;
   height: auto;
 }
-
 .cardproduct-contour {
   margin: 1rem;
-  border: 1px solid variables.$black-color;
-  border-radius: 10px;
-  width: 100%;
-  padding: 1em;
-  list-style-type: none;
+  border: 0.8px solid variables.$lightblue-color;
+  border-radius: 1.5em;
+  padding: 2vh 0;
+  width: 17vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.cardproduct-display {
+.cardproduct-layout {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  padding: 1rem;
 }
-.cardproduct-display-button {
+.cardproduct-lahout-button {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+.cardproduct-swiper {
+  max-width: 75vw;
+
+  .swiper-button-next {
+    color: variables.$darkblue-color;
+    right: 0%;
+  }
+
+  .swiper-button-prev {
+    color: variables.$darkblue-color;
+    left: 0%;
+  }
+}
+.cardproduct-marge-swiper-inside {
+  width: 60vw;
 }
