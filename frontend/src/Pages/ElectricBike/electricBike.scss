@@ -1,0 +1,15 @@
+@use "../../../src/variables.scss";
+
+.electric-bike-title {
+  font-family: variables.$font-family;
+  color: variables.$darkblue-color;
+  font-size: 2rem;
+  text-align: center;
+  margin: 1rem;
+}
+.electric-bike-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

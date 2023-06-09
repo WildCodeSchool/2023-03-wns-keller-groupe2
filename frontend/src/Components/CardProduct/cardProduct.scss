@@ -1,0 +1,27 @@
+@use "../../../src/variables.scss";
+
+.cardproduct-image {
+  width: 20rem;
+  height: auto;
+}
+
+.cardproduct-contour {
+  margin: 1rem;
+  border: 1px solid variables.$black-color;
+  border-radius: 10px;
+  width: 100%;
+  padding: 1em;
+  list-style-type: none;
+}
+.cardproduct-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+.cardproduct-display-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
