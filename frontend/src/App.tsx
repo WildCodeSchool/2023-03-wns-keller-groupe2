@@ -8,6 +8,7 @@ import ProBike from "./Pages/ProBike/ProBike";
 import VintageBike from "./Pages/VintageBike/VintageBike";
 import Accessories from "./Pages/Accessories/Accessories";
 import "./App.scss";
+import Cart from "./Pages/Cart/Cart";
 
 function App() {
   return (
@@ -15,11 +16,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<Cart/>}/>
         <Route path="/veloElec" element={<ElectricBike />} />
         <Route path="/vtt" element={<VTT />} />
         <Route path="/proBike" element={<ProBike />} />
         <Route path="/vintageBike" element={<VintageBike />} />
         <Route path="/accessories" element={<Accessories />} />
+        <Route path="/cart" element={<Cart/>}/>
       </Routes>
       <Footer />
     </>
