@@ -1,5 +1,5 @@
 import CardProduct from "../../Components/CardProduct/CardProduct";
-import NavBar from "../../Components/NarBar/NavBar";
+import NavBar from "../../Components/NavBar/NavBar";
 import "./electricBike.scss";
 
 export default function ElectricBike() {
