@@ -1,15 +1,27 @@
 @use "../../../src/variables.scss";
 
-.electric-bike-title {
+.bike-title {
   font-family: variables.$font-family;
   color: variables.$darkblue-color;
   font-size: 2rem;
   text-align: center;
-  margin: 1rem;
+  min-width: 75vw;
+  max-width: 85vw;
 }
-.electric-bike-card {
+.bike-card {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+.bike-display {
+  display: flex;
+  flex-direction: row;
+}
+.bike-parent-title-card {
+  min-width: 75vw;
+  max-width: 85vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

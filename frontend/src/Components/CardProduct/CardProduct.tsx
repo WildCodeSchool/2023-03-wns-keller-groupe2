@@ -1,7 +1,14 @@
 import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Keyboard, FreeMode } from "swiper";
 import bike from "../../assets/bike.png";
-import "./cardProduct.scss";
 import ButtonMoreInfo from "../ButtonMoreInfo/ButtonMoreInfo";
+/* eslint-disable import/no-unresolved */
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+/* eslint-enable import/no-unresolved */
+import "./cardProduct.scss";
 
 interface Product {
   id: number;
@@ -33,30 +40,37 @@ export default function CardProduct() {
     },
   ]);
   return (
-    <ul className="cardproduct-display">
-      {products.map((product) => {
-        return (
-          <div key={product.id} className="cardproduct-contour">
-            <li>
-              <img
-                src={bike}
-                alt={product.name}
-                className="cardproduct-image "
-              />
-            </li>
-            <div className="cardproduct-display-button">
-              <div>
-                <li>{product.name}</li>
-                <li>{product.price}</li>
-              </div>
-
-              <div>
-                <ButtonMoreInfo />
-              </div>
+    <div className="cardproduct-layout">
+      <Swiper
+        slidesPerView={3}
+        spaceBetween={1}
+        pagination={{ clickable: true }}
+        navigation
+        modules={[FreeMode, Pagination, Keyboard]}
+        className="cardproduct-swiper">
+        {products.map((product) => {
+          return (
+            <div className="cardproduct-marge-swiper-">
+              <SwiperSlide key={product.id} className="cardproduct-contour">
+                <img
+                  src={bike}
+                  alt={product.name}
+                  className="cardproduct-image "
+                />
+                <div className="cardproduct-layout-button">
+                  <div>
+                    <p>{product.name}</p>
+                    <p>{product.price}</p>
+                  </div>
+                  <div>
+                    <ButtonMoreInfo />
+                  </div>
+                </div>
+              </SwiperSlide>
             </div>
-          </div>
-        );
-      })}
-    </ul>
+          );
+        })}
+      </Swiper>
+    </div>
   );
 }
