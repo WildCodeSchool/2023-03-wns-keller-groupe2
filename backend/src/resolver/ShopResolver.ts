@@ -5,7 +5,7 @@ import dataSource from "../utils";
 @Resolver()
 class ShopResolver {
   @Query(() => [Shop])
-  async getAllSkills(): Promise<Shop[]> {
+  async getAllShop(): Promise<Shop[]> {
     const result = await dataSource.getRepository(Shop).find();
     return result;
   }
