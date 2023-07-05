@@ -1,12 +1,18 @@
 import { Field, ObjectType } from "type-graphql";
-import { Column, Entity, JoinTable, ManyToMany, PrimaryColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+} from "typeorm";
 import { Bike } from "./Bike";
 
 @ObjectType()
 @Entity()
 export class BikeCategorie {
   @Field()
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Field()
