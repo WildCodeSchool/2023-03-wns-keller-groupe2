@@ -6,25 +6,25 @@ const BikeController = {
   create: async (req: Request, res: Response) => {
     try {
       await dataSource.getRepository(Bike).save(req.body);
-      res.send("Order created successfully");
+      res.send("Bike created successfully");
     } catch (err) {
-      res.send("Error while creating Order");
+      res.send("Error while creating Bike");
     }
   },
   read: async (req: Request, res: Response) => {
     try {
-      const allOrders = await dataSource.getRepository(Bike).find();
-      res.send(allOrders);
+      const allBikes = await dataSource.getRepository(Bike).find();
+      res.send(allBikes);
     } catch (err) {
-      res.send("Error while fetching Orders");
+      res.send("Error while fetching Bikes");
     }
   },
   delete: async (req: Request, res: Response) => {
     try {
       await dataSource.getRepository(Bike).delete(req.params.id);
-      res.send("Order deleted successfully");
+      res.send("Bike deleted successfully");
     } catch (err) {
-      res.send("Error while deleting Order");
+      res.send("Error while deleting Bike");
     }
   },
   update: async (req: Request, res: Response) => {
@@ -34,7 +34,7 @@ const BikeController = {
         .update(req.params.id, req.body);
       res.send(updateResult);
     } catch (err) {
-      res.send("Error while updating Order");
+      res.send("Error while updating Bike");
     }
   },
 };
