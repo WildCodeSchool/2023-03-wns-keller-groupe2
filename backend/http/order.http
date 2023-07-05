@@ -1,0 +1,10 @@
+GET http://localhost:5000/api/order
+
+###
+POST http://localhost:5000/api/order
+
+###
+PUT http://localhost:5000/api/order/:id
+
+###
+DELETE http://localhost:5000/api/order/:id
