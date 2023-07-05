@@ -1,0 +1,10 @@
+GET http://localhost:5000/api/bike
+
+###
+POST http://localhost:5000/api/bike
+
+###
+PUT http://localhost:5000/api/bike/:id
+
+###
+DELETE http://localhost:5000/api/bike/:id
