@@ -3,6 +3,9 @@ import { Shop } from "./entity/Shop";
 import { Order } from "./entity/Order";
 import { Bike } from "./entity/Bike";
 import { Users } from "./entity/Users";
+import { Rent } from "./entity/Rent";
+import { BikeCategorie } from "./entity/BikeCategories";
+import { Images } from "./entity/Image";
 import "dotenv/config";
 
 const dataSource = new DataSource({
@@ -10,10 +13,10 @@ const dataSource = new DataSource({
   host: "db",
   port: 5432,
   username: "postgres",
-  password: process.env.PASSWORD,
+  password: process.env.POSTGRES_PASSWORD,
   database: "postgres",
   synchronize: true,
-  entities: [Shop, Order, Bike, Users],
+  entities: [Shop, Order, Bike, Users, Rent, BikeCategorie, Images],
 });
 
 export default dataSource;

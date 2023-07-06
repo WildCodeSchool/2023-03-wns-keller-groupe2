@@ -1,3 +1,4 @@
+import "dotenv/config";
 import "reflect-metadata";
 import * as jwt from "jsonwebtoken";
 import { buildSchema } from "type-graphql";
