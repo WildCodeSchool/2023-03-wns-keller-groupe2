@@ -18,8 +18,8 @@ services:
   db:
     image: postgres
     restart: always
-    environment:
-      POSTGRES_PASSWORD: vars.env.POSTGRES_PASSWORD
+    env_file:
+      - vars.env
 
   adminer:
     image: adminer
