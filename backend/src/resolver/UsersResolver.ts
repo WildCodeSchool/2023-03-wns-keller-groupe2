@@ -1,10 +1,9 @@
 import * as jwt from "jsonwebtoken";
-import * as bcrypt from "bcrypt-ts";
 import { GraphQLError } from "graphql";
 import { Arg, Authorized, Mutation, Query, Resolver } from "type-graphql";
 import { Users } from "../entity/Users";
 import dataSource from "../utils";
-import { JWT_SECRET } from "..";
+import * as argon2 from "argon2";
 
 @Resolver()
 class UsersResolver {
@@ -24,7 +23,7 @@ class UsersResolver {
       user.firstName = firstname;
       user.lastName = lastname;
       user.email = email;
-      user.password = await bcrypt.hash(password, 10);
+      user.password = await argon2.hash(password);
       user.gender = gender;
       user.dob = dob;
       user.phonenum = phonenum;
@@ -41,7 +40,10 @@ class UsersResolver {
     @Arg("token") token: string
   ): Promise<Users | String | GraphQLError> {
     try {
-      const decoded: any = jwt.verify(token, JWT_SECRET);
+      const decoded: any = jwt.verify(
+        token,
+        process.env.JWT_SECRET_KEY as string
+      );
       const user = await dataSource
         .getRepository(Users)
         .findOneByOrFail({ email: decoded.email });
@@ -56,7 +58,10 @@ class UsersResolver {
     @Arg("token") token: string
   ): Promise<String | GraphQLError> {
     try {
-      const decoded: any = jwt.verify(token, JWT_SECRET);
+      const decoded: any = jwt.verify(
+        token,
+        process.env.JWT_SECRET_KEY as string
+      );
       const user = await dataSource
         .getRepository(Users)
         .findOneByOrFail({ email: decoded.email });
@@ -64,7 +69,10 @@ class UsersResolver {
       delete decoded.exp;
       delete decoded.nbf;
       delete decoded.jti;
-      return jwt.sign({ email: user.email }, JWT_SECRET);
+      return jwt.sign(
+        { email: user.email },
+        process.env.JWT_SECRET_KEY as string
+      );
     } catch (err) {
       return new GraphQLError("An error occured");
     }
@@ -75,7 +83,10 @@ class UsersResolver {
     @Arg("token") token: string
   ): Promise<String | GraphQLError> {
     try {
-      const decoded: any = jwt.verify(token, JWT_SECRET);
+      const decoded: any = jwt.verify(
+        token,
+        process.env.JWT_SECRET_KEY as string
+      );
       const user = await dataSource
         .getRepository(Users)
         .findOneByOrFail({ email: decoded.email });
@@ -121,8 +132,8 @@ class UsersResolver {
   @Mutation(() => String)
   async updateUser(
     @Arg("userId") userId: number,
-    @Arg("firstName") firstname: string,
-    @Arg("lastName") lastname: string,
+    @Arg("firstName") firstName: string,
+    @Arg("lastName") lastName: string,
     @Arg("email") email: string,
     @Arg("password") password: string,
     @Arg("gender") gender: string,
@@ -132,8 +143,8 @@ class UsersResolver {
   ): Promise<String | GraphQLError> {
     try {
       const user = new Users();
-      user.firstName = firstname;
-      user.lastName = lastname;
+      user.firstName = firstName;
+      user.lastName = lastName;
       user.email = email;
       user.password = password;
       user.gender = gender;
@@ -141,8 +152,8 @@ class UsersResolver {
       user.phonenum = phonenum;
       user.admin = admin;
       await dataSource.getRepository(Users).update(userId, {
-        firstname,
-        lastname,
+        firstName,
+        lastName,
         email,
         password,
         gender,
@@ -177,8 +188,9 @@ class UsersResolver {
       .getRepository(Users)
       .findOneByOrFail({ email });
     try {
-      if ((await bcrypt.compare(password, user.password)) as boolean) {
-        const token = jwt.sign({ email }, JWT_SECRET);
+      const isPasswordCorrect = await argon2.hash(password);
+      if (isPasswordCorrect) {
+        const token = jwt.sign({ email }, process.env.JWT_SECRET_KEY as string);
         return token;
       } else {
         return new GraphQLError("Wrong password");
