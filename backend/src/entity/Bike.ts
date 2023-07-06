@@ -43,7 +43,7 @@ export class Bike {
 
   @Field()
   @Column()
-  date_maintenance: Date;
+  dateMaintenance: Date;
 
   @ManyToMany(() => Images, (image) => image.id)
   image_id: Images[];
