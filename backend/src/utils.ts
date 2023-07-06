@@ -6,7 +6,6 @@ import { Users } from "./entity/Users";
 import { Rent } from "./entity/Rent";
 import { BikeCategorie } from "./entity/BikeCategories";
 import { Images } from "./entity/Image";
-import "dotenv/config";
 
 const dataSource = new DataSource({
   type: "postgres",
