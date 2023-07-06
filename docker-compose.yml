@@ -17,10 +17,13 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: example
+      POSTGRES_PASSWORD: vars.env.POSTGRES_PASSWORD
 
   adminer:
     image: adminer
     restart: always
     ports:
       - 8080:8080
+
+volumes:
+  postgres:

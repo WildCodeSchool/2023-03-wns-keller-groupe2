@@ -7,11 +7,11 @@ import "dotenv/config";
 
 const dataSource = new DataSource({
   type: "postgres",
-  host: process.env.HOST,
+  host: "db",
   port: 5432,
-  username: process.env.USERNAME,
+  username: "postgres",
   password: process.env.PASSWORD,
-  database: process.env.DATABASE,
+  database: "postgres",
   synchronize: true,
   entities: [Shop, Order, Bike, Users],
 });
