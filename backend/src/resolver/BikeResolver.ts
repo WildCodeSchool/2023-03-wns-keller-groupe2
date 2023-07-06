@@ -11,8 +11,8 @@ class BikeResolver {
   }
 
   @Query(() => Bike)
-  async getBikeById(@Arg("id") id: string): Promise<Bike> {
-    return await dataSource.getRepository(Bike).findOneByOrFail(id);
+  async getBikeById(@Arg("id") id: number): Promise<Bike> {
+    return await dataSource.getRepository(Bike).findOneByOrFail({ id });
   }
 }
 
