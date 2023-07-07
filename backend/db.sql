@@ -35,6 +35,23 @@ CREATE TABLE "public"."bike_categorie" (
 ) WITH (oids = false);
 
 
+DROP TABLE IF EXISTS "bike_categories";
+DROP SEQUENCE IF EXISTS bike_categories_id_seq;
+CREATE SEQUENCE bike_categories_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1;
+
+CREATE TABLE "public"."bike_categories" (
+    "id" integer DEFAULT nextval('bike_categories_id_seq') NOT NULL,
+    "name" character varying NOT NULL,
+    CONSTRAINT "PK_e0ce1fd7f4b400dd897b17f2904" PRIMARY KEY ("id")
+) WITH (oids = false);
+
+INSERT INTO "bike_categories" ("id", "name") VALUES
+(1,	'electrique'),
+(2,	'vtt'),
+(3,	'vélos professionels'),
+(4,	'vélos vintage'),
+(5,	'accessoires vélos');
+
 DROP TABLE IF EXISTS "images";
 DROP SEQUENCE IF EXISTS images_id_seq;
 CREATE SEQUENCE images_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1;
@@ -120,4 +137,4 @@ INSERT INTO "users" ("id", "firstName", "lastName", "email", "password", "gender
 
 ALTER TABLE ONLY "public"."rent" ADD CONSTRAINT "FK_e518925b048138c568cefc2ddf1" FOREIGN KEY ("orderIdId") REFERENCES "order"(id) NOT DEFERRABLE;
 
--- 2023-07-07 10:27:14.34349+00
+-- 2023-07-07 13:14:14.628259+00
