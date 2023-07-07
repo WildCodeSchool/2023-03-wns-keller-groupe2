@@ -9,6 +9,7 @@ import OrderResolver from "./resolver/OrderResolver";
 import ShopResolver from "./resolver/ShopResolver";
 import UsersResolver from "./resolver/UsersResolver";
 import RentResolver from "./resolver/RentResolver";
+import BikeCategoriesResolver from "./resolver/BikeCategoriesResolver";
 
 const start = async (): Promise<void> => {
   await dataSource.initialize();
@@ -20,6 +21,7 @@ const start = async (): Promise<void> => {
       ShopResolver,
       RentResolver,
       UsersResolver,
+      BikeCategoriesResolver,
     ],
     authChecker: ({ context }) => {
       console.log("context from authChecker", context);

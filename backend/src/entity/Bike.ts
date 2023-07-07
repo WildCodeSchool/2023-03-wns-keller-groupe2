@@ -8,7 +8,7 @@ import {
 import { Field, ObjectType } from "type-graphql";
 import { Shop } from "./Shop";
 import { Images } from "./Image";
-import { BikeCategorie } from "./BikeCategories";
+import { BikeCategories } from "./BikeCategories";
 
 @ObjectType()
 @Entity()
@@ -48,6 +48,6 @@ export class Bike {
   @ManyToMany(() => Images, (image) => image.id)
   image_id: Images[];
 
-  @ManyToMany(() => BikeCategorie, (bikeCategorie) => bikeCategorie.id)
-  bikecategories_id: BikeCategorie[];
+  @ManyToMany(() => BikeCategories, (bikeCategories) => bikeCategories.id)
+  bikecategories_id: BikeCategories[];
 }
