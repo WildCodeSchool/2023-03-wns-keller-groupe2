@@ -9,7 +9,7 @@ import {
 import { Field, ObjectType } from "type-graphql";
 import { Shop } from "./Shop";
 import { Images } from "./Image";
-import { BikeCategorie } from "./BikeCategories";
+import { BikeCategories } from "./BikeCategories";
 
 @ObjectType()
 @Entity()

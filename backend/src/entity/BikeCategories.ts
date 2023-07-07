@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @ObjectType()
 @Entity()
-export class BikeCategorie {
+export class BikeCategories {
   @Field()
   @PrimaryGeneratedColumn()
   id: number;
