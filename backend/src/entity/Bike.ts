@@ -4,6 +4,7 @@ import {
   Column,
   OneToMany,
   ManyToMany,
+  JoinTable,
 } from "typeorm";
 import { Field, ObjectType } from "type-graphql";
 import { Shop } from "./Shop";
@@ -45,9 +46,13 @@ export class Bike {
   @Column()
   dateMaintenance: Date;
 
+  @Field(() => [Images])
   @ManyToMany(() => Images, (image) => image.id)
-  image_id: Images[];
+  @JoinTable()
+  imageId: Images[];
 
+  @Field(() => [BikeCategorie])
   @ManyToMany(() => BikeCategorie, (bikeCategorie) => bikeCategorie.id)
-  bikecategories_id: BikeCategorie[];
+  @JoinTable()
+  bikeCategoriesId: BikeCategorie[];
 }
