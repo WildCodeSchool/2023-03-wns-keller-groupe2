@@ -10,21 +10,16 @@ import ShopResolver from "./resolver/ShopResolver";
 import UsersResolver from "./resolver/UsersResolver";
 import RentResolver from "./resolver/RentResolver";
 
-export const JWT_SECRET = process.env.JWT_SECRET_KEY as string;
-
-if (JWT_SECRET === undefined) {
-  throw Error("JWT secret undefined");
-}
-
 const start = async (): Promise<void> => {
   await dataSource.initialize();
+
   const typeGraphQLgeneratedSchema = await buildSchema({
     resolvers: [
       BikeResolver,
       OrderResolver,
       ShopResolver,
-      UsersResolver,
       RentResolver,
+      UsersResolver,
     ],
     authChecker: ({ context }) => {
       console.log("context from authChecker", context);
@@ -39,7 +34,6 @@ const start = async (): Promise<void> => {
   const server = new ApolloServer({
     schema: typeGraphQLgeneratedSchema,
     context: ({ req }) => {
-      console.log("req", req.headers.authorization);
       if (
         req.headers.authorization !== undefined &&
         req.headers.authorization !== ""
@@ -56,6 +50,7 @@ const start = async (): Promise<void> => {
 
   const { url } = await server.listen();
   console.log(`🚀  Server ready at ${url}`);
+  console.log("hello hot reload ?");
 };
 
 void start();
