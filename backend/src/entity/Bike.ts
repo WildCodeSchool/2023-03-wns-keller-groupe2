@@ -51,8 +51,8 @@ export class Bike {
   @JoinTable()
   imageId: Images[];
 
-  @Field(() => [BikeCategorie])
-  @ManyToMany(() => BikeCategorie, (bikeCategorie) => bikeCategorie.id)
+  @Field(() => [BikeCategories])
+  @ManyToMany(() => BikeCategories, (bikeCategorie) => bikeCategorie.id)
   @JoinTable()
-  bikeCategoriesId: BikeCategorie[];
+  bikeCategoriesId: BikeCategories[];
 }
