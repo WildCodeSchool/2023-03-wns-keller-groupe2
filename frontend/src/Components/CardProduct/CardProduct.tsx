@@ -13,7 +13,12 @@ import "./cardProduct.scss";
 interface Product {
   id: number;
   name: string;
+  imageId: Image[];
   price: string;
+}
+
+interface Image {
+  url: string;
 }
 
 const GET_ALL_BIKE = gql`
@@ -21,6 +26,9 @@ const GET_ALL_BIKE = gql`
     getAllBike {
       id
       name
+      imageId {
+        url
+      }
     }
   }
 `;
@@ -40,11 +48,12 @@ export default function CardProduct() {
         className="cardproduct-swiper"
       >
         {data.getAllBike.map((product: Product) => {
+          console.log(product.imageId[0].url);
           return (
             <div className="cardproduct-marge-swiper-">
               <SwiperSlide key={product.id} className="cardproduct-contour">
                 <img
-                  src={bike}
+                  src={product.imageId[0].url}
                   alt={product.name}
                   className="cardproduct-image "
                 />
