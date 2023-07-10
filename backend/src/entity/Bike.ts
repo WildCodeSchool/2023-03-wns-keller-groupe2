@@ -40,6 +40,10 @@ export class Bike {
 
   @Field()
   @Column()
+  price: number;
+
+  @Field()
+  @Column()
   gender: string;
 
   @Field()
