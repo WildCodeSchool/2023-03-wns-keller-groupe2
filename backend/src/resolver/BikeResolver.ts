@@ -7,7 +7,9 @@ import dataSource from "../utils";
 class BikeResolver {
   @Query(() => [Bike])
   async getAllBike(): Promise<Bike[]> {
-    const result = await dataSource.getRepository(Bike).find();
+    const result = await dataSource
+      .getRepository(Bike)
+      .find({ relations: { imageId: true, bikeCategoriesId: true } });
     return result;
   }
 
