@@ -36,7 +36,7 @@ export default function LoginForm() {
       console.error(error);
     }
   };
-  
+
   return (
     <div className="loginForm">
       <div className="logHeader">
