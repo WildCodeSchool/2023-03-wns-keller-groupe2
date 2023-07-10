@@ -6,9 +6,7 @@ import "./style.scss";
 
 const REGISTER = gql`
   mutation Mutation(
-    $admin: Boolean!
     $phonenum: String!
-    $dob: DateTime!
     $gender: String!
     $password: String!
     $email: String!
@@ -16,9 +14,7 @@ const REGISTER = gql`
     $firstName: String!
   ) {
     createUser(
-      admin: $admin
       phonenum: $phonenum
-      dob: $dob
       gender: $gender
       password: $password
       email: $email
@@ -30,12 +26,11 @@ const REGISTER = gql`
 
 export default function RegisterForm() {
   const [lastName, setLastName] = useState("");
+  const [phonenum, setPhonenum] = useState("");
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [gender, setGender] = useState("");
-  const [dob, setDob] = useState("");
   const [registerUser, { data, error }] = useMutation(REGISTER);
 
   if (data) {
@@ -52,7 +47,7 @@ export default function RegisterForm() {
     event.preventDefault();
     try {
       const response = await registerUser({
-        variables: { email, password },
+        variables: { email, password, lastName, firstName, gender, phonenum },
       });
       console.log(response.data);
     } catch (error) {
@@ -112,17 +107,6 @@ export default function RegisterForm() {
             <option value="femme">Femme</option>
           </select>
         </label>
-        <label className="labelForm" htmlFor="dob">
-          Date de naissance:
-          <input
-            className="inputRegisterForm"
-            type="date"
-            name="dob"
-            id="dob"
-            value={dob}
-            onChange={(event) => setDob(event.target.value)}
-          />
-        </label>
         <label className="labelForm" htmlFor="password">
           Mot de passe:
           <input
@@ -134,15 +118,15 @@ export default function RegisterForm() {
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>
-        <label className="labelForm" htmlFor="confPassword">
-          Confirmer mot de passe:
+        <label className="labelForm" htmlFor="phonenum">
+          Numéro de téléphone:
           <input
             className="inputRegisterForm"
-            type="password"
-            name="confPassword"
-            id="confPassword"
-            value={confirmPassword}
-            onChange={(event) => setConfirmPassword(event.target.value)}
+            type="text"
+            name="phonenum"
+            id="phonenum"
+            value={phonenum}
+            onChange={(event) => setPhonenum(event.target.value)}
           />
         </label>
         <button

@@ -9,25 +9,23 @@ import * as argon2 from "argon2";
 class UsersResolver {
   @Mutation(() => String)
   async createUser(
-    @Arg("firstName") firstname: string,
-    @Arg("lastName") lastname: string,
-    @Arg("email") email: string,
-    @Arg("password") password: string,
-    @Arg("gender") gender: string,
-    @Arg("dob") dob: Date,
     @Arg("phonenum") phonenum: string,
-    @Arg("admin") admin: boolean
+    @Arg("gender") gender: string,
+    @Arg("password") password: string,
+    @Arg("email") email: string,
+    @Arg("lastName") lastname: string,
+    @Arg("firstName") firstname: string
   ): Promise<String | GraphQLError> {
     try {
       const user = new Users();
-      user.firstName = firstname;
-      user.lastName = lastname;
-      user.email = email;
-      user.password = await argon2.hash(password);
-      user.gender = gender;
-      user.dob = dob;
+      user.admin = false;
       user.phonenum = phonenum;
-      user.admin = admin;
+      user.gender = gender;
+      user.password = await argon2.hash(password);
+      user.email = email;
+      user.lastName = lastname;
+      user.firstName = firstname;
+
       await dataSource.getRepository(Users).save(user);
       return "User created";
     } catch (error) {
@@ -132,34 +130,31 @@ class UsersResolver {
   @Mutation(() => String)
   async updateUser(
     @Arg("userId") userId: number,
-    @Arg("firstName") firstName: string,
-    @Arg("lastName") lastName: string,
-    @Arg("email") email: string,
-    @Arg("password") password: string,
-    @Arg("gender") gender: string,
-    @Arg("dob") dob: Date,
+    @Arg("admin") admin: boolean = false,
     @Arg("phonenum") phonenum: string,
-    @Arg("admin") admin: boolean
+    @Arg("gender") gender: string,
+    @Arg("password") password: string,
+    @Arg("email") email: string,
+    @Arg("lastName") lastName: string,
+    @Arg("firstName") firstName: string
   ): Promise<String | GraphQLError> {
     try {
       const user = new Users();
-      user.firstName = firstName;
-      user.lastName = lastName;
-      user.email = email;
-      user.password = password;
-      user.gender = gender;
-      user.dob = dob;
-      user.phonenum = phonenum;
       user.admin = admin;
+      user.phonenum = phonenum;
+      user.gender = gender;
+      user.password = password;
+      user.email = email;
+      user.lastName = lastName;
+      user.firstName = firstName;
       await dataSource.getRepository(Users).update(userId, {
-        firstName,
-        lastName,
-        email,
-        password,
-        gender,
-        dob,
-        phonenum,
         admin,
+        phonenum,
+        gender,
+        password,
+        email,
+        lastName,
+        firstName,
       });
       return `User ${userId} updated`;
     } catch (error) {
