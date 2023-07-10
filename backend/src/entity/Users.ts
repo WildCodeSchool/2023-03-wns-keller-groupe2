@@ -10,27 +10,7 @@ export class Users {
 
   @Field()
   @Column()
-  firstName: string;
-
-  @Field()
-  @Column()
-  lastName: string;
-
-  @Field()
-  @Column()
-  email: string;
-
-  @Field()
-  @Column()
-  password: string;
-
-  @Field()
-  @Column()
-  gender: string;
-
-  @Field()
-  @Column()
-  dob: Date;
+  admin: boolean;
 
   @Field()
   @Column()
@@ -38,5 +18,21 @@ export class Users {
 
   @Field()
   @Column()
-  admin: boolean;
+  gender: string;
+
+  @Field()
+  @Column()
+  password: string;
+
+  @Field()
+  @Column()
+  email: string;
+
+  @Field()
+  @Column()
+  lastName: string;
+
+  @Field()
+  @Column()
+  firstName: string;
 }
