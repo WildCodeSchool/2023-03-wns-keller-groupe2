@@ -63,7 +63,7 @@ export default function CardProduct() {
                     <p>{product.price}</p>
                   </div>
                   <div>
-                    <ButtonMoreInfo />
+                    <ButtonMoreInfo id={product.id} />
                   </div>
                 </div>
               </SwiperSlide>
