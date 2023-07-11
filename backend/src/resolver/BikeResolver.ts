@@ -25,7 +25,8 @@ class BikeResolver {
     @Arg("disponibility") disponibility: boolean,
     @Arg("size") size: number,
     @Arg("gender") gender: string,
-    @Arg("dateMaintenance") dateMaintenance: Date
+    @Arg("dateMaintenance") dateMaintenance: Date,
+    @Arg("price") price: number
   ): Promise<String | GraphQLError> {
     try {
       const bike = new Bike();
@@ -35,6 +36,7 @@ class BikeResolver {
       bike.size = size;
       bike.gender = gender;
       bike.dateMaintenance = dateMaintenance;
+      bike.price = price;
       await dataSource.getRepository(Bike).save(bike);
       return "Bike created";
     } catch (error) {
@@ -50,7 +52,8 @@ class BikeResolver {
     @Arg("disponibility") disponibility: boolean,
     @Arg("size") size: number,
     @Arg("gender") gender: string,
-    @Arg("dateMaintenance") dateMaintenance: Date
+    @Arg("dateMaintenance") dateMaintenance: Date,
+    @Arg("price") price: number
   ): Promise<String | GraphQLError> {
     try {
       const bike = new Bike();
@@ -60,6 +63,7 @@ class BikeResolver {
       bike.size = size;
       bike.gender = gender;
       bike.dateMaintenance = dateMaintenance;
+      bike.price = price;
       await dataSource.getRepository(Bike).update(id, {
         name,
         description,
