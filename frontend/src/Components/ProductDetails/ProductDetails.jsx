@@ -15,8 +15,9 @@ const GET_BIKE_BY_ID = gql`
 `;
 
 export default function ProductDetails({ id }) {
+  const newId = parseInt(id, 10);
   const { loading, error, data } = useQuery(GET_BIKE_BY_ID, {
-    variables: { getBikeByIdId: 1 },
+    variables: { getBikeByIdId: newId },
   });
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;

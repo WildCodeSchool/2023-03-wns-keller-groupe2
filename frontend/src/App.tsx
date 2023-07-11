@@ -24,7 +24,10 @@ function App() {
         <Route path="/vintageBike" element={<VintageBike />} />
         <Route path="/accessories" element={<Accessories />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/moreinfoaboutbike" element={<MoreInfoAboutProduct />} />
+        <Route
+          path="/moreinfoaboutbike/:id"
+          element={<MoreInfoAboutProduct />}
+        />
       </Routes>
       <Footer />
     </>
