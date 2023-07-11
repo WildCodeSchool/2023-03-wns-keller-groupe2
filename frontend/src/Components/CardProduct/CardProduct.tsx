@@ -2,6 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Keyboard, FreeMode } from "swiper";
 import ButtonMoreInfo from "../ButtonMoreInfo/ButtonMoreInfo";
+import ButtonLocation from "../ButtonLocation/ButtonLocation";
 /* eslint-disable import/no-unresolved */
 import "swiper/css";
 import "swiper/css/pagination";
@@ -44,8 +45,7 @@ export default function CardProduct() {
         pagination={{ clickable: true }}
         navigation
         modules={[FreeMode, Pagination, Keyboard]}
-        className="cardproduct-swiper"
-      >
+        className="cardproduct-swiper">
         {data.getAllBike.map((product: Product) => {
           console.log(product.imageId[0].url);
           return (
@@ -63,6 +63,7 @@ export default function CardProduct() {
                   </div>
                   <div>
                     <ButtonMoreInfo id={product.id} />
+                    <ButtonLocation />
                   </div>
                 </div>
               </SwiperSlide>
