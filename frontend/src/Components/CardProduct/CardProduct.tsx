@@ -1,7 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Keyboard, FreeMode } from "swiper";
-import bike from "../../assets/bike.png";
 import ButtonMoreInfo from "../ButtonMoreInfo/ButtonMoreInfo";
 /* eslint-disable import/no-unresolved */
 import "swiper/css";
