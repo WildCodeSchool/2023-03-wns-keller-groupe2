@@ -56,16 +56,16 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="registerForm">
-      <div className="registerHeader">
-        <img className="usersLogo" src={logo} alt="users_icon" />
+    <div className="register-form">
+      <div className="register-header">
+        <img className="users-logo" src={logo} alt="users_icon" />
         <h1>Nouveau client</h1>
       </div>
-      <form className="registerForm" onSubmit={handleSubmit}>
-        <label className="labelForm" htmlFor="mail">
+      <form className="register-form" onSubmit={handleSubmit}>
+        <label className="label-form" htmlFor="mail">
           Email:
           <input
-            className="inputRegisterForm"
+            className="input-register-form"
             type="email"
             name="mail"
             id="mail"
@@ -73,10 +73,10 @@ export default function RegisterForm() {
             onChange={(event) => setEmail(event.target.value)}
           />
         </label>
-        <label className="labelForm" htmlFor="lastName">
+        <label className="label-form" htmlFor="lastName">
           Nom:
           <input
-            className="inputRegisterForm"
+            className="input-register-form"
             type="text"
             name="lastName"
             id="lastName"
@@ -84,10 +84,10 @@ export default function RegisterForm() {
             onChange={(event) => setLastName(event.target.value)}
           />
         </label>
-        <label className="labelForm" htmlFor="firstName">
+        <label className="label-form" htmlFor="firstName">
           Prenom:
           <input
-            className="inputRegisterForm"
+            className="input-register-form"
             type="text"
             name="firstName"
             id="firstName"
@@ -95,10 +95,10 @@ export default function RegisterForm() {
             onChange={(event) => setFirstName(event.target.value)}
           />
         </label>
-        <label className="labelForm" htmlFor="gender">
+        <label className="label-form" htmlFor="gender">
           Genre:
           <select
-            className="inputRegisterForm"
+            className="input-register-form"
             name="gender"
             id="gender"
             value={gender}
@@ -107,10 +107,10 @@ export default function RegisterForm() {
             <option value="femme">Femme</option>
           </select>
         </label>
-        <label className="labelForm" htmlFor="password">
+        <label className="label-form" htmlFor="password">
           Mot de passe:
           <input
-            className="inputRegisterForm"
+            className="input-register-form"
             type="password"
             name="password"
             id="password"
@@ -118,10 +118,10 @@ export default function RegisterForm() {
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>
-        <label className="labelForm" htmlFor="phonenum">
+        <label className="label-form" htmlFor="phonenum">
           Numéro de téléphone:
           <input
-            className="inputRegisterForm"
+            className="input-register-form"
             type="text"
             name="phonenum"
             id="phonenum"
@@ -130,7 +130,7 @@ export default function RegisterForm() {
           />
         </label>
         <button
-          className="formSubmitButton"
+          className="form-submit-button"
           type="submit"
           onClick={handleSubmit}>
           Inscription

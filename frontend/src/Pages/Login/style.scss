@@ -1,53 +1,84 @@
 @use "../../../src/variables.scss";
 
-.loginRegisterForm {
-  text-align: center;
-}
-
-.form {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  height: auto;
-  margin: 1rem 0;
-}
-
-.partition {
-  height: 100vh;
-  border: 1px solid variables.$darkblue-color;
-}
-
-.loginForm,
-.registerForm {
-  max-width: 40vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.inputLoginForm,
-.inputRegisterForm {
-  border: solid 1px variables.$black-color;
-  box-shadow: 0px 10px 9px -3px rgba(0, 0, 0, 0.5);
-  height: 1.25rem;
-  margin-top: 0.25rem;
-}
-
-.inputLoginForm,
-.inputRegisterForm,
-.formSubmitButton {
-  width: 12rem;
-}
-
-.formSubmitButton {
+.form-submit-button {
   color: variables.$white-color;
   background-color: variables.$darkblue-color;
-  height: 2rem;
+  height: 4vh;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 1vh;
 }
-.formSubmitButton:hover {
+.form-submit-button:hover {
   cursor: pointer;
   background-color: variables.$lightblue-color;
   color: variables.$darkblue-color;
+}
+.title-login {
+  text-align: center;
+}
+
+@media (min-width: 851px) {
+  .login-form,
+  .register-form {
+    max-width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .partition {
+    height: 70vh;
+    border: 1px solid variables.$darkblue-color;
+  }
+  .form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+    margin: 1rem 0;
+  }
+
+  .input-login-form,
+  .input-register-form {
+    width: 25vw;
+  }
+  .login-register-form {
+    text-align: center;
+  }
+
+  .input-login-form,
+  .input-register-form {
+    border: solid 1px variables.$black-color;
+    box-shadow: 0px 10px 9px -3px rgba(0, 0, 0, 0.5);
+    height: 1.25rem;
+    margin-top: 0.25rem;
+  }
+  .form-submit-button {
+    width: 15vw;
+  }
+}
+
+@media (max-width: 850px) {
+  .login-form,
+  .register-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .partition {
+    width: 70vh;
+    border: 1px solid variables.$darkblue-color;
+    margin-top: 1vh;
+  }
+  .input-login-form,
+  .input-register-form {
+    width: 50vw;
+  }
+
+  .form-submit-button {
+    width: 20vw;
+  }
 }

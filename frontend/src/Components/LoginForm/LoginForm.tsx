@@ -38,37 +38,37 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="loginForm">
-      <div className="logHeader">
-        <img className="usersLogo" src={logo} alt="users_icon" />
+    <div className="login-form">
+      <div className="login-header">
+        <img className="users-logo" src={logo} alt="users_icon" />
         <h1>Déjà client</h1>
       </div>
       <form
-        className="logForm"
+        className="login-form"
         onSubmit={async (e) => {
           e.preventDefault();
           console.log("email", email);
           console.log("password", password);
           login();
         }}>
-        <label className="labelForm" htmlFor="mail">
+        <label className="label-form" htmlFor="mail">
           Email:
           <input
-            className="inputLoginForm"
+            className="input-login-form"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
-        <label className="labelForm" htmlFor="password">
+        <label className="label-form" htmlFor="password">
           Mot de passe:
           <input
-            className="inputLoginForm"
+            className="input-login-form"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
         <button
-          className="formSubmitButton"
+          className="form-submit-button"
           type="submit"
           onClick={handleSubmit}>
           Se connecter
