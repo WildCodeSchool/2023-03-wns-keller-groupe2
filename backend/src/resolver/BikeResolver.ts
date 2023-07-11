@@ -2,6 +2,7 @@ import { Query, Resolver, Arg, Mutation } from "type-graphql";
 import { GraphQLError } from "graphql";
 import { Bike } from "../entity/Bike";
 import dataSource from "../utils";
+import { getRepository } from "typeorm";
 
 @Resolver()
 class BikeResolver {
@@ -15,7 +16,14 @@ class BikeResolver {
 
   @Query(() => Bike)
   async getBikeById(@Arg("id") id: number): Promise<Bike> {
-    return await dataSource.getRepository(Bike).findOneByOrFail({ id });
+    const result = await dataSource.getRepository(Bike).findOne({
+      relations: ["imageId", "bikeCategoriesId"],
+      where: { id },
+    });
+    if (result === null) {
+      throw new GraphQLError("Bike not found");
+    }
+    return result;
   }
 
   @Mutation(() => String)
