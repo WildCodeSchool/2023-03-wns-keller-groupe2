@@ -16,6 +16,15 @@ INSERT INTO "bike_categories" ("id", "name") VALUES
 (4,	'vélos vintage'),
 (5,	'accessoires vélos');
 
+INSERT INTO "images" ("id", "url") VALUES
+(1,	'https://media.discordapp.net/attachments/1126873629095895162/1126873665389219861/pexels-jose-rodriguez-ortega-16778540.jpg?width=1007&height=671'),
+(2,	'https://media.discordapp.net/attachments/1126873629095895162/1126889976257331200/pexels-kristian-aleksandrov-16760353.jpg?width=894&height=671'),
+(3,	'https://media.discordapp.net/attachments/1126873629095895162/1126890123338973254/pexels-taryn-elliott-4198566.jpg?width=447&height=671'),
+(4,	'https://media.discordapp.net/attachments/1126873629095895162/1126890233040998480/pexels-timea-kadar-2130611.jpg?width=447&height=671'),
+(5,	'https://media.discordapp.net/attachments/1126873629095895162/1126890533126668409/pexels-hakan-kiymaz-10951001.jpg?width=1007&height=671'),
+(6,	'https://media.discordapp.net/attachments/1126873629095895162/1126891036279574578/pexels-alain-frechette-1431117.jpg?width=1011&height=671'),
+(7,	'https://media.discordapp.net/attachments/1126873629095895162/1126891409622974535/pexels-lumn-191042.jpg?width=1007&height=671');
+
 INSERT INTO "bike_image_id_images" ("bikeId", "imagesId") VALUES
 (1,	4),
 (2,	4),
@@ -25,14 +34,6 @@ INSERT INTO "bike_image_id_images" ("bikeId", "imagesId") VALUES
 (5,	3),
 (7,	4);
 
-INSERT INTO "images" ("id", "url") VALUES
-(1,	'https://media.discordapp.net/attachments/1126873629095895162/1126873665389219861/pexels-jose-rodriguez-ortega-16778540.jpg?width=1007&height=671'),
-(2,	'https://media.discordapp.net/attachments/1126873629095895162/1126889976257331200/pexels-kristian-aleksandrov-16760353.jpg?width=894&height=671'),
-(3,	'https://media.discordapp.net/attachments/1126873629095895162/1126890123338973254/pexels-taryn-elliott-4198566.jpg?width=447&height=671'),
-(4,	'https://media.discordapp.net/attachments/1126873629095895162/1126890233040998480/pexels-timea-kadar-2130611.jpg?width=447&height=671'),
-(5,	'https://media.discordapp.net/attachments/1126873629095895162/1126890533126668409/pexels-hakan-kiymaz-10951001.jpg?width=1007&height=671'),
-(6,	'https://media.discordapp.net/attachments/1126873629095895162/1126891036279574578/pexels-alain-frechette-1431117.jpg?width=1011&height=671'),
-(7,	'https://media.discordapp.net/attachments/1126873629095895162/1126891409622974535/pexels-lumn-191042.jpg?width=1007&height=671');
 
 INSERT INTO "shop" ("id", "name", "location", "phonenum", "email") VALUES
 (2,	'Rent Lille',	'Lille',	0,	'rent-lille@mail.com'),
