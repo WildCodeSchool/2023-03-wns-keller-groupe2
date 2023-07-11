@@ -5,7 +5,7 @@ export default function MoreInfoAboutProduct() {
   return (
     <>
       <NavBar />
-      <ProductDetails />
+      <ProductDetails id={1} />
     </>
   );
 }
