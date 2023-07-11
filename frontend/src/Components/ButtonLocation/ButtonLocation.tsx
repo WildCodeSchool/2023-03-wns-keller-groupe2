@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import "./buttonBuy.scss";
+import "./buttonLocation.scss";
 
 export default function ButtonLocation() {
   return (
     <>
       <Link to={`{id}`} className="button-location">
-        Plus d'infos
+        Loue-moi !
       </Link>
     </>
   );
