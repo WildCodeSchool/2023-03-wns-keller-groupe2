@@ -1,5 +1,16 @@
+import { Link } from "react-router-dom";
 import "./buttonMoreInfo.scss";
 
-export default function ButtonMoreInfo() {
-  return <button className="button-more-info">Plus d'infos</button>;
+interface ProductId {
+  id: number;
+}
+
+export default function ButtonMoreInfo({ id }: ProductId) {
+  return (
+    <>
+      <Link to={`/moreinfoaboutbike/${id}`} className="button-more-info">
+        Plus d'infos
+      </Link>
+    </>
+  );
 }
