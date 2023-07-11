@@ -2,7 +2,6 @@ import { Query, Resolver, Arg, Mutation } from "type-graphql";
 import { GraphQLError } from "graphql";
 import { Bike } from "../entity/Bike";
 import dataSource from "../utils";
-import { getRepository } from "typeorm";
 
 @Resolver()
 class BikeResolver {
