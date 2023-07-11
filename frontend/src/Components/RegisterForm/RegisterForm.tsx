@@ -1,21 +1,76 @@
 import logo from "../../assets/userIcon.png";
+import { useState } from "react";
+import { useMutation, gql } from "@apollo/client";
+import { Navigate } from "react-router-dom";
 import "./style.scss";
 
+const REGISTER = gql`
+  mutation Mutation(
+    $phonenum: String!
+    $gender: String!
+    $password: String!
+    $email: String!
+    $lastName: String!
+    $firstName: String!
+  ) {
+    createUser(
+      phonenum: $phonenum
+      gender: $gender
+      password: $password
+      email: $email
+      lastName: $lastName
+      firstName: $firstName
+    )
+  }
+`;
+
 export default function RegisterForm() {
+  const [lastName, setLastName] = useState("");
+  const [phonenum, setPhonenum] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [gender, setGender] = useState("");
+  const [registerUser, { data, error }] = useMutation(REGISTER);
+
+  if (data) {
+    console.log("data from mutation", data.register);
+    localStorage.setItem("token", data.register);
+    return <Navigate to="/" />;
+  }
+
+  if (error) {
+    console.log("error", error);
+  }
+
+  const handleSubmit = async (event: any) => {
+    event.preventDefault();
+    try {
+      const response = await registerUser({
+        variables: { email, password, lastName, firstName, gender, phonenum },
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="registerForm">
       <div className="registerHeader">
         <img className="usersLogo" src={logo} alt="users_icon" />
         <h1>Nouveau client</h1>
       </div>
-      <form action="">
+      <form className="registerForm" onSubmit={handleSubmit}>
         <label className="labelForm" htmlFor="mail">
           Email:
           <input
             className="inputRegisterForm"
-            type="mail"
+            type="email"
             name="mail"
             id="mail"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
           />
         </label>
         <label className="labelForm" htmlFor="lastName">
@@ -25,6 +80,8 @@ export default function RegisterForm() {
             type="text"
             name="lastName"
             id="lastName"
+            value={lastName}
+            onChange={(event) => setLastName(event.target.value)}
           />
         </label>
         <label className="labelForm" htmlFor="firstName">
@@ -34,7 +91,21 @@ export default function RegisterForm() {
             type="text"
             name="firstName"
             id="firstName"
+            value={firstName}
+            onChange={(event) => setFirstName(event.target.value)}
           />
+        </label>
+        <label className="labelForm" htmlFor="gender">
+          Genre:
+          <select
+            className="inputRegisterForm"
+            name="gender"
+            id="gender"
+            value={gender}
+            onChange={(event) => setGender(event.target.value)}>
+            <option value="homme">Homme</option>
+            <option value="femme">Femme</option>
+          </select>
         </label>
         <label className="labelForm" htmlFor="password">
           Mot de passe:
@@ -43,19 +114,26 @@ export default function RegisterForm() {
             type="password"
             name="password"
             id="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
           />
         </label>
-        <label className="labelForm" htmlFor="confPassword">
-          Confirmer mot de passe:
+        <label className="labelForm" htmlFor="phonenum">
+          Numéro de téléphone:
           <input
             className="inputRegisterForm"
-            type="password"
-            name="confPassword"
-            id="confPassword"
+            type="text"
+            name="phonenum"
+            id="phonenum"
+            value={phonenum}
+            onChange={(event) => setPhonenum(event.target.value)}
           />
         </label>
-        <button className="formSubmitButton" type="submit">
-          Bienvenue chez nous!
+        <button
+          className="formSubmitButton"
+          type="submit"
+          onClick={handleSubmit}>
+          Inscription
         </button>
       </form>
     </div>

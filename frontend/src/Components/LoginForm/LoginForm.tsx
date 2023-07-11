@@ -1,8 +1,8 @@
 import logo from "../../assets/userIcon.png";
 import { useState } from "react";
-import "./style.scss";
 import { Navigate } from "react-router-dom";
 import { gql, useLazyQuery } from "@apollo/client";
+import "./style.scss";
 
 const LOGIN = gql`
   query Query($password: String!, $email: String!) {
@@ -13,17 +13,30 @@ const LOGIN = gql`
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [login, { data, error }] = useLazyQuery(LOGIN, {
-    variables: { email, password },
-  });
+  const [login, { data, error }] = useLazyQuery(LOGIN);
+
   if (data) {
-    console.log("data from query", data.Login);
+    console.log("data from query", data.login);
     localStorage.setItem("token", data.login);
     return <Navigate to="/" />;
   }
+
   if (error) {
     console.log("error", error);
   }
+
+  const handleSubmit = async (event: any) => {
+    event.preventDefault();
+    try {
+      const response = await login({
+        variables: { email, password },
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="loginForm">
       <div className="logHeader">
@@ -54,7 +67,10 @@ export default function LoginForm() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <button className="formSubmitButton" type="submit">
+        <button
+          className="formSubmitButton"
+          type="submit"
+          onClick={handleSubmit}>
           Se connecter
         </button>
       </form>

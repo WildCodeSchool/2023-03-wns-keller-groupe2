@@ -46,6 +46,10 @@ export class Bike {
   @Column()
   dateMaintenance: Date;
 
+  @Field()
+  @Column()
+  price: number;
+
   @Field(() => [Images])
   @ManyToMany(() => Images, (image) => image.id)
   @JoinTable()

@@ -1,6 +1,8 @@
+@use "../../../src/variables.scss";
+
 .registerHeader {
-    display: flex;
-    width: 16rem;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
+
