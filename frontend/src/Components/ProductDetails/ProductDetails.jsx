@@ -4,12 +4,15 @@ import "./style.scss";
 const GET_BIKE_BY_ID = gql`
   query GetBikeById($getBikeByIdId: Float!) {
     getBikeById(id: $getBikeByIdId) {
-      id
       name
       description
       disponibility
       size
       gender
+      price
+      imageId {
+        url
+      }
     }
   }
 `;
@@ -27,7 +30,7 @@ export default function ProductDetails({ id }) {
       <article className="productIllustration">
         <img
           className="porductIllustration"
-          src="https://media.discordapp.net/attachments/1126873629095895162/1126890123338973254/pexels-taryn-elliott-4198566.jpg?width=447&height=671"
+          src={data.getBikeById.imageId[0].url}
           alt="Vélo hollandais"
         />
       </article>
