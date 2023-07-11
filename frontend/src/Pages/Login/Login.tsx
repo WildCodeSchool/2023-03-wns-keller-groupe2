@@ -7,8 +7,8 @@ export default function Login() {
   return (
     <>
       <NavBar />
-      <div className="loginRegisterForm">
-        <h1>Identifiez vous ou créer votre compte</h1>
+      <div className="login-register-form">
+        <h1 className="title-login">Identifiez vous ou créer votre compte</h1>
         <section className="form">
           <LoginForm />
           <div className="partition"></div>

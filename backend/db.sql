@@ -34,7 +34,6 @@ INSERT INTO "bike_image_id_images" ("bikeId", "imagesId") VALUES
 (5,	3),
 (7,	4);
 
-
 INSERT INTO "shop" ("id", "name", "location", "phonenum", "email") VALUES
 (2,	'Rent Lille',	'Lille',	0,	'rent-lille@mail.com'),
 (3,	'Rent Lyon',	'Lyon',	0,	'rent-lyon@mail.com'),
@@ -45,6 +44,5 @@ INSERT INTO "users" ("id", "admin", "phonenum", "gender", "password", "email", "
 (1,	't',	'0666924101',	'femme',	'$argon2id$v=19$m=65536,t=3,p=4$f1CviNp1Pllx2mhXRmRORQ$1R/8cnTDRLODwuHF1/+1zbUkobZcd0Rs6Rrm8ueqBxk',	'priscillia.ammeux@gmail.com',	'Ammeux',	'Priscillia'),
 (2,	'f',	'0123456789',	'homme',	'$argon2id$v=19$m=65536,t=3,p=4$DSLPJr1O2sDTZWgPh/MPpA$WMsF9alUKpsECmkcFlxSMXp5VyWCOhhxhWZc1fSlQQ4',	'paul.jacques@gmail.com',	'Paul',	'Jacques'),
 (3,	'f',	'0134567998',	'homme',	'$argon2id$v=19$m=65536,t=3,p=4$sPCYabKiGv380FE+z4JFCQ$OOtPlxy1/VNAmgBqC0QaehbfbeZInADrcNcvKbH5bjg',	'liptonicetea@gmail.com',	'Lipton',	'Ice Tea');
-
 
 -- 2023-07-11 08:42:56.826746+00

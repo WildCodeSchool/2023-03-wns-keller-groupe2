@@ -1,18 +1,18 @@
 @use "../../../src/variables.scss";
 
-.logHeader {
+.login-header {
   display: flex;
   width: 12rem;
   justify-content: space-around;
   align-items: center;
 }
 
-.usersLogo {
+.users-logo {
   height: 3rem;
   width: 3rem;
 }
 
-.labelForm {
+.label-form {
   display: flex;
   flex-direction: column;
   padding: 1rem;
