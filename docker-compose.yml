@@ -15,6 +15,13 @@ services:
     volumes:
       - ./frontend/src:/app/src
 
+  mobile:
+    build: ./mobile
+    ports:
+      - 19000:19000
+    volumes:
+      - ./mobile/App:/App
+
   db:
     image: postgres
     restart: always
