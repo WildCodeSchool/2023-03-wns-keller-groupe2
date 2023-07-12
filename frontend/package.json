@@ -13,6 +13,7 @@
     "@types/react-dom": "^18.2.4",
     "graphql": "^16.7.1",
     "react": "^18.2.0",
+    "react-burger-menu": "^3.0.9",
     "react-dom": "^18.2.0",
     "react-icons": "^4.9.0",
     "react-range-slider-input": "^3.0.7",
@@ -46,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-burger-menu": "^2.8.3"
   }
 }
