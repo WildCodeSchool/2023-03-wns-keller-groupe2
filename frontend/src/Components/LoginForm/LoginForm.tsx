@@ -1,11 +1,11 @@
 import logo from "../../assets/userIcon.png";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
-import { gql, useLazyQuery } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 import "./style.scss";
 
 const LOGIN = gql`
-  query Query($password: String!, $email: String!) {
+  mutation Mutation($password: String!, $email: String!) {
     login(password: $password, email: $email)
   }
 `;
@@ -13,7 +13,7 @@ const LOGIN = gql`
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [login, { data, error }] = useLazyQuery(LOGIN);
+  const [login, { data, error }] = useMutation(LOGIN);
 
   if (data) {
     console.log("data from query", data.login);
