@@ -2,13 +2,13 @@ import { useQuery, gql } from "@apollo/client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Keyboard, FreeMode } from "swiper";
 import ButtonMoreInfo from "../ButtonMoreInfo/ButtonMoreInfo";
-import ButtonLocation from "../ButtonLocation/ButtonLocation";
 /* eslint-disable import/no-unresolved */
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 /* eslint-enable import/no-unresolved */
 import "./cardProduct.scss";
+import ButtonRent from "../ButtonRent/ButtonRent";
 
 interface Product {
   id: number;
@@ -63,7 +63,7 @@ export default function CardProduct() {
                   </div>
                   <div>
                     <ButtonMoreInfo id={product.id} />
-                    <ButtonLocation />
+                    <ButtonRent id={product.id} />
                   </div>
                 </div>
               </SwiperSlide>
