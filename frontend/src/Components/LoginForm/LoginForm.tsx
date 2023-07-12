@@ -1,8 +1,10 @@
 import logo from "../../assets/userIcon.png";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { gql, useLazyQuery } from "@apollo/client";
 import "./style.scss";
+import { UserContext } from "../../services/context/userContext";
+import Test from "../Test/Test";
 
 const LOGIN = gql`
   query Query($password: String!, $email: String!) {
@@ -11,6 +13,7 @@ const LOGIN = gql`
 `;
 
 export default function LoginForm() {
+  const userContext = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login, { data, error }] = useLazyQuery(LOGIN);
@@ -31,6 +34,17 @@ export default function LoginForm() {
       const response = await login({
         variables: { email, password },
       });
+      // if (userContext) {
+      //   userContext.setUser({
+      //     id: response.data.id,
+      //     admin: response.data.admin,
+      //     phonenum: response.data.phonenum,
+      //     gender: response.data.gender,
+      //     email: response.data.email,
+      //     lastName: response.data.lastName,
+      //     firstName: response.data.firstName,
+      //   });
+      // }
       console.log(response.data);
     } catch (error) {
       console.error(error);
@@ -50,10 +64,12 @@ export default function LoginForm() {
           console.log("email", email);
           console.log("password", password);
           login();
-        }}>
+        }}
+      >
         <label className="label-form" htmlFor="mail">
           Email:
           <input
+            type="email"
             className="input-login-form"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -62,6 +78,7 @@ export default function LoginForm() {
         <label className="label-form" htmlFor="password">
           Mot de passe:
           <input
+            type="password"
             className="input-login-form"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -70,10 +87,12 @@ export default function LoginForm() {
         <button
           className="form-submit-button"
           type="submit"
-          onClick={handleSubmit}>
+          onClick={handleSubmit}
+        >
           Se connecter
         </button>
       </form>
+      <Test />
     </div>
   );
 }

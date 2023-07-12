@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import Provider from "./services/context/userContext";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000",
@@ -17,9 +18,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <Router>
-        <App />
-      </Router>
+      <Provider>
+        <Router>
+          <App />
+        </Router>
+      </Provider>
     </ApolloProvider>
   </React.StrictMode>
 );
