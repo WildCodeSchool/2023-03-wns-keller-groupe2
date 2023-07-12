@@ -15,13 +15,6 @@ services:
     volumes:
       - ./frontend/src:/app/src
 
-  admin:
-    build: ./admin
-    ports:
-      - 5173:5173
-    volumes:
-      - ./admin/src:/app/src
-
   db:
     image: postgres
     restart: always
