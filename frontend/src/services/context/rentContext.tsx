@@ -15,7 +15,7 @@ interface ProviderProps {
 
 const RentContext = createContext<RentContextType | null>(null);
 
-function Provider({ children }: ProviderProps) {
+function RentProvider({ children }: ProviderProps) {
   const [rent, setRent] = useState({
     id: null,
   });
@@ -27,5 +27,5 @@ function Provider({ children }: ProviderProps) {
   );
 }
 
-export default Provider;
+export default RentProvider;
 export { RentContext };

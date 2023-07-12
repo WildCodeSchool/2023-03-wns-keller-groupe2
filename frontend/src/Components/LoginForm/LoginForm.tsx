@@ -4,7 +4,6 @@ import { Navigate } from "react-router-dom";
 import { gql, useLazyQuery } from "@apollo/client";
 import "./style.scss";
 import { UserContext } from "../../services/context/userContext";
-import Test from "../Test/Test";
 
 const LOGIN = gql`
   query Query($password: String!, $email: String!) {
@@ -35,7 +34,7 @@ export default function LoginForm() {
         variables: { email, password },
       });
       if (userContext) {
-         userContext.setUser({
+        userContext.setUser({
           id: response.data.id,
           admin: response.data.admin,
           phonenum: response.data.phonenum,
@@ -92,7 +91,6 @@ export default function LoginForm() {
           Se connecter
         </button>
       </form>
-      <Test />
     </div>
   );
 }
