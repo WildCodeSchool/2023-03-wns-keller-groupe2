@@ -47,7 +47,6 @@ export default function CardProduct() {
         modules={[FreeMode, Pagination, Keyboard]}
         className="cardproduct-swiper">
         {data.getAllBike.map((product: Product) => {
-          console.log(product.imageId[0].url);
           return (
             <div className="cardproduct-marge-swiper-">
               <SwiperSlide key={product.id} className="cardproduct-contour">
