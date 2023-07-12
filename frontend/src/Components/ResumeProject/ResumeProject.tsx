@@ -8,7 +8,8 @@ export default function ResumeProject() {
         <img
           src={logo}
           alt="Logo Rent Bike"
-          className="logoResumeProject"></img>
+          className="logoResumeProject"
+        ></img>
         <div className="textResume">
           <h1 className="titleResume">Rent Bike Qui sommes nous ?</h1>
           <div className="display-text">

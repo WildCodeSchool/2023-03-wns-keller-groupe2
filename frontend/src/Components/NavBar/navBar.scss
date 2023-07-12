@@ -4,10 +4,13 @@
   width: 4%;
   aspect-ratio: 1/1;
 }
+
 .navbar {
   background-color: variables.$lightblue-color;
   padding: 0.1em;
+  max-width: 100%;
 }
+
 .navbar-item {
   list-style-type: none;
   display: flex;
@@ -15,6 +18,7 @@
   justify-content: space-around;
   align-items: center;
 }
+
 .navbar-link {
   position: relative;
   display: inline-block;
@@ -23,6 +27,7 @@
   color: variables.$black-color;
   cursor: pointer;
 }
+
 .navbar-link:hover {
   color: variables.$white-color;
 }
@@ -32,6 +37,7 @@
   flex-direction: column;
   align-items: center;
 }
+
 .navbar-icon {
   font-size: 1.5rem;
 }
@@ -56,4 +62,68 @@
 
 .navbar-list:hover .navbar-link::before {
   opacity: 1;
+}
+
+@media (max-width: 850px) {
+  .navbar {
+    display: none;
+  }
+
+  .bm-burger-button {
+    position: fixed;
+    width: 30px;
+    height: 24px;
+    right: 20px;
+    top: 20px;
+  }
+
+  .bm-burger-bars {
+    background-color: variables.$black-color;
+  }
+
+  .bm-burger-bars-hover {
+    background-color: variables.$black-color;
+  }
+
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+
+  .bm-cross {
+    background-color: variables.$black-color;
+  }
+
+  .bm-menu-wrap {
+    position: fixed;
+    height: 100%;
+  }
+
+  .bm-menu {
+    background-color: variables.$lightblue-color;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+  }
+
+  .bm-morph-shape {
+    fill: variables.$lightblue-color;
+  }
+
+  .bm-item {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  .bm-overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media (min-width: 851px) {
+  .bm-burger-button {
+    display: none;
+  }
+  .burger-button {
+    display: none;
+  }
 }

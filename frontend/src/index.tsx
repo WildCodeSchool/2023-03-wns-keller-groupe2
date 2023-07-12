@@ -2,10 +2,12 @@ import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { BrowserRouter as Router } from "react-router-dom";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Provider from "./services/context/userContext";
+import Provider from "./services/context/rentContext";
+import "./index.scss";
+
 
 const client = new ApolloClient({
   uri: "http://localhost:4000",

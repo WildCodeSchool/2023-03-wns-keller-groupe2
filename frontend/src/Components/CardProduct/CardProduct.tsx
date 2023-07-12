@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 /* eslint-enable import/no-unresolved */
 import "./cardProduct.scss";
+import ButtonRent from "../ButtonRent/ButtonRent";
 
 interface Product {
   id: number;
@@ -44,8 +45,7 @@ export default function CardProduct() {
         pagination={{ clickable: true }}
         navigation
         modules={[FreeMode, Pagination, Keyboard]}
-        className="cardproduct-swiper"
-      >
+        className="cardproduct-swiper">
         {data.getAllBike.map((product: Product) => {
           return (
             <div className="cardproduct-marge-swiper-">
@@ -62,6 +62,7 @@ export default function CardProduct() {
                   </div>
                   <div>
                     <ButtonMoreInfo id={product.id} />
+                    <ButtonRent id={product.id} />
                   </div>
                 </div>
               </SwiperSlide>

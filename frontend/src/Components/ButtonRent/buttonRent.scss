@@ -1,6 +1,6 @@
 @use "../../../src/variables.scss";
 
-.button-more-info {
+.button {
   font-family: variables.$font-family;
   font-weight: bold;
   color: variables.$white-color;
@@ -9,7 +9,7 @@
   padding: 1vh 2vw;
   border-radius: 5px;
   cursor: pointer;
-  text-decoration: none;
+  margin: 0 1vw;
   max-width: 20vw;
   font-size: 1rem;
 
