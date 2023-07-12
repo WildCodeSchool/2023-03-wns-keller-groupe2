@@ -66,12 +66,9 @@
 
 @media (max-width: 850px) {
   .navbar {
-    background-color: variables.$lightblue-color;
-    padding: 0.1em;
-    max-width: 50%;
+    display: none;
   }
 
-  /* Styles spécifiques pour le menu burger */
   .bm-burger-button {
     position: fixed;
     width: 30px;
@@ -119,5 +116,14 @@
 
   .bm-overlay {
     background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media (min-width: 851px) {
+  .bm-burger-button {
+    display: none;
+  }
+  .burger-button {
+    display: none;
   }
 }
