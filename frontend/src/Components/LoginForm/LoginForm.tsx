@@ -34,17 +34,17 @@ export default function LoginForm() {
       const response = await login({
         variables: { email, password },
       });
-      // if (userContext) {
-      //   userContext.setUser({
-      //     id: response.data.id,
-      //     admin: response.data.admin,
-      //     phonenum: response.data.phonenum,
-      //     gender: response.data.gender,
-      //     email: response.data.email,
-      //     lastName: response.data.lastName,
-      //     firstName: response.data.firstName,
-      //   });
-      // }
+      if (userContext) {
+         userContext.setUser({
+          id: response.data.id,
+          admin: response.data.admin,
+          phonenum: response.data.phonenum,
+          gender: response.data.gender,
+          email: response.data.email,
+          lastName: response.data.lastName,
+          firstName: response.data.firstName,
+        });
+      }
       console.log(response.data);
     } catch (error) {
       console.error(error);
