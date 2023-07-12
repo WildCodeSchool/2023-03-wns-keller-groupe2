@@ -22,7 +22,7 @@ export interface ProviderProps {
 const defaultUser = null;
 const UserContext = createContext<UserContextType | null>(defaultUser);
 
-function Provider({ children }: ProviderProps) {
+function UserProvider({ children }: ProviderProps) {
   const [user, setUser] = useState({
     id: null,
     admin: null,
@@ -40,5 +40,5 @@ function Provider({ children }: ProviderProps) {
   );
 }
 
-export default Provider;
+export default UserProvider;
 export { UserContext };
