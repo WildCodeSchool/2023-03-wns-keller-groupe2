@@ -4,10 +4,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import Provider from "./services/context/userContext";
-import Provider from "./services/context/rentContext";
+import UserProvider from "./services/context/userContext";
+import RentProvider from "./services/context/rentContext";
 import "./index.scss";
-
 
 const client = new ApolloClient({
   uri: "http://localhost:4000",
@@ -20,11 +19,13 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <Provider>
-        <Router>
-          <App />
-        </Router>
-      </Provider>
+      <UserProvider>
+        <RentProvider>
+          <Router>
+            <App />
+          </Router>
+        </RentProvider>
+      </UserProvider>
     </ApolloProvider>
   </React.StrictMode>
 );
