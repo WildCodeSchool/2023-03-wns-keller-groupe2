@@ -1,26 +1,24 @@
 @use "../../../src/variables.scss";
 
-.resumeProject {
+.resume-project {
   display: flex;
   justify-content: center;
   flex-direction: raw;
   text-align: justify;
   padding: 1rem;
 }
-.textResume {
+.text-resume {
+  margin-left: 2vw;
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  padding: 0 2rem;
-  overflow: auto;
-  white-space: normal;
 }
-.descriptionResume {
+.description-resume {
   font-weight: normal;
 }
-.logoResumeProject {
+.logo-resume-project {
+  height: 50%;
   width: auto;
-  height: 15rem;
-  object-fit: cover;
 }
 .display-text {
   padding-bottom: 1rem;
@@ -30,22 +28,22 @@
 }
 
 @media (max-width: 850px) {
-  .resumeProject {
+  .resume-project {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    align-items: justify;
+    justify-content: justify;
+    text-align: left;
     height: 100vh;
   }
 
-  .logoResumeProject {
-    width: 90%;
+  .logo-resume-project {
+    width: 20%;
     height: auto;
-    margin-bottom: 20px;
+    margin-left: 8vw;
   }
 
-  .titleResume {
+  .title-resume {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -61,7 +59,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: justify;
     text-align: center;
     height: 55vh;
     font-size: 16px;
