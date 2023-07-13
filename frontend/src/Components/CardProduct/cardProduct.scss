@@ -42,3 +42,37 @@
 .cardproduct-marge-swiper-inside {
   width: 60vw;
 }
+
+@media (max-width: 850px) {
+  .cardproduct-layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .cardproduct-swiper {
+    width: 100%;
+  }
+  .cardproduct-contour {
+    width: 100%;
+    padding: 10px;
+  }
+  .cardproduct-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .cardproduct-swiper {
+    flex-direction: column;
+  }
+  .cardproduct-layout-button {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+  }
+  .step li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

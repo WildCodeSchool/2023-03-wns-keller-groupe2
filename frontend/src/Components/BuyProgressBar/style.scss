@@ -36,3 +36,23 @@
   height: 2rem;
   margin-bottom: 0.5rem;
 }
+
+@media (max-width: 850px) {
+  .progressBar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-left: 0;
+    padding: 0;
+  }
+  .progressBar ul {
+    list-style: none;
+  }
+  .step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
