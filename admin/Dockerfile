@@ -11,4 +11,4 @@ RUN npm install
 
 COPY src src
 
-CMD run dev
+CMD npm start
