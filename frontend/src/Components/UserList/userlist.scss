@@ -1,0 +1,13 @@
+@use "../../../src/variables.scss";
+
+.user-list-table {
+  border: 1px solid black;
+}
+
+.table-column {
+  padding: 0.5rem 3rem;
+}
+
+td {
+  border: 1px solid black;
+}

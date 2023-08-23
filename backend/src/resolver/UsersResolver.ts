@@ -1,6 +1,6 @@
 import * as jwt from "jsonwebtoken";
 import { GraphQLError } from "graphql";
-import { Arg, Authorized, Mutation, Query, Resolver } from "type-graphql";
+import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { Users } from "../entity/Users";
 import dataSource from "../utils";
 import * as argon2 from "argon2";
@@ -98,7 +98,7 @@ class UsersResolver {
     }
   }
 
-  @Authorized()
+  // @Authorized()
   @Query(() => [Users])
   async getAllUsers(): Promise<Users[] | string | GraphQLError> {
     try {
