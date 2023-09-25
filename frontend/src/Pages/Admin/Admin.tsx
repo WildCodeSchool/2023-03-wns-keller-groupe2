@@ -1,3 +1,4 @@
+import BikeList from "../../Components/BikeList/BikeList";
 import UserList from "../../Components/UserList/UserList";
 
 export default function Admin() {
@@ -5,6 +6,7 @@ export default function Admin() {
     <>
       <h1>Admin Dashboard</h1>
       <UserList />
+      <BikeList />
     </>
   );
 }
