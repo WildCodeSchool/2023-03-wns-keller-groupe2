@@ -47,7 +47,6 @@ export default function UserList() {
           <td className="table-column">admin</td>
         </tr>
         {data.getAllUsers.map((user: User) => {
-          console.log(user.admin);
           return (
             <tr key={user.id}>
               <td className="table-column">{user.id}</td>

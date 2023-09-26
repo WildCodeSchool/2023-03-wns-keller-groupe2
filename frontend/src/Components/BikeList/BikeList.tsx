@@ -33,7 +33,7 @@ export default function BikeList() {
     <table className="bike-list-table">
       <thead>
         <tr>
-          <th colSpan={7}>Liste des utilisateurs</th>
+          <th colSpan={7}>Liste des Vélos</th>
         </tr>
       </thead>
       <tbody>
@@ -46,17 +46,27 @@ export default function BikeList() {
           <td className="table-column">Date de Maintenance</td>
           <td className="table-column">Disponibilité</td>
         </tr>
-        <tr>
-          <td className="table-column">test</td>
-          <td className="table-column">test</td>
-          <td className="table-column">test</td>
-          <td className="table-column">test</td>
-          <td className="table-column">test</td>
-          <td className="table-column">test</td>
-          <td className="table-column">
-            <FcCheckmark />
-          </td>
-        </tr>
+        {data.getAllBike.map((bike: Bike) => {
+          return (
+            <tr key={bike.id}>
+              <td className="table-column">{bike.id}</td>
+              <td className="table-column">{bike.name}</td>
+              <td className="table-column">{bike.gender}</td>
+              <td className="table-column">{bike.description}</td>
+              <td className="table-column">{bike.price}</td>
+              <td className="table-column">{bike.dateMaintenance}</td>
+              {bike.disponibility ? (
+                <td className="table-column">
+                  <FcCheckmark />
+                </td>
+              ) : (
+                <td className="table-column">
+                  <FcCancel />
+                </td>
+              )}
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );
