@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { FcCheckmark, FcCancel } from "react-icons/fc";
+import { AiOutlineEdit, AiTwotoneDelete } from "react-icons/ai";
 import "./userlist.scss";
 
 interface User {
@@ -33,7 +34,7 @@ export default function UserList() {
     <table className="user-list-table">
       <thead>
         <tr>
-          <th colSpan={7}>Liste des utilisateurs</th>
+          <th colSpan={8}>Liste des utilisateurs</th>
         </tr>
       </thead>
       <tbody>
@@ -45,6 +46,7 @@ export default function UserList() {
           <td className="table-column">Numéros de télephone</td>
           <td className="table-column">genre</td>
           <td className="table-column">admin</td>
+          <td className="table-column">action</td>
         </tr>
         {data.getAllUsers.map((user: User) => {
           return (
@@ -64,6 +66,14 @@ export default function UserList() {
                   <FcCancel />
                 </td>
               )}
+              <td className="table-column action">
+                <button>
+                  <AiOutlineEdit />
+                </button>
+                <button>
+                  <AiTwotoneDelete />
+                </button>
+              </td>
             </tr>
           );
         })}

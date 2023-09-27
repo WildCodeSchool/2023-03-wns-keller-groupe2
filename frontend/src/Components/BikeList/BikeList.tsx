@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { FcCheckmark, FcCancel } from "react-icons/fc";
+import { AiOutlineEdit, AiTwotoneDelete } from "react-icons/ai";
 import "./bikelist.scss";
 
 interface Bike {
@@ -45,6 +46,7 @@ export default function BikeList() {
           <td className="table-column">Prix</td>
           <td className="table-column">Date de Maintenance</td>
           <td className="table-column">Disponibilité</td>
+          <td className="table-column">Actions</td>
         </tr>
         {data.getAllBike.map((bike: Bike) => {
           return (
@@ -64,6 +66,14 @@ export default function BikeList() {
                   <FcCancel />
                 </td>
               )}
+              <td className="table-column action">
+                <button>
+                  <AiOutlineEdit />
+                </button>
+                <button>
+                  <AiTwotoneDelete />
+                </button>
+              </td>
             </tr>
           );
         })}

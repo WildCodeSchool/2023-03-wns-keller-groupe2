@@ -1,13 +1,40 @@
 @use "../../../src/variables.scss";
 
 .user-list-table {
-  border: 1px solid black;
+  background-color: variables.$white-color;
+  border-radius: 1em;
+  margin: 0.5rem;
+  padding: 0.5rem;
 }
 
 .table-column {
   padding: 0.5rem 3rem;
 }
 
-td {
-  border: 1px solid black;
+.action {
+  display: flex;
+  justify-content: space-around;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  color: variables.$darkblue-color;
+}
+
+tr {
+  border: 10px solid grey;
+}
+
+th {
+  padding-bottom: 0.5rem;
+}
+
+thead {
+  border-bottom: 1px solid variables.$light-grey;
 }
