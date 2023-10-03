@@ -26,6 +26,18 @@ services:
     restart: always
     ports:
       - 8080:8080
-
+  nginx:
+    image: nginx:1.21.3
+    depends_on:
+      - backend
+      - frontend
+    restart: always
+    ports:
+      - ${GATEWAY_PORT:-8000}:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./frontend/src:/web-client-build
+      - ./logs:/var/log/nginx
 volumes:
   postgres:
+  web-frontend-build:
