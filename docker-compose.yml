@@ -1,12 +1,8 @@
 services:
   backend:
     build: ./backend
-    ports:
-      - 4000:4000
     env_file:
       - vars.env
-    volumes:
-      - ./backend/src:/app/src
 
   frontend:
     build: ./frontend
@@ -21,11 +17,6 @@ services:
     env_file:
       - vars.env
 
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
   nginx:
     image: nginx:1.21.3
     depends_on:
