@@ -1,26 +1,32 @@
 services:
   backend:
     build: ./backend
-    ports:
-      - 4000:4000
-    volumes:
-      - ./backend/src:/app/src
+    env_file:
+      - vars.env
 
   frontend:
     build: ./frontend
-    ports:
-      - 3000:3000
+    command: sh -c "npm run build"
     volumes:
-      - ./frontend/src:/app/src
+      - web-client-build:/app/build
 
   db:
     image: postgres
     restart: always
-    environment:
-      POSTGRES_PASSWORD: example
+    env_file:
+      - vars.env
 
-  adminer:
-    image: adminer
+  nginx:
+    image: nginx:1.21.3
+    depends_on:
+      - backend
+      - frontend
     restart: always
     ports:
-      - 8080:8080
+      - ${GATEWAY_PORT:-8000}:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - web-client-build:/web-client-build
+      - ./logs:/var/log/nginx
+volumes:
+  web-client-build:

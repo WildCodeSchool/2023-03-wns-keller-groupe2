@@ -9,6 +9,9 @@
   padding: 1vh 2vw;
   border-radius: 5px;
   cursor: pointer;
+  text-decoration: none;
+  max-width: 20vw;
+  font-size: 1rem;
 
   &:hover {
     background-color: variables.$lightblue-color;

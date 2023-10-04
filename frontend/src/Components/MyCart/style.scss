@@ -1,52 +1,63 @@
 @use "../../../src/variables.scss";
 
-.myCart{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 85vw;
-    //padding: 2rem 0;
+.myCart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 85vw;
 }
 
-.moreInfo{
-    background-color: variables.$darkblue-color;
-    color: variables.$white-color;
-    border: none;
-    width: 12rem;
-    height: 2rem;
-    cursor: pointer;
+.moreInfo {
+  background-color: variables.$darkblue-color;
+  color: variables.$white-color;
+  border: none;
+  width: 12rem;
+  height: 2rem;
+  cursor: pointer;
 }
 
-.moreLessProduct{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.moreLessProduct {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.moreLessProduct button{
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
+.moreLessProduct button {
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .moreButton,
-.lessButton{
-    border-radius: 50%;
-    height: 2.5rem;
-    width: 2.5rem;
-    background-color: variables.$darkblue-color;
-    color: variables.$lightblue-color;
+.lessButton {
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: variables.$darkblue-color;
+  color: variables.$lightblue-color;
 }
 
-.deletButton{
-    background-color: transparent;
+.deletButton {
+  background-color: transparent;
 }
 
-.productCount{
-    padding: 0 0.5rem;
+.productCount {
+  padding: 0 0.5rem;
 }
 
-.price{
-    font-size: 2rem;
+.price {
+  font-size: 2rem;
+}
+
+@media (max-width: 850px) {
+  .myCart {
+    flex-direction: column;
+  }
+  .productInfo {
+    text-align: center;
+  }
+  .moreLessProduct {
+    margin-top: 2rem;
+  }
 }

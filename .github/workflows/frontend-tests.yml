@@ -1,0 +1,14 @@
+name: frontend-tests-workflow
+
+on: pull_request
+
+jobs:
+  test-frontend:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Go to frontend and run tests
+        run: cd frontend && npm i && npm test

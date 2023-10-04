@@ -1,42 +1,41 @@
-import { useState } from "react";
+import { useQuery, gql } from "@apollo/client";
 import bike from "../../assets/bike.png";
 import ButtonMoreInfo from "../ButtonMoreInfo/ButtonMoreInfo";
+import ButtonRent from "../ButtonRent/ButtonRent";
 import "./cardProduct.scss";
 
 interface Product {
   id: number;
   name: string;
+  imageId: Image[];
   price: string;
 }
 
+interface Image {
+  url: string;
+}
+
+const GET_ALL_BIKE = gql`
+  query GetAllShop {
+    getAllBike {
+      id
+      name
+      imageId {
+        url
+      }
+    }
+  }
+`;
+
 export default function CardProduct() {
-  const [products, setProducts] = useState<Product[]>([
-    {
-      id: 1,
-      name: "Kalkhoff",
-      price: "1800 €",
-    },
-    {
-      id: 2,
-      name: "Moustache Bikes",
-      price: "1950 €",
-    },
-    {
-      id: 3,
-      name: "Trek",
-      price: "2100 €",
-    },
-    {
-      id: 4,
-      name: "Vélo de ville (VDV)",
-      price: "1750 €",
-    },
-  ]);
+  const { loading, error, data } = useQuery(GET_ALL_BIKE);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error : {error.message}</p>;
   return (
     <div className="cardproduct-layout">
-      {products.map((product) => {
+      {data.getAllBike.map((product: Product) => {
         return (
-          <div className="cardproduct-marge-swiper-">
+          <div className="cardproduct-marge-swiper-" key={product.id}>
             <img src={bike} alt={product.name} className="cardproduct-image " />
             <div className="cardproduct-layout-button">
               <div>
@@ -44,7 +43,8 @@ export default function CardProduct() {
                 <p>{product.price}</p>
               </div>
               <div>
-                <ButtonMoreInfo />
+                <ButtonMoreInfo id={0} />
+                <ButtonRent id={0} />
               </div>
             </div>
           </div>

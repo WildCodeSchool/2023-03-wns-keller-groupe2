@@ -28,3 +28,45 @@
 .display-text-bottom {
   padding: 0 1rem 2rem 1rem;
 }
+
+@media (max-width: 850px) {
+  .resumeProject {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+  }
+
+  .logoResumeProject {
+    width: 90%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .titleResume {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .display-text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .display-text-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 55vh;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding: 2rem;
+  }
+}
