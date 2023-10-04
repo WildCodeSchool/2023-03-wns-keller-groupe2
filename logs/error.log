@@ -14,3 +14,5 @@
 2023/10/04 09:15:42 [emerg] 1#1: host not found in upstream "backend" in /etc/nginx/nginx.conf:10
 2023/10/04 09:15:52 [emerg] 1#1: host not found in upstream "backend" in /etc/nginx/nginx.conf:10
 2023/10/04 09:16:03 [emerg] 1#1: host not found in upstream "backend" in /etc/nginx/nginx.conf:10
+2023/10/04 12:58:15 [error] 31#31: *2 connect() failed (113: No route to host) while connecting to upstream, client: 172.18.0.1, server: , request: "POST /graphql HTTP/1.1", upstream: "http://172.18.0.2:4000/graphql", host: "localhost:8000", referrer: "http://localhost:8000/vtt"
+2023/10/04 12:58:15 [error] 31#31: *1 connect() failed (113: No route to host) while connecting to upstream, client: 172.18.0.1, server: , request: "POST /graphql HTTP/1.1", upstream: "http://172.18.0.2:4000/graphql", host: "localhost:8000", referrer: "http://localhost:8000/vtt"
