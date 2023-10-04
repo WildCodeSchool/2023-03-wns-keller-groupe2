@@ -1,9 +1,9 @@
-name: front-tests-workflow
+name: frontend-tests-workflow
 
 on: pull_request
 
 jobs:
-  test-front:
+  test-frontend:
     runs-on: windows-latest
 
     steps:
