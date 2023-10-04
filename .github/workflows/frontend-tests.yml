@@ -10,6 +10,6 @@ on:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-        
-      - name: Goto frontend and run tests
+
+      - name: Go to frontend and run tests
         run: cd frontend && npm i && npm test
