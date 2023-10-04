@@ -1,0 +1,16 @@
+name: back-tests-workflow
+
+on: pull_request
+
+jobs:
+  test-back:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Go to back and run tests
+        run: cd back && npm i && npm test
+        env: 
+          JWT_SECRET_KEY: "test"
