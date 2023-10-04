@@ -6,3 +6,11 @@
 2023/10/03 15:12:39 [error] 31#31: *3 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 172.18.0.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost:8000", referrer: "http://localhost:8000/"
 2023/10/03 15:12:44 [error] 31#31: *5 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 172.18.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8000"
 2023/10/03 15:12:45 [error] 31#31: *6 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 172.18.0.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost:8000", referrer: "http://localhost:8000/"
+2023/10/04 09:14:47 [emerg] 1#1: host not found in upstream "backend" in /etc/nginx/nginx.conf:10
+2023/10/04 09:14:58 [emerg] 1#1: host not found in upstream "backend" in /etc/nginx/nginx.conf:10
+2023/10/04 09:15:09 [emerg] 1#1: host not found in upstream "backend" in /etc/nginx/nginx.conf:10
+2023/10/04 09:15:20 [emerg] 1#1: host not found in upstream "backend" in /etc/nginx/nginx.conf:10
+2023/10/04 09:15:31 [emerg] 1#1: host not found in upstream "backend" in /etc/nginx/nginx.conf:10
+2023/10/04 09:15:42 [emerg] 1#1: host not found in upstream "backend" in /etc/nginx/nginx.conf:10
+2023/10/04 09:15:52 [emerg] 1#1: host not found in upstream "backend" in /etc/nginx/nginx.conf:10
+2023/10/04 09:16:03 [emerg] 1#1: host not found in upstream "backend" in /etc/nginx/nginx.conf:10

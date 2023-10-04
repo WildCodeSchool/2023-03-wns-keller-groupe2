@@ -6,10 +6,9 @@ services:
 
   frontend:
     build: ./frontend
-    ports:
-      - 3000:3000
+    command: sh -c "npm run build"
     volumes:
-      - ./frontend/src:/app/src
+      - web-client-build:/app/build
 
   db:
     image: postgres
@@ -27,8 +26,7 @@ services:
       - ${GATEWAY_PORT:-8000}:80
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
-      - ./frontend/src:/web-client-build
+      - web-client-build:/web-client-build
       - ./logs:/var/log/nginx
 volumes:
-  postgres:
-  web-frontend-build:
+  web-client-build:
