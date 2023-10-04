@@ -3,7 +3,7 @@ name: backend-tests-workflow
 on: pull_request
 
 jobs:
-  test-back:
+  test-backend:
     runs-on: windows-latest
 
     steps:
