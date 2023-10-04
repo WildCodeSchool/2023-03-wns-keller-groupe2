@@ -1,0 +1,16 @@
+name: backend-tests-workflow
+
+on: pull_request
+
+jobs:
+  test-backend:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Go to backend and run tests
+        run: cd backend && npm i && npm test
+        env:
+          JWT_SECRET_KEY: "test"
