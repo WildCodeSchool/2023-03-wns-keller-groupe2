@@ -1,13 +1,13 @@
-name: client-tests-workflow
+name: frontend-tests-workflow
 
 on:
   pull_request
 
  jobs:
   test-client:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-      - name: Goto client and run tests
+      - name: Goto frontend and run tests
         run: cd frontend && npm i && npm test
