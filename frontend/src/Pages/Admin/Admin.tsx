@@ -4,6 +4,7 @@ import BikeList from "../../Components/BikeList/BikeList";
 import UserList from "../../Components/UserList/UserList";
 import AdminHome from "../../Components/AdminHome/AdminHome";
 import "./admin.scss";
+import AddBikeForm from "../../Components/AddBikeForm/AddBikeForm";
 
 export interface Navigate {
   navigate: String;
@@ -19,6 +20,7 @@ export default function Admin() {
         {navigate === "home" ? <AdminHome /> : ""}
         {navigate === "users" ? <UserList /> : ""}
         {navigate === "bikes" ? <BikeList /> : ""}
+        <AddBikeForm />
       </main>
     </section>
   );
