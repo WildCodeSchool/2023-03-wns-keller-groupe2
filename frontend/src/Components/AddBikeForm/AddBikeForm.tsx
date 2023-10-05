@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import "./addBikeForm.scss";
+import { log } from "console";
 
 const ADD_BIKE = gql`
   mutation Mutation(
@@ -48,6 +49,7 @@ export default function AddBikeForm() {
   };
 
   const handleSubmit = async (evt: any) => {
+    console.log(newBike);
     evt.preventDefault();
     try {
       const response = await addBike({
@@ -77,15 +79,22 @@ export default function AddBikeForm() {
         <label htmlFor="gender" className="add-bike-label">
           Destiner aux:
           <select
+            className="add-bike-input"
             id="gender"
             name="gender"
             onChange={(e) => {
               handleChange(e);
             }}
           >
-            <option value="">--Selectionner un genre--</option>
-            <option value="féminin">Femme</option>
-            <option value="masculin">Homme</option>
+            <option className="add-bike-input" value="">
+              --Selectionner un genre--
+            </option>
+            <option className="add-bike-input" value="féminin">
+              Femme
+            </option>
+            <option className="add-bike-input" value="masculin">
+              Homme
+            </option>
           </select>
         </label>
         <label htmlFor="size" className="add-bike-label">
@@ -133,7 +142,7 @@ export default function AddBikeForm() {
             }}
           />
         </label>
-        <input type="submit" value="Ajouter" />
+        <input className="add-bike-input" type="submit" value="Ajouter" />
       </form>
     </section>
   );
