@@ -1,40 +1,11 @@
 import * as React from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Home!</Text>
-    </View>
-  );
-}
-
-function BikeScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>BikeScreen!</Text>
-    </View>
-  );
-}
-
-function CartScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>CartScreen!</Text>
-    </View>
-  );
-}
-
-function LoginScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>LoginScreen!</Text>
-    </View>
-  );
-}
+import { HomeScreen } from "./screens/HomeScreen.js";
+import { BikeScreen } from "./screens/BikeScreen.js";
+import { CartScreen } from "./screens/CartScreen.js";
+import { LoginScreen } from "./screens/LoginScreen.js";
 
 const Tab = createBottomTabNavigator();
 
