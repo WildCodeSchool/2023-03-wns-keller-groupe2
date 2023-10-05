@@ -35,14 +35,20 @@ export default function AddBikeForm() {
     disponibility: true,
   });
   const [addBike, { data, error }] = useMutation(ADD_BIKE);
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  if (data) {
+    console.log("data from mutation", data.addBike);
+  }
+
+  if (error) {
+    console.error(error);
+  }
+
+  const handleChange = (e: any) => {
     setNewBike({ ...newBike, [e.target.name]: e.target.value });
-    console.log(newBike);
   };
+
   const handleSubmit = async (evt: any) => {
     evt.preventDefault();
-    console.log(newBike);
-
     try {
       const response = await addBike({
         variables: { newBike },
@@ -52,6 +58,7 @@ export default function AddBikeForm() {
       console.error(error);
     }
   };
+
   return (
     <section className="add-bike-section">
       <h2>Formulaire d'ajout de vélo</h2>
@@ -69,7 +76,13 @@ export default function AddBikeForm() {
         </label>
         <label htmlFor="gender" className="add-bike-label">
           Destiner aux:
-          <select id="pet-select">
+          <select
+            id="gender"
+            name="gender"
+            onChange={(e) => {
+              handleChange(e);
+            }}
+          >
             <option value="">--Selectionner un genre--</option>
             <option value="féminin">Femme</option>
             <option value="masculin">Homme</option>
@@ -88,7 +101,15 @@ export default function AddBikeForm() {
         </label>
         <label htmlFor="description" className="add-bike-label">
           Description du vélo:
-          <textarea name="description" id="" cols={30} rows={10}></textarea>
+          <textarea
+            name="description"
+            id=""
+            cols={30}
+            rows={10}
+            onChange={(e) => {
+              handleChange(e);
+            }}
+          ></textarea>
         </label>
         <label htmlFor="price" className="add-bike-label">
           Prix du vélo:
