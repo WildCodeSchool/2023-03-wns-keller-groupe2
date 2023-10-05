@@ -32,24 +32,34 @@ export default function CardProduct() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
   return (
-    <div className="cardproduct-layout">
-      {data.getAllBike.map((product: Product) => {
-        return (
-          <div className="cardproduct-marge-swiper-" key={product.id}>
-            <img src={bike} alt={product.name} className="cardproduct-image " />
-            <div className="cardproduct-layout-button">
-              <div>
-                <p>{product.name}</p>
-                <p>{product.price}</p>
-              </div>
-              <div>
-                <ButtonMoreInfo id={0} />
-                <ButtonRent id={0} />
+    <div className="cardproduct-container">
+      <div className="cardproduct-grid">
+        {data.getAllBike.map((product: Product) => {
+          return (
+            <div className="cardproduct" key={product.id}>
+              <img
+                src={bike}
+                alt={product.name}
+                className="cardproduct-image "
+              />
+              <div className="cardproduct-layout-button">
+                <div>
+                  <p className="cardproduct-name">{product.name}</p>
+                  <p>{product.price}</p>
+                </div>
+                <div>
+                  <div className="cardproduct-margin-button">
+                    <ButtonMoreInfo id={0} />
+                  </div>
+                  <div>
+                    <ButtonRent id={0} />
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }
