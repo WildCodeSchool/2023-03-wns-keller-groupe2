@@ -14,7 +14,7 @@ export interface Navigate {
 export default function Admin() {
   const [navigate, setNavigate] = useState<String>("bike");
   return (
-    <section>
+    <section className="admin-section">
       <AdminAside setNavigate={setNavigate} />
       <main>
         {navigate === "home" ? <AdminHome /> : ""}
