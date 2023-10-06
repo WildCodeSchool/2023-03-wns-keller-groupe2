@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import "./addBikeForm.scss";
-import { log } from "console";
 
 const ADD_BIKE = gql`
   mutation Mutation(
@@ -15,7 +14,7 @@ const ADD_BIKE = gql`
   ) {
     createBike(
       dateMaintenance: $dateMaintenance
-      disponibility: $disponibilityprice
+      disponibility: $disponibility
       price: $price
       gender: $gender
       size: $size
@@ -30,9 +29,9 @@ export default function AddBikeForm() {
     name: "",
     gender: "",
     size: "",
-    description: "",
+    descritpion: "",
     price: "",
-    maintenance: "",
+    dateMaintenance: "",
     disponibility: true,
   });
   const [addBike, { data, error }] = useMutation(ADD_BIKE);
@@ -50,14 +49,33 @@ export default function AddBikeForm() {
 
   const handleSubmit = async (evt: any) => {
     console.log(newBike);
+    console.log("type de description", typeof newBike.descritpion);
+
     evt.preventDefault();
     try {
+      const {
+        name,
+        gender,
+        descritpion,
+        dateMaintenance,
+        disponibility,
+        price,
+        size,
+      } = newBike;
       const response = await addBike({
-        variables: { newBike },
+        variables: {
+          name,
+          gender,
+          size,
+          descritpion,
+          price,
+          dateMaintenance,
+          disponibility,
+        },
       });
-      console.log(response.data);
+      console.log("response from mutation :", response.data);
     } catch (error) {
-      console.error(error);
+      console.error("Error from mutation:", error);
     }
   };
 
@@ -102,16 +120,16 @@ export default function AddBikeForm() {
           <input
             className="add-bike-input"
             name="size"
-            type="text"
+            type="number"
             onChange={(e) => {
               handleChange(e);
             }}
           />
         </label>
-        <label htmlFor="description" className="add-bike-label">
+        <label htmlFor="descritpion" className="add-bike-label">
           Description du vélo:
           <textarea
-            name="description"
+            name="descritpion"
             id=""
             cols={30}
             rows={10}
@@ -125,7 +143,7 @@ export default function AddBikeForm() {
           <input
             className="add-bike-input"
             name="price"
-            type="text"
+            type="number"
             onChange={(e) => {
               handleChange(e);
             }}
@@ -135,7 +153,7 @@ export default function AddBikeForm() {
           Date de derniére maintenance:
           <input
             className="add-bike-input"
-            name="maintenance"
+            name="dateMaintenance"
             type="date"
             onChange={(e) => {
               handleChange(e);
