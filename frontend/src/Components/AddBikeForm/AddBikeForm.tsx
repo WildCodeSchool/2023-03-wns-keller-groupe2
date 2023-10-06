@@ -53,15 +53,10 @@ export default function AddBikeForm() {
 
     evt.preventDefault();
     try {
-      const {
-        name,
-        gender,
-        descritpion,
-        dateMaintenance,
-        disponibility,
-        price,
-        size,
-      } = newBike;
+      const price = parseInt(newBike.price);
+      const size = parseInt(newBike.size);
+      const { name, gender, descritpion, dateMaintenance, disponibility } =
+        newBike;
       const response = await addBike({
         variables: {
           name,
