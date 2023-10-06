@@ -1,44 +1,52 @@
 @use "../../../src/variables.scss";
 
 .cardproduct-image {
-  width: 15vw;
+  width: 20rem;
   height: auto;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
 }
-.cardproduct-contour {
-  margin: 1rem;
-  border: 0.8px solid variables.$lightblue-color;
-  border-radius: 1.5em;
-  padding: 2vh 0;
-  width: 17vw;
+
+.cardproduct-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 2fr);
+  grid-gap: 5px;
+}
+
+.cardproduct {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 10px;
+  min-width: 20rem;
 }
-.cardproduct-layout {
+.cardproduct-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+}
+.cardproduct-layout-button {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  justify-content: center;
 }
-.cardproduct-lahout-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+.cardproduct-margin-button {
+  margin-bottom: 10px;
 }
-.cardproduct-swiper {
-  max-width: 75vw;
+.cardproduct-name {
+  max-width: 10rem;
+  padding-right: 1rem;
+}
 
-  .swiper-button-next {
-    color: variables.$darkblue-color;
-    right: 0%;
+@media screen and (max-width: 768px) {
+  .cardproduct-grid {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   }
-
-  .swiper-button-prev {
-    color: variables.$darkblue-color;
-    left: 0%;
-  }
-}
-.cardproduct-marge-swiper-inside {
-  width: 60vw;
 }

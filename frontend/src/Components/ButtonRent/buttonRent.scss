@@ -6,11 +6,9 @@
   color: variables.$white-color;
   background-color: variables.$darkblue-color;
   border: none;
-  padding: 1vh 2vw;
+  padding: 1vh 1vw;
   border-radius: 5px;
   cursor: pointer;
-  margin: 0 1vw;
-  max-width: 20vw;
   font-size: 1rem;
 
   &:hover {

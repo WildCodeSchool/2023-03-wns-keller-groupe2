@@ -9,7 +9,7 @@ import RentProvider from "./services/context/rentContext";
 import "./index.scss";
 
 const client = new ApolloClient({
-  uri: "http://localhost:8000/graphql",
+  uri: "http://localhost:4000/",
   cache: new InMemoryCache(),
 });
 
