@@ -36,3 +36,10 @@
   height: 2rem;
   margin-bottom: 0.5rem;
 }
+
+@media (max-width: 850px) {
+  .stepPoint {
+    border: 1px solid variables.$darkblue-color;
+    background-color: variables.$darkblue-color;
+  }
+}

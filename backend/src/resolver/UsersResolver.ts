@@ -7,32 +7,6 @@ import * as argon2 from "argon2";
 
 @Resolver()
 class UsersResolver {
-  @Mutation(() => String)
-  async createUser(
-    @Arg("phonenum") phonenum: string,
-    @Arg("gender") gender: string,
-    @Arg("password") password: string,
-    @Arg("email") email: string,
-    @Arg("lastName") lastname: string,
-    @Arg("firstName") firstname: string
-  ): Promise<String | GraphQLError> {
-    try {
-      const user = new Users();
-      user.admin = false;
-      user.phonenum = phonenum;
-      user.gender = gender;
-      user.password = await argon2.hash(password);
-      user.email = email;
-      user.lastName = lastname;
-      user.firstName = firstname;
-
-      await dataSource.getRepository(Users).save(user);
-      return "User created";
-    } catch (error) {
-      return new GraphQLError("An error occurred");
-    }
-  }
-
   @Query(() => Users)
   async getUserFromToken(
     @Arg("token") token: string
@@ -40,7 +14,7 @@ class UsersResolver {
     try {
       const decoded: any = jwt.verify(
         token,
-        process.env.JWT_SECRET_KEY as string
+        process.env.JWT_PASSWORD as string
       );
       const user = await dataSource
         .getRepository(Users)
@@ -58,7 +32,7 @@ class UsersResolver {
     try {
       const decoded: any = jwt.verify(
         token,
-        process.env.JWT_SECRET_KEY as string
+        process.env.JWT_PASSWORD as string
       );
       const user = await dataSource
         .getRepository(Users)
@@ -69,7 +43,7 @@ class UsersResolver {
       delete decoded.jti;
       return jwt.sign(
         { email: user.email },
-        process.env.JWT_SECRET_KEY as string
+        process.env.JWT_PASSWORD as string
       );
     } catch (err) {
       return new GraphQLError("An error occured");
@@ -83,7 +57,7 @@ class UsersResolver {
     try {
       const decoded: any = jwt.verify(
         token,
-        process.env.JWT_SECRET_KEY as string
+        process.env.JWT_PASSWORD as string
       );
       const user = await dataSource
         .getRepository(Users)
@@ -97,6 +71,7 @@ class UsersResolver {
       return new GraphQLError("An error occurred");
     }
   }
+
 
   // @Authorized()
   @Query(() => [Users])
@@ -174,25 +149,57 @@ class UsersResolver {
     }
   }
 
-  @Query(() => String)
+  @Mutation(() => String)
+  async createUser(
+    @Arg("phonenum") phonenum: string,
+    @Arg("gender") gender: string,
+    @Arg("password") password: string,
+    @Arg("email") email: string,
+    @Arg("lastName") lastname: string,
+    @Arg("firstName") firstname: string
+  ): Promise<String | GraphQLError> {
+    try {
+      const user = new Users();
+      user.admin = false;
+      user.phonenum = phonenum;
+      user.gender = gender;
+      user.password = await argon2.hash(password);
+      user.email = email;
+      user.lastName = lastname;
+      user.firstName = firstname;
+
+      await dataSource.getRepository(Users).save(user);
+      return "User created";
+    } catch (error) {
+      return new GraphQLError("An error occurred");
+    }
+  }
+
+  @Mutation(() => String)
   async login(
     @Arg("email") email: string,
     @Arg("password") password: string
   ): Promise<String | GraphQLError> {
-    const user = await dataSource
-      .getRepository(Users)
-      .findOneByOrFail({ email });
     try {
-      const isPasswordCorrect = await argon2.hash(password);
-      if (isPasswordCorrect) {
-        const token = jwt.sign({ email }, process.env.JWT_SECRET_KEY as string);
-        return token;
-      } else {
-        return new GraphQLError("Wrong password");
+      const user: Users | null = await dataSource
+        .getRepository(Users)
+        .findOne({ where: { email } });
+      if (user === null) {
+        throw new GraphQLError("User not found");
       }
-    } catch (err) {
-      return new GraphQLError("An error occurred");
+      const isPasswordCorrect: boolean = await argon2.verify(
+        user.password,
+        password
+      );
+      if (!isPasswordCorrect) {
+        throw new GraphQLError("Wrong password");
+      }
+    } catch (error) {
+      console.log(error);
+      throw new GraphQLError("An error occurred");
     }
+    return "Login successful";
   }
 }
+
 export default UsersResolver;
