@@ -13,16 +13,18 @@ export default function AdminAside({ setNavigate }: AdminAsideProps) {
         <img className="logo" src={Image} alt="Logo of RentBike" />
       </Link>
       <ul>
-        <li>Ventes</li>
+        <li className="admin-aside-li">Ventes</li>
         <li
+          className="admin-aside-li"
           onClick={() => {
             setNavigate("users");
           }}
         >
           Utilisateurs
         </li>
-        <li>Points de vente</li>
+        <li className="admin-aside-li">Points de vente</li>
         <li
+          className="admin-aside-li"
           onClick={() => {
             setNavigate("bikes");
           }}

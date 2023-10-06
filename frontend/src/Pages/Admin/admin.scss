@@ -1,6 +1,6 @@
 @use "../../../src/variables.scss";
 
-section {
+.admin-section {
   display: flex;
   background-color: variables.$light-grey;
 }
