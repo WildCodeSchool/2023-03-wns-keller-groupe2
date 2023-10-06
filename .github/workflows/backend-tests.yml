@@ -4,7 +4,7 @@ on: pull_request
 
 jobs:
   test-backend:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Check out code
