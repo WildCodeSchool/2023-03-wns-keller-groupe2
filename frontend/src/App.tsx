@@ -1,4 +1,4 @@
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Footer from "./Components/Footer/Footer";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
@@ -14,24 +14,22 @@ import "./App.scss";
 function App() {
   return (
     <>
-      <BrowserRouter basename="/my-app">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/veloElec" element={<ElectricBike />} />
-          <Route path="/vtt" element={<VTT />} />
-          <Route path="/proBike" element={<ProBike />} />
-          <Route path="/vintageBike" element={<VintageBike />} />
-          <Route path="/accessories" element={<Accessories />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route
-            path="/moreinfoaboutbike/:id"
-            element={<MoreInfoAboutProduct />}
-          />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/veloElec" element={<ElectricBike />} />
+        <Route path="/vtt" element={<VTT />} />
+        <Route path="/proBike" element={<ProBike />} />
+        <Route path="/vintageBike" element={<VintageBike />} />
+        <Route path="/accessories" element={<Accessories />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/moreinfoaboutbike/:id"
+          element={<MoreInfoAboutProduct />}
+        />
+      </Routes>
+      <Footer />
     </>
   );
 }
