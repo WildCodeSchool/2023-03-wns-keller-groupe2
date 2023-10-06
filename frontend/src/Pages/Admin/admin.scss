@@ -1,0 +1,17 @@
+@use "../../../src/variables.scss";
+
+section {
+  display: flex;
+  background-color: variables.$light-grey;
+}
+
+.header-admin {
+  margin: 0;
+  height: 5vh;
+  background-color: variables.$lightblue-color;
+}
+
+.header-admin p {
+  padding: 1rem;
+  background-color: variables.$lightblue-color;
+}

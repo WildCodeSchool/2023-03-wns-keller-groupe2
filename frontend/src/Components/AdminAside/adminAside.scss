@@ -1,0 +1,27 @@
+@use "../../../src/variables.scss";
+
+aside {
+  background-color: variables.$lightblue-color;
+  width: 15vw;
+  min-height: 100vh;
+}
+
+.logo {
+  width: 4rem;
+  aspect-ratio: 1/1;
+  padding: 1rem;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: variables.$white-color;
+}

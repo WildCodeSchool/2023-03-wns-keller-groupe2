@@ -72,6 +72,8 @@ class UsersResolver {
     }
   }
 
+
+  // @Authorized()
   @Query(() => [Users])
   async getAllUsers(): Promise<Users[] | string | GraphQLError> {
     try {

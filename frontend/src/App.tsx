@@ -9,6 +9,7 @@ import VintageBike from "./Pages/VintageBike/VintageBike";
 import Accessories from "./Pages/Accessories/Accessories";
 import Cart from "./Pages/Cart/Cart";
 import MoreInfoAboutProduct from "./Pages/MoreInfoAboutProduct/MoreInfoAboutProduct";
+import Admin from "./Pages/Admin/Admin";
 import "./App.scss";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           path="/moreinfoaboutbike/:id"
           element={<MoreInfoAboutProduct />}
         />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
       <Footer />
     </>
