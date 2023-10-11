@@ -12,7 +12,7 @@ export default function AdminAside({ setNavigate }: AdminAsideProps) {
       <Link to="/">
         <img className="logo" src={Image} alt="Logo of RentBike" />
       </Link>
-      <ul>
+      <ul className="admin-aside-ul">
         <li className="admin-aside-li">Ventes</li>
         <li
           className="admin-aside-li"
