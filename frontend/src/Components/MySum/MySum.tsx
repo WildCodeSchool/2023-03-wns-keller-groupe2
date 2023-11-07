@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./style.scss";
 
 export default function MySum() {
@@ -18,9 +19,9 @@ export default function MySum() {
         <h4>1950 €</h4>
       </article>
       <article className="actionButton">
-        <button className="mySumActionButton" type="button">
+        <Link to="/" className="mySumActionButton">
           Continuer mes achats
-        </button>
+        </Link>
         <button className="mySumActionButton" type="button">
           Commander
         </button>

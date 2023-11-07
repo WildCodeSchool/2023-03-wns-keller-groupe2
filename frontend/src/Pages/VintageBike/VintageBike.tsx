@@ -8,8 +8,9 @@ export default function VintageBike() {
       <SideFilter />
       <div className="bike-parent-title-card">
         <h1 className="bike-title">Vélos Vintages</h1>
-        <div className="bike-card"></div>
-        <CardProduct />
+        <div className="bike-card">
+          <CardProduct />
+        </div>
       </div>
     </div>
   );
