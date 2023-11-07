@@ -31,7 +31,7 @@ export default function Contact() {
       <h1 className="contact-title">Contactez-nous !</h1>
       <input className="contact-input" placeholder="Nom" type="text" />
       <input className="contact-input" placeholder="E-mail" type="email" />
-      <input className="contact-input" placeholder="Message" type="text" />
+      <textarea className="contact-input" placeholder="Message" />
       <button className="contact-button">Envoyer</button>
     </form>
   );
