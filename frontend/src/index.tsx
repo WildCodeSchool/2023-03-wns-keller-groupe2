@@ -1,17 +1,49 @@
 import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { BrowserRouter as Router } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import UserProvider from "./services/context/userContext";
 import RentProvider from "./services/context/rentContext";
+import Login from "./Pages/Login/Login";
+import Cart from "./Pages/Cart/Cart";
+import ElectricBike from "./Pages/ElectricBike/ElectricBike";
+import VTT from "./Pages/VTT/VTT";
+import ProBike from "./Pages/ProBike/ProBike";
+import VintageBike from "./Pages/VintageBike/VintageBike";
+import Accessories from "./Pages/Accessories/Accessories";
+import MoreInfoAboutProduct from "./Pages/MoreInfoAboutProduct/MoreInfoAboutProduct";
+import Admin from "./Pages/Admin/Admin";
+import Home from "./Pages/Home/Home";
 import "./index.scss";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/",
   cache: new InMemoryCache(),
 });
+
+const router = createBrowserRouter([
+  {
+    element: <App />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/login", element: <Login /> },
+      { path: "/cart", element: <Cart /> },
+      { path: "/veloElec", element: <ElectricBike /> },
+      { path: "/vtt", element: <VTT /> },
+      { path: "/proBike", element: <ProBike /> },
+      { path: "/vintageBike", element: <VintageBike /> },
+      { path: "/accessories", element: <Accessories /> },
+      { path: "/moreinfoaboutbike/:id", element: <MoreInfoAboutProduct /> },
+      { path: "/admin", element: <Admin /> },
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -21,9 +53,7 @@ root.render(
     <ApolloProvider client={client}>
       <UserProvider>
         <RentProvider>
-          <Router>
-            <App />
-          </Router>
+          <RouterProvider router={router} />
         </RentProvider>
       </UserProvider>
     </ApolloProvider>
