@@ -1,41 +1,45 @@
 @use "../../../src/variables.scss";
 
+@media (max-width: 850px) {
+  .contact-padding {
+    padding-top: 5rem;
+  }
+}
 .contact-form {
   background: variables.$white-color;
-  width: 350px;
+  width: 22rem;
   text-align: center;
-  margin: 30px auto;
+  margin: 2rem auto;
   box-shadow: 4px 4px 5px #999999;
-  padding-bottom: 40px;
+  padding-bottom: 2rem;
   border-radius: 10px;
 }
 .contact-title {
-  height: 40px;
-  width: 350px;
-  font-size: 20px;
+  height: 2rem;
+  font-size: 1rem;
   background-color: variables.$darkblue-color;
-  color: variables.$white-color;
-  padding: 15px 0 0 0;
+  color: #999999;
+  padding: 1rem 0 0 0;
   border-radius: 10px 10px 0 0;
 }
 
 .contact-input {
   margin: 20px 0px;
-  width: 300px;
+  width: 18rem;
   border: none;
-  padding: 5px 0;
+  padding: 0.25rem 0;
   border-bottom: solid 1px variables.$darkblue-color;
   color: variables.$darkblue-color;
-  background: variables.$white-color;
+  background-color: variables.$white-color;
 }
 
 .contact-button {
   border: none;
   background-color: variables.$darkblue-color;
   color: variables.$white-color;
-  height: 40px;
-  width: 150px;
-  font-size: 15px;
+  height: 2rem;
+  width: 10rem;
+  font-size: 1rem;
   box-shadow: 4px 4px 5px #999999;
   border-radius: 10px;
 }

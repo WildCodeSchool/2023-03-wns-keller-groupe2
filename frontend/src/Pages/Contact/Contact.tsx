@@ -27,12 +27,14 @@ export default function Contact() {
   };
   const formRef = useRef<HTMLFormElement>;
   return (
-    <form ref={form} onSubmit={sendEmail} className="contact-form">
-      <h1 className="contact-title">Contactez-nous !</h1>
-      <input className="contact-input" placeholder="Nom" type="text" />
-      <input className="contact-input" placeholder="E-mail" type="email" />
-      <textarea className="contact-input" placeholder="Message" />
-      <button className="contact-button">Envoyer</button>
-    </form>
+    <div className="contact-padding">
+      <form ref={form} onSubmit={sendEmail} className="contact-form">
+        <h1 className="contact-title">Contactez-nous !</h1>
+        <input className="contact-input" placeholder="Nom" type="text" />
+        <input className="contact-input" placeholder="E-mail" type="email" />
+        <textarea className="contact-input" placeholder="Message" />
+        <button className="contact-button">Envoyer</button>
+      </form>
+    </div>
   );
 }
