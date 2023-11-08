@@ -1,63 +1,61 @@
 @use "../../../src/variables.scss";
 
-.resumeProject {
+@mixin flex-center {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  flex-direction: raw;
-  text-align: justify;
-  padding: 1rem;
 }
-.textResume {
+
+.resume-project,
+.display-logo-title,
+.text-resume {
   display: flex;
   flex-direction: column;
-  padding: 0 2rem;
-  white-space: normal;
 }
-.descriptionResume {
-  font-weight: normal;
+
+.resume-project {
+  text-align: justify;
+  padding: 1rem 2rem;
 }
-.logoResumeProject {
-  width: auto;
-  height: 15rem;
+
+.display-logo-title {
+  flex-direction: row;
+}
+
+.title-resume {
+  font-size: 2rem;
+  font-weight: bold;
+  align-items: center;
+}
+
+.logo-resume-project {
+  width: 10rem;
+  height: auto;
   object-fit: cover;
 }
 
-.display-text-bottom {
-  padding: 0 1rem 2rem 1rem;
+@media (min-width: 851px) {
+  .title-resume {
+    margin-left: 2rem;
+    align-items: center;
+    display: flex;
+  }
 }
 
 @media (max-width: 850px) {
-  .resumeProject {
-    display: flex;
+  .display-logo-title {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  }
+
+  .resume-project {
+    @include flex-center;
     text-align: justify;
   }
 
-  .logoResumeProject {
+  .logo-resume-project {
     height: auto;
     width: 20vw;
     margin: 2rem 0;
-  }
-
-  .titleResume {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-
-  .display-text {
-    font-size: 1rem;
-  }
-
-  .display-text-bottom {
-    padding-top: 1rem;
-    align-items: center;
-    justify-content: center;
-    text-align: justify;
-    font-size: 1rem;
+    @include flex-center;
   }
 }
