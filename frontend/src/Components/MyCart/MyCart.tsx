@@ -1,6 +1,5 @@
 import { BsPlusLg, BsFillTrash3Fill } from "react-icons/bs";
 import { BiMinus } from "react-icons/bi";
-import bycicle from "../../assets/bicycle.png";
 import { useState } from "react";
 import { useContext } from "react";
 import { RentContext } from "../../services/context/rentContext";

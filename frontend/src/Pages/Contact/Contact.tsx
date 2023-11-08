@@ -25,7 +25,6 @@ export default function Contact() {
       });
     e.target.reset();
   };
-  const formRef = useRef<HTMLFormElement>;
   return (
     <div className="contact-padding">
       <form ref={form} onSubmit={sendEmail} className="contact-form">
