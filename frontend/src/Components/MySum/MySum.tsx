@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import "./style.scss";
 
-export default function MySum() {
+import { Sum } from "../../Pages/Cart/Cart";
+
+export default function MySum({ sum }: Sum) {
   return (
     <section className="mySum">
       <article className="totalTtc">
         <h4>Total produit TTC:</h4>
-        <h4>1750 €</h4>
+        <h4>{sum} €</h4>
       </article>
       <div className="sumPartition"></div>
       <article className="totalShippingCosts">
