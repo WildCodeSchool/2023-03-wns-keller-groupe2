@@ -6,7 +6,6 @@ import "./App.scss";
 
 function App() {
   const location = useLocation();
-  console.log(location);
 
   return (
     <>

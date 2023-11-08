@@ -1,5 +1,4 @@
 import { useQuery, gql } from "@apollo/client";
-import bike from "../../assets/bike.png";
 import ButtonMoreInfo from "../ButtonMoreInfo/ButtonMoreInfo";
 import ButtonRent from "../ButtonRent/ButtonRent";
 import "./cardProduct.scss";
@@ -38,7 +37,7 @@ export default function CardProduct() {
           return (
             <div className="cardproduct" key={product.id}>
               <img
-                src={bike}
+                src={product.imageId[0].url}
                 alt={product.name}
                 className="cardproduct-image "
               />
@@ -49,10 +48,10 @@ export default function CardProduct() {
                 </div>
                 <div>
                   <div className="cardproduct-margin-button">
-                    <ButtonMoreInfo id={0} />
+                    <ButtonMoreInfo id={product.id} />
                   </div>
                   <div>
-                    <ButtonRent id={0} />
+                    <ButtonRent id={product.id} />
                   </div>
                 </div>
               </div>
