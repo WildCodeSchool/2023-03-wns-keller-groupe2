@@ -20,6 +20,7 @@ import Contact from "./Pages/Contact/Contact";
 import Rgpd from "./Pages/Rgpd/Rgpd";
 
 import "./index.scss";
+import CartStepTwo from "./Pages/CartStepTwo/CartStepTwo";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/",
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/login", element: <Login /> },
       { path: "/cart", element: <Cart /> },
+      { path: "/cartStepTwo", element: <CartStepTwo /> },
       { path: "/veloElec", element: <ElectricBike /> },
       { path: "/vtt", element: <VTT /> },
       { path: "/proBike", element: <ProBike /> },
