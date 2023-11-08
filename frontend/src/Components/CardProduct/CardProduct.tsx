@@ -34,7 +34,6 @@ export default function CardProduct() {
     <div className="cardproduct-container">
       <div className="cardproduct-grid">
         {data.getAllBike.map((product: Product) => {
-          console.log(product);
           return (
             <div className="cardproduct" key={product.id}>
               <img
