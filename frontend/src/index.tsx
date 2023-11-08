@@ -16,6 +16,9 @@ import Accessories from "./Pages/Accessories/Accessories";
 import MoreInfoAboutProduct from "./Pages/MoreInfoAboutProduct/MoreInfoAboutProduct";
 import Admin from "./Pages/Admin/Admin";
 import Home from "./Pages/Home/Home";
+import Contact from "./Pages/Contact/Contact";
+import Rgpd from "./Pages/Rgpd/Rgpd";
+
 import "./index.scss";
 
 const client = new ApolloClient({
@@ -37,6 +40,8 @@ const router = createBrowserRouter([
       { path: "/accessories", element: <Accessories /> },
       { path: "/moreinfoaboutbike/:id", element: <MoreInfoAboutProduct /> },
       { path: "/admin", element: <Admin /> },
+      { path: "/rgpd", element: <Rgpd /> },
+      { path: "/contact", element: <Contact /> },
     ],
   },
 ]);
