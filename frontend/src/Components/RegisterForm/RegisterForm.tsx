@@ -1,8 +1,8 @@
-import logo from "../../assets/userIcon.png";
 import { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 import { Navigate } from "react-router-dom";
-import "./style.scss";
+import { FiEye, FiEyeOff } from "react-icons/fi";
+import "../../style-form.scss";
 
 const REGISTER = gql`
   mutation Mutation(
@@ -32,6 +32,7 @@ export default function RegisterForm() {
   const [password, setPassword] = useState("");
   const [gender, setGender] = useState("");
   const [registerUser, { data, error }] = useMutation(REGISTER);
+  const [showPassword, setShowPassword] = useState(false);
 
   if (data) {
     console.log("data from mutation", data.register);
@@ -56,86 +57,71 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="register-form">
-      <div className="register-header">
-        <img className="users-logo" src={logo} alt="users_icon" />
-        <h1>Nouveau client</h1>
+    <form className="style-form" onSubmit={handleSubmit}>
+      <h1 className="form-title">Nouveau client</h1>
+      <input
+        placeholder="E-mail"
+        className="form-input"
+        type="email"
+        name="mail"
+        id="mail"
+        value={email}
+        onChange={(event) => setEmail(event.target.value)}
+      />
+      <input
+        placeholder="Nom"
+        className="form-input"
+        type="text"
+        name="lastName"
+        id="lastName"
+        value={lastName}
+        onChange={(event) => setLastName(event.target.value)}
+      />
+      <input
+        placeholder="Prénom"
+        className="form-input"
+        type="text"
+        name="firstName"
+        id="firstName"
+        value={firstName}
+        onChange={(event) => setFirstName(event.target.value)}
+      />
+      <select
+        placeholder="Genre"
+        className="form-input"
+        name="gender"
+        id="gender"
+        value={gender}
+        onChange={(event) => setGender(event.target.value)}>
+        <option value="homme">Homme</option>
+        <option value="femme">Femme</option>
+      </select>
+      <div className="input-wrapper">
+        <input
+          placeholder="Mot de passe"
+          className="form-input"
+          type={showPassword ? "text" : "password"}
+          name="password"
+          id="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
+        <span onClick={() => setShowPassword(!showPassword)}>
+          {showPassword ? <FiEyeOff /> : <FiEye />}
+        </span>
       </div>
-      <form className="register-form" onSubmit={handleSubmit}>
-        <label className="label-form" htmlFor="mail">
-          Email:
-          <input
-            className="input-register-form"
-            type="email"
-            name="mail"
-            id="mail"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </label>
-        <label className="label-form" htmlFor="lastName">
-          Nom:
-          <input
-            className="input-register-form"
-            type="text"
-            name="lastName"
-            id="lastName"
-            value={lastName}
-            onChange={(event) => setLastName(event.target.value)}
-          />
-        </label>
-        <label className="label-form" htmlFor="firstName">
-          Prenom:
-          <input
-            className="input-register-form"
-            type="text"
-            name="firstName"
-            id="firstName"
-            value={firstName}
-            onChange={(event) => setFirstName(event.target.value)}
-          />
-        </label>
-        <label className="label-form" htmlFor="gender">
-          Genre:
-          <select
-            className="input-register-form"
-            name="gender"
-            id="gender"
-            value={gender}
-            onChange={(event) => setGender(event.target.value)}>
-            <option value="homme">Homme</option>
-            <option value="femme">Femme</option>
-          </select>
-        </label>
-        <label className="label-form" htmlFor="password">
-          Mot de passe:
-          <input
-            className="input-register-form"
-            type="password"
-            name="password"
-            id="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-        <label className="label-form" htmlFor="phonenum">
-          Numéro de téléphone:
-          <input
-            className="input-register-form"
-            type="text"
-            name="phonenum"
-            id="phonenum"
-            value={phonenum}
-            onChange={(event) => setPhonenum(event.target.value)}
-          />
-        </label>
-        <button
-          className="form-submit-button"
-          type="submit"
-          onClick={handleSubmit}>
-          Inscription
-        </button>
-      </form>
-    </div>
+      <input
+        placeholder="Numéro de téléphone"
+        className="form-input"
+        type="text"
+        name="phonenum"
+        id="phonenum"
+        value={phonenum}
+        onChange={(event) => setPhonenum(event.target.value)}
+      />
+      <button className="form-button" type="submit" onClick={handleSubmit}>
+        Inscription
+      </button>
+    </form>
   );
 }
