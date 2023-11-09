@@ -18,9 +18,10 @@ import Admin from "./Pages/Admin/Admin";
 import Home from "./Pages/Home/Home";
 import Contact from "./Pages/Contact/Contact";
 import Rgpd from "./Pages/Rgpd/Rgpd";
-
-import "./index.scss";
 import CartStepTwo from "./Pages/CartStepTwo/CartStepTwo";
+import CartStepThree from "./Pages/CartStepThree/CartStepThree";
+import "./index.scss";
+import OrderProvider from "./services/context/orderContext";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/",
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/cart", element: <Cart /> },
       { path: "/cartStepTwo", element: <CartStepTwo /> },
+      { path: "/cartStepThree", element: <CartStepThree /> },
       { path: "/veloElec", element: <ElectricBike /> },
       { path: "/vtt", element: <VTT /> },
       { path: "/proBike", element: <ProBike /> },
@@ -56,7 +58,9 @@ root.render(
     <ApolloProvider client={client}>
       <UserProvider>
         <RentProvider>
-          <RouterProvider router={router} />
+          <OrderProvider>
+            <RouterProvider router={router} />
+          </OrderProvider>
         </RentProvider>
       </UserProvider>
     </ApolloProvider>
