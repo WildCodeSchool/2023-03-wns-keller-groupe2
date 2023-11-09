@@ -2,8 +2,7 @@ import { useState, useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { gql, useMutation } from "@apollo/client";
 import { UserContext } from "../../services/context/userContext";
-import { FiEye, FiEyeOff } from "react-icons/fi";
-import "../../style-form.scss";
+import CustomForm from "../CustomForm/CustomForm";
 
 const LOGIN = gql`
   mutation Mutation($password: String!, $email: String!) {
@@ -16,7 +15,6 @@ export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login, { data, error }] = useMutation(LOGIN);
-  const [showPassword, setShowPassword] = useState(false);
 
   if (data) {
     console.log("data from query", data.login);
@@ -51,36 +49,26 @@ export default function LoginForm() {
     }
   };
 
+  const fields = [
+    {
+      type: "email",
+      placeholder: "E-mail",
+      onChange: (e: any) => setEmail(e.target.value),
+    },
+    {
+      type: "password",
+      placeholder: "Mot de passe",
+      isPassword: true,
+      onChange: (e: any) => setPassword(e.target.value),
+    },
+  ];
+
   return (
-    <form
-      className="style-form"
-      onSubmit={async (e) => {
-        e.preventDefault();
-        login();
-      }}>
-      <h1 className="form-title">Déjà client</h1>
-      <input
-        placeholder="E-mail"
-        type="email"
-        className="form-input"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <div className="input-wrapper">
-        <input
-          placeholder="Mot de passe"
-          type={showPassword ? "text" : "password"}
-          className="form-input"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <span onClick={() => setShowPassword(!showPassword)} className="icon">
-          {showPassword ? <FiEyeOff /> : <FiEye />}
-        </span>
-      </div>
-      <button className="form-button" type="submit" onClick={handleSubmit}>
-        Se connecter
-      </button>
-    </form>
+    <CustomForm
+      onSubmit={handleSubmit}
+      title="Connexion"
+      fields={fields}
+      buttonText="Se connecter"
+    />
   );
 }
