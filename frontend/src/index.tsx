@@ -21,6 +21,7 @@ import Rgpd from "./Pages/Rgpd/Rgpd";
 import CartStepTwo from "./Pages/CartStepTwo/CartStepTwo";
 import CartStepThree from "./Pages/CartStepThree/CartStepThree";
 import "./index.scss";
+import OrderProvider from "./services/context/orderContext";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/",
@@ -57,7 +58,9 @@ root.render(
     <ApolloProvider client={client}>
       <UserProvider>
         <RentProvider>
-          <RouterProvider router={router} />
+          <OrderProvider>
+            <RouterProvider router={router} />
+          </OrderProvider>
         </RentProvider>
       </UserProvider>
     </ApolloProvider>
