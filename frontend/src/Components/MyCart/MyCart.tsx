@@ -1,7 +1,6 @@
 import { BsPlusLg, BsFillTrash3Fill } from "react-icons/bs";
 import { BiMinus } from "react-icons/bi";
-import { useState } from "react";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { RentContext } from "../../services/context/rentContext";
 import { gql, useQuery } from "@apollo/client";
 import "./style.scss";
