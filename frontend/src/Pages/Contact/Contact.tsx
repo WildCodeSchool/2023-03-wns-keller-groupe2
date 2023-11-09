@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import "./contact.scss";
 
 import { useRef } from "react";
+import CustomForm from "../../Components/CustomForm/CustomForm";
 
 export default function Contact() {
   const form = useRef<HTMLFormElement>(null);
@@ -27,13 +28,17 @@ export default function Contact() {
   };
   return (
     <div className="contact-padding">
-      <form ref={form} onSubmit={sendEmail} className="contact-form">
-        <h1 className="contact-title">Contactez-nous !</h1>
-        <input className="contact-input" placeholder="Nom" type="text" />
-        <input className="contact-input" placeholder="E-mail" type="email" />
-        <textarea className="contact-input" placeholder="Message" />
-        <button className="contact-button">Envoyer</button>
-      </form>
+      <CustomForm
+        ref={form}
+        onSubmit={sendEmail}
+        title="Contactez-nous !"
+        buttonText="Envoyer"
+        fields={[
+          { type: "text", placeholder: "Nom" },
+          { type: "email", placeholder: "E-mail" },
+          { type: "textarea", placeholder: "Message" },
+        ]}
+      />
     </div>
   );
 }

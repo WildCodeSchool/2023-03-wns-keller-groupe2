@@ -1,8 +1,7 @@
-import logo from "../../assets/userIcon.png";
 import { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 import { Navigate } from "react-router-dom";
-import "./style.scss";
+import CustomForm from "../CustomForm/CustomForm";
 
 const REGISTER = gql`
   mutation Mutation(
@@ -56,86 +55,44 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="register-form">
-      <div className="register-header">
-        <img className="users-logo" src={logo} alt="users_icon" />
-        <h1>Nouveau client</h1>
-      </div>
-      <form className="register-form" onSubmit={handleSubmit}>
-        <label className="label-form" htmlFor="mail">
-          Email:
-          <input
-            className="input-register-form"
-            type="email"
-            name="mail"
-            id="mail"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </label>
-        <label className="label-form" htmlFor="lastName">
-          Nom:
-          <input
-            className="input-register-form"
-            type="text"
-            name="lastName"
-            id="lastName"
-            value={lastName}
-            onChange={(event) => setLastName(event.target.value)}
-          />
-        </label>
-        <label className="label-form" htmlFor="firstName">
-          Prenom:
-          <input
-            className="input-register-form"
-            type="text"
-            name="firstName"
-            id="firstName"
-            value={firstName}
-            onChange={(event) => setFirstName(event.target.value)}
-          />
-        </label>
-        <label className="label-form" htmlFor="gender">
-          Genre:
-          <select
-            className="input-register-form"
-            name="gender"
-            id="gender"
-            value={gender}
-            onChange={(event) => setGender(event.target.value)}>
-            <option value="homme">Homme</option>
-            <option value="femme">Femme</option>
-          </select>
-        </label>
-        <label className="label-form" htmlFor="password">
-          Mot de passe:
-          <input
-            className="input-register-form"
-            type="password"
-            name="password"
-            id="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-        <label className="label-form" htmlFor="phonenum">
-          Numéro de téléphone:
-          <input
-            className="input-register-form"
-            type="text"
-            name="phonenum"
-            id="phonenum"
-            value={phonenum}
-            onChange={(event) => setPhonenum(event.target.value)}
-          />
-        </label>
-        <button
-          className="form-submit-button"
-          type="submit"
-          onClick={handleSubmit}>
-          Inscription
-        </button>
-      </form>
-    </div>
+    <CustomForm
+      onSubmit={handleSubmit}
+      title="Inscription"
+      fields={[
+        {
+          type: "email",
+          placeholder: "E-mail",
+          onChange: (e) => setEmail(e.target.value),
+        },
+        {
+          type: "text",
+          placeholder: "Nom",
+          onChange: (e) => setLastName(e.target.value),
+        },
+        {
+          type: "text",
+          placeholder: "Prénom",
+          onChange: (e) => setFirstName(e.target.value),
+        },
+        {
+          type: "select",
+          placeholder: "Genre",
+          options: ["Homme", "Femme"],
+          onChange: (e) => setGender(e.target.value),
+        },
+        {
+          type: "password",
+          placeholder: "Mot de passe",
+          isPassword: true,
+          onChange: (e) => setPassword(e.target.value),
+        },
+        {
+          type: "text",
+          placeholder: "Numéro de téléphone",
+          onChange: (e) => setPhonenum(e.target.value),
+        },
+      ]}
+      buttonText="Inscription"
+    />
   );
 }

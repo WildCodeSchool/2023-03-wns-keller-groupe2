@@ -69,9 +69,7 @@
     margin-bottom: 1rem;
   }
   .partition {
-    width: 70vh;
-    border: 1px solid variables.$darkblue-color;
-    margin-top: 1vh;
+    display: none;
   }
   .input-login-form,
   .input-register-form {
@@ -80,5 +78,9 @@
 
   .form-submit-button {
     width: 20vw;
+  }
+  .title-login {
+    margin-top: 5rem;
+    font-size: 1.5rem;
   }
 }
