@@ -1,9 +1,9 @@
-import logo from "../../assets/userIcon.png";
 import { useState, useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { gql, useMutation } from "@apollo/client";
 import { UserContext } from "../../services/context/userContext";
-import "./style.scss";
+import CustomForm from "../CustomForm/CustomForm";
+
 
 const LOGIN = gql`
   mutation Mutation($password: String!, $email: String!) {
@@ -59,47 +59,26 @@ export default function LoginForm() {
     }
   };
 
+  const fields = [
+    {
+      type: "email",
+      placeholder: "E-mail",
+      onChange: (e: any) => setEmail(e.target.value),
+    },
+    {
+      type: "password",
+      placeholder: "Mot de passe",
+      isPassword: true,
+      onChange: (e: any) => setPassword(e.target.value),
+    },
+  ];
+
   return (
-    <div className="login-form">
-      <div className="login-header">
-        <img className="users-logo" src={logo} alt="users_icon" />
-        <h1>Déjà client</h1>
-      </div>
-      <form
-        className="login-form"
-        onSubmit={async (e) => {
-          e.preventDefault();
-          console.log("email", email);
-          console.log("password", password);
-          login();
-        }}
-      >
-        <label className="label-form" htmlFor="mail">
-          Email:
-          <input
-            type="email"
-            className="input-login-form"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
-        <label className="label-form" htmlFor="password">
-          Mot de passe:
-          <input
-            type="password"
-            className="input-login-form"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <button
-          className="form-submit-button"
-          type="submit"
-          onClick={handleSubmit}
-        >
-          Se connecter
-        </button>
-      </form>
-    </div>
+    <CustomForm
+      onSubmit={handleSubmit}
+      title="Connexion"
+      fields={fields}
+      buttonText="Se connecter"
+    />
   );
 }
