@@ -1,8 +1,9 @@
 import { useState, useContext } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { gql, useMutation } from "@apollo/client";
 import { UserContext } from "../../services/context/userContext";
 import CustomForm from "../CustomForm/CustomForm";
+
 
 const LOGIN = gql`
   mutation Mutation($password: String!, $email: String!) {
@@ -16,10 +17,19 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
   const [login, { data, error }] = useMutation(LOGIN);
 
+  const location = useLocation();
+  let Redirection = null;
+
+  if (location.pathname === "/cartStepTwo") {
+    Redirection = <Navigate to="/cartStepThree" />;
+  } else {
+    Redirection = <Navigate to="/" />;
+  }
+
   if (data) {
     console.log("data from query", data.login);
     localStorage.setItem("token", data.login);
-    return <Navigate to="/" />;
+    return Redirection;
   }
 
   if (error) {
