@@ -40,25 +40,20 @@ export default function CardProduct({ category, onError }: CardProductProps) {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <>Error :(error.message)</>;
-
   if (!data) return null;
 
   const filteredProducts = data.getAllBike.filter(
     (product: Product) => product.bikeCategoriesId.name === category
   );
 
-  console.log(data);
-  console.log(category);
-
   if (filteredProducts.length === 0) {
     onError();
     return null;
   }
-
   return (
     <div className="cardproduct-container">
       <div className="cardproduct-grid">
-        {filteredProducts.map((product: Product) => {
+        {filteredProducts.map((product: Product) => (
           <div className="cardproduct" key={product.id}>
             <img
               src={product.imageId[0].url}
@@ -79,8 +74,8 @@ export default function CardProduct({ category, onError }: CardProductProps) {
                 </div>
               </div>
             </div>
-          </div>;
-        })}
+          </div>
+        ))}
       </div>
     </div>
   );
