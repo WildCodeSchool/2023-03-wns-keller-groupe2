@@ -1,8 +1,9 @@
 import { useState } from "react";
 import CardProduct from "../../Components/CardProduct/CardProduct";
 import SideFilter from "../../Components/sideFilter/SideFilter";
-import MessageError from "../../Components/MessageError/MessageError";
+import { useLocation } from "react-router-dom";
 import "./electricBike.scss";
+import MessageError from "../../Components/MessageError/MessageError";
 
 export default function ElectricBike() {
   const [hasError, setHasError] = useState(false);
@@ -11,22 +12,24 @@ export default function ElectricBike() {
     setHasError(true);
   };
 
+  const location = useLocation();
+
   return (
-    <div className="bike-display">
-      <SideFilter />
-      <div className="bike-parent-title-card">
-        <h1 className="bike-title">Vélos Electriques</h1>
-        <div className="bike-card">
-          {hasError ? (
-            <MessageError />
-          ) : (
-            <CardProduct
-              category={"electrique"}
-              onError={handleError}
-            />
-          )}
+    <>
+      {location.pathname === "/veloElec"}
+      <div className="bike-display">
+        <SideFilter />
+        <div className="bike-parent-title-card">
+          <h1 className="bike-title">Vélos Electriques</h1>
+          <div className="bike-card">
+            {hasError ? (
+              <MessageError />
+            ) : (
+              <CardProduct category="electrique" onError={handleError} />
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

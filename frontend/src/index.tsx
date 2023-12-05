@@ -9,7 +9,7 @@ import RentProvider from "./services/context/rentContext";
 import Login from "./Pages/Login/Login";
 import Cart from "./Pages/Cart/Cart";
 import ElectricBike from "./Pages/ElectricBike/ElectricBike";
-import VTT from "./Pages/Vtt/Vtt";
+import Vtt from "./Pages/Vtt/Vtt";
 import ProBike from "./Pages/ProBike/ProBike";
 import VintageBike from "./Pages/VintageBike/VintageBike";
 import Accessories from "./Pages/Accessories/Accessories";
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       { path: "/cartStepTwo", element: <CartStepTwo /> },
       { path: "/cartStepThree", element: <CartStepThree /> },
       { path: "/veloElec", element: <ElectricBike /> },
-      { path: "/vtt", element: <VTT /> },
+      { path: "/vtt", element: <Vtt /> },
       { path: "/proBike", element: <ProBike /> },
       { path: "/vintageBike", element: <VintageBike /> },
       { path: "/accessories", element: <Accessories /> },
