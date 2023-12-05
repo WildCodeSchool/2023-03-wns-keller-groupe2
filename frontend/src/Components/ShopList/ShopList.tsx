@@ -1,4 +1,4 @@
-import { gql, useQuery } from "@apollo/client";
+import { gql, useQuery, useMutation } from "@apollo/client";
 import { AiOutlineEdit, AiTwotoneDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
@@ -22,8 +22,19 @@ const GET_ALL_SHOPS = gql`
   }
 `;
 
+const DELETE_SHOP = gql`
+  mutation DeleteShop($deleteShopId: Float!) {
+    deleteShop(id: $deleteShopId)
+  }
+`;
+
 export default function ShopList() {
   const { loading, error, data } = useQuery(GET_ALL_SHOPS);
+  const [deleteShop] = useMutation(DELETE_SHOP);
+  const handleClickDelete = (id: Number) => {
+    const deleteShopId = id;
+    deleteShop({ variables: { deleteShopId } });
+  };
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
   return (
@@ -55,7 +66,7 @@ export default function ShopList() {
                   <Link to={`/admin/shop/${shop.id}`}>
                     <AiOutlineEdit />
                   </Link>
-                  <button>
+                  <button onClick={() => handleClickDelete(shop.id)}>
                     <AiTwotoneDelete />
                   </button>
                 </td>
