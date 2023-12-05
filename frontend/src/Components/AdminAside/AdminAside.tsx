@@ -22,7 +22,14 @@ export default function AdminAside({ setNavigate }: AdminAsideProps) {
         >
           Utilisateurs
         </li>
-        <li className="admin-aside-li">Points de vente</li>
+        <li
+          className="admin-aside-li"
+          onClick={() => {
+            setNavigate("shops");
+          }}
+        >
+          Points de vente
+        </li>
         <li
           className="admin-aside-li"
           onClick={() => {

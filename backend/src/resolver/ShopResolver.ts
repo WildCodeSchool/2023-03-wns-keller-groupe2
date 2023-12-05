@@ -31,8 +31,8 @@ class ShopResolver {
       shop.email = email;
       await dataSource.getRepository(Shop).save(shop);
       return "shop created";
-    } catch (error) {
-      return new GraphQLError("An error accured");
+    } catch (error: any) {
+      return new GraphQLError(error.message);
     }
   }
 
