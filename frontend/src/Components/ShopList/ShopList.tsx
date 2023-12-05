@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { AiOutlineEdit, AiTwotoneDelete } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 interface Shop {
   id: number;
@@ -51,9 +52,9 @@ export default function ShopList() {
                 <td className="table-column">{shop.email}</td>
                 <td className="table-column">{shop.phonenum}</td>
                 <td className="table-column action">
-                  <button>
+                  <Link to={`/admin/shop/${shop.id}`}>
                     <AiOutlineEdit />
-                  </button>
+                  </Link>
                   <button>
                     <AiTwotoneDelete />
                   </button>
