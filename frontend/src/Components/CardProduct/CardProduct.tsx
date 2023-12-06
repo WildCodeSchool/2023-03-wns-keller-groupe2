@@ -1,9 +1,8 @@
 import { useQuery, gql } from "@apollo/client";
 import ButtonMoreInfo from "../ButtonMoreInfo/ButtonMoreInfo";
 import ButtonRent from "../ButtonRent/ButtonRent";
-import "./cardProduct.scss";
-import "./messageError.scss";
 import { useEffect } from "react";
+import "./cardProduct.scss";
 
 interface Product {
   bikeCategoriesId: any;
@@ -19,7 +18,7 @@ interface Image {
 
 interface CardProductProps {
   category: string;
-  onError?: (isLoading: boolean) => void;
+  onLoadingChange?: (loading: boolean) => void;
 }
 
 const GET_ALL_BIKE = gql`
@@ -37,16 +36,19 @@ const GET_ALL_BIKE = gql`
   }
 `;
 
-export default function CardProduct({ category, onError }: CardProductProps) {
+export default function CardProduct({
+  category,
+  onLoadingChange,
+}: CardProductProps) {
   const { loading, data } = useQuery(GET_ALL_BIKE);
 
   useEffect(() => {
-    if (onError) {
-      onError(loading);
+    if (onLoadingChange) {
+      onLoadingChange(loading);
     }
-  }, [loading, onError]);
+  }, [loading, onLoadingChange]);
 
-  const filteredProducts = data.getAllBike.filter(
+  const filteredProducts = data?.getAllBike.filter(
     (product: Product) => product.bikeCategoriesId.name === category
   );
 

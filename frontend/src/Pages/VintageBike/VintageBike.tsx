@@ -13,23 +13,21 @@ export default function VintageBike() {
   };
 
   const location = useLocation();
+  const category = location.pathname.slice(1);
 
   return (
-    <>
-      {location.pathname === "/vintageBike"}
-      <div className="bike-display">
-        <SideFilter />
-        <div className="bike-parent-title-card">
-          <h1 className="bike-title">Vélos Vintages</h1>
-          <div className="bike-card">
-            {hasError ? (
-              <MessageError />
-            ) : (
-              <CardProduct category="vélos vintage" onError={handleError} />
-            )}
-          </div>
+    <div className="bike-display">
+      <SideFilter />
+      <div className="bike-parent-title-card">
+        <h1 className="bike-title">{category.toUpperCase()}</h1>
+        <div className="bike-card">
+          {hasError ? (
+            <MessageError />
+          ) : (
+            <CardProduct category={category} onError={handleError} />
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 }

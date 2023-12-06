@@ -2,8 +2,8 @@ import { useState } from "react";
 import CardProduct from "../../Components/CardProduct/CardProduct";
 import SideFilter from "../../Components/sideFilter/SideFilter";
 import { useLocation } from "react-router-dom";
-import "./electricBike.scss";
 import MessageError from "../../Components/MessageError/MessageError";
+import "./electricBike.scss";
 
 export default function ElectricBike() {
   const [hasError, setHasError] = useState(false);
@@ -13,23 +13,21 @@ export default function ElectricBike() {
   };
 
   const location = useLocation();
+  const category = location.pathname.slice(1);
 
   return (
-    <>
-      {location.pathname === "/veloElec"}
-      <div className="bike-display">
-        <SideFilter />
-        <div className="bike-parent-title-card">
-          <h1 className="bike-title">Vélos Electriques</h1>
-          <div className="bike-card">
-            {hasError ? (
-              <MessageError />
-            ) : (
-              <CardProduct category="electrique" onError={handleError} />
-            )}
-          </div>
+    <div className="bike-display">
+      <SideFilter />
+      <div className="bike-parent-title-card">
+        <h1 className="bike-title">{category.toUpperCase()}s</h1>
+        <div className="bike-card">
+          {hasError ? (
+            <MessageError />
+          ) : (
+            <CardProduct category={category} onError={handleError} />
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
