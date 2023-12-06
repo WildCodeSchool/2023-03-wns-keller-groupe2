@@ -1,6 +1,7 @@
-import { gql, useQuery } from "@apollo/client";
+import { gql, useQuery, useMutation } from "@apollo/client";
 import { FcCheckmark, FcCancel } from "react-icons/fc";
 import { AiOutlineEdit, AiTwotoneDelete } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import "./userlist.scss";
 
 interface User {
@@ -26,8 +27,21 @@ const GET_ALL_USERS = gql`
     }
   }
 `;
+
+const DELETE_USER = gql`
+  mutation DeleteUser($userId: Float!) {
+    deleteUser(userId: $userId)
+  }
+`;
+
 export default function UserList() {
   const { loading, error, data } = useQuery(GET_ALL_USERS);
+  const [deleteUser] = useMutation(DELETE_USER);
+  const handleClickDelete = (id: number) => {
+    const deleteUserId = id;
+    deleteUser({ variables: { deleteUserId } });
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
   return (
@@ -67,10 +81,10 @@ export default function UserList() {
                 </td>
               )}
               <td className="table-column action">
-                <button>
+                <Link to={`/admin/users/${user.id}`}>
                   <AiOutlineEdit />
-                </button>
-                <button>
+                </Link>
+                <button onClick={() => handleClickDelete(user.id)}>
                   <AiTwotoneDelete />
                 </button>
               </td>
