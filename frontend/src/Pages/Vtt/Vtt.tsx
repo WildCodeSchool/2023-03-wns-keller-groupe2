@@ -1,14 +1,15 @@
 import CardProduct from "../../Components/CardProduct/CardProduct";
 import SideFilter from "../../Components/sideFilter/SideFilter";
 import { useLocation } from "react-router-dom";
-import "./proBike.scss";
+import "./vtt.scss";
 
-export default function ProBike() {
+export default function Vtt() {
   const location = useLocation();
   let category = "";
 
-  if (location.pathname === "/proBike") {
-    category = "vélos professionels";
+  if (location.pathname === "/vtt") {
+    category = "vtt";
+    console.log(category);
   }
   return (
     <div className="bike-display">

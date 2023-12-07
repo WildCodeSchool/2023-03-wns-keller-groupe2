@@ -1,6 +1,5 @@
 import CardProduct from "../../Components/CardProduct/CardProduct";
 import SideFilter from "../../Components/sideFilter/SideFilter";
-import MessageError from "../../Components/MessageError/MessageError";
 import { useLocation } from "react-router-dom";
 import "./vintageBike.scss";
 

@@ -1,7 +1,6 @@
 import CardProduct from "../../Components/CardProduct/CardProduct";
 import SideFilter from "../../Components/sideFilter/SideFilter";
 import { useLocation } from "react-router-dom";
-import MessageError from "../../Components/MessageError/MessageError";
 import "./electricBike.scss";
 
 export default function ElectricBike() {
