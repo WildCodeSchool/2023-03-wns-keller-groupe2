@@ -43,22 +43,17 @@ const UPDATE_USER = gql`
 
 export default function UserModify() {
   const { id } = useParams<{ id: string }>();
+  const userId = Number(id);
 
-  if (id == null) {
-    return <p>Erreur</p>;
-  }
-
-  const userId = parseFloat(id);
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { loading, error, data } = useQuery(GET_USER, {
     variables: { userId },
     skip: !userId,
   });
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [updateUser] = useMutation(UPDATE_USER);
+
   const [newUser, setNewUser] = useState({
-    id: "",
+    id: null,
     admin: false,
     phonenum: "",
     gender: "",
@@ -68,19 +63,9 @@ export default function UserModify() {
     firstName: "",
   });
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
-    if (data && data.getUser) {
-      setNewUser({
-        id: data.getUser.id,
-        admin: data.getUser.admin,
-        phonenum: data.getUser.phonenum,
-        gender: data.getUser.gender,
-        password: data.getUser.password,
-        email: data.getUser.email,
-        lastName: data.getUser.lastName,
-        firstName: data.getUser.firstName,
-      });
+    if (data) {
+      setNewUser(data.getUser);
     }
   }, [data]);
 
@@ -88,37 +73,10 @@ export default function UserModify() {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
   };
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [updateUser] = useMutation(UPDATE_USER);
-
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    if (newUser.id == null) {
-      alert("Shop id is null");
-      return;
-    } else {
-      const updateUserId = parseInt(newUser.id);
-      const phonenum = parseInt(newUser.phonenum);
-      const { admin, gender, password, email, lastName, firstName } = newUser;
-      const response = updateUser({
-        variables: {
-          admin,
-          phonenum,
-          gender,
-          password,
-          email,
-          lastName,
-          firstName,
-          updateUserId,
-        },
-      });
-      console.log(response);
-    }
+    updateUser({ variables: { ...newUser, userId } });
   };
-
-  if (loading) return <p>Loading...</p>;
-
-  if (error) return <p>Error : {error.message}</p>;
 
   return (
     <section>
@@ -130,7 +88,7 @@ export default function UserModify() {
             type="text"
             id="firstName"
             name="firstName"
-            value={data.getUser.firstName}
+            value={newUser.firstName}
             onChange={handleChange}
           />
         </label>
@@ -140,7 +98,7 @@ export default function UserModify() {
             type="text"
             id="lastName"
             name="lastName"
-            value={data.getUser.lastName}
+            value={newUser.lastName}
             onChange={handleChange}
           />
         </label>
@@ -150,7 +108,7 @@ export default function UserModify() {
             type="text"
             id="email"
             name="email"
-            value={data.getUser.email}
+            value={newUser.email}
             onChange={handleChange}
           />
         </label>
@@ -160,7 +118,7 @@ export default function UserModify() {
             type="text"
             id="gender"
             name="gender"
-            value={data.getUser.gender}
+            value={newUser.gender}
             onChange={handleChange}
           />
         </label>
@@ -170,14 +128,14 @@ export default function UserModify() {
             type="text"
             id="phonenum"
             name="phonenum"
-            value={data.getUser.phonenum}
+            value={newUser.phonenum}
             onChange={handleChange}
           />
         </label>
         <select
           name="admin"
           id="admin"
-          value={data.getUser.admin}
+          value={newUser.admin.toString()}
           onChange={handleChange}
         >
           <option value="true">Admin</option>
