@@ -9,7 +9,7 @@ import RentProvider from "./services/context/rentContext";
 import Login from "./Pages/Login/Login";
 import Cart from "./Pages/Cart/Cart";
 import ElectricBike from "./Pages/ElectricBike/ElectricBike";
-import VTT from "./Pages/VTT/VTT";
+import VTT from "./Pages/Vtt/Vtt";
 import ProBike from "./Pages/ProBike/ProBike";
 import VintageBike from "./Pages/VintageBike/VintageBike";
 import Accessories from "./Pages/Accessories/Accessories";

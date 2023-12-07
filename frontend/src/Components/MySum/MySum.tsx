@@ -26,9 +26,9 @@ export default function MySum({ sum }: Sum) {
         <Link to="/" className="mySumActionButton">
           Continuer mes achats
         </Link>
-        <button className="mySumActionButton" type="button">
+        <Link to="/cartStepTwo" className="mySumActionButton" type="button">
           Commander
-        </button>
+        </Link>
       </article>
     </section>
   );
