@@ -22,6 +22,7 @@ import CartStepTwo from "./Pages/CartStepTwo/CartStepTwo";
 import CartStepThree from "./Pages/CartStepThree/CartStepThree";
 import "./index.scss";
 import OrderProvider from "./services/context/orderContext";
+import UserModify from "./Components/UserModify/UserModify";
 import ShopModify from "./Components/ShopModify/ShopModify";
 
 const client = new ApolloClient({
@@ -47,6 +48,7 @@ const router = createBrowserRouter([
       { path: "/admin", element: <Admin /> },
       { path: "/rgpd", element: <Rgpd /> },
       { path: "/contact", element: <Contact /> },
+      { path: "/admin/users/:id", element: <UserModify /> },
       { path: "/admin/shop/:id", element: <ShopModify /> },
     ],
   },
