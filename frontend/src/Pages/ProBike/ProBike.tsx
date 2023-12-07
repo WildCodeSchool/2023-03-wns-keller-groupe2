@@ -4,50 +4,26 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MessageError from "../../Components/MessageError/MessageError";
 import "./proBike.scss";
+import path from "path";
 
 export default function ProBike() {
   const location = useLocation();
-  const category = location.pathname.slice(1);
+  let category = "";
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [isDataLoaded, setIsDataLoaded] = useState(false);
+  if (location.pathname === "/proBike") {
+    category = "vélo professionnels";
+    console.log(category);
 
-  const handleLoadingChange = (loading: boolean) => {
-    setIsLoading(loading);
-  };
-
-  const loadData = async () => {
-    setIsLoading(true);
-    try {
-      // Call your API here
-      // await apiCall();
-      setIsDataLoaded(true);
-    } catch (error) {
-      console.error(error);
-    }
-    setIsLoading(false);
-  };
-
-  useEffect(() => {
-    loadData();
-  }, [category]);
-
-  return (
-    <div className="bike-display">
-      <SideFilter />
-      <div className="bike-parent-title-card">
-        <h1 className="bike-title">{category.toUpperCase()}</h1>
-        <div className="bike-card">
-          {!isLoading && !isDataLoaded ? (
-            <MessageError />
-          ) : (
-            <CardProduct
-              category={category}
-              onLoadingChange={handleLoadingChange}
-            />
-          )}
+    return (
+      <div className="bike-display">
+        <SideFilter />
+        <div className="bike-parent-title-card">
+          <h1 className="bike-title">{category.toUpperCase()}</h1>
+          <div className="bike-card">
+            {category ? <CardProduct category={category} /> : <MessageError />}
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }

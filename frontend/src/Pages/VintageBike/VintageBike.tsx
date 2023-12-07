@@ -6,28 +6,23 @@ import { useLocation } from "react-router-dom";
 import "./vintageBike.scss";
 
 export default function VintageBike() {
-  const [hasError, setHasError] = useState(false);
-
-  const handleError = () => {
-    setHasError(true);
-  };
-
   const location = useLocation();
-  const category = location.pathname.slice(1);
+  let category = "";
 
-  return (
-    <div className="bike-display">
-      <SideFilter />
-      <div className="bike-parent-title-card">
-        <h1 className="bike-title">{category.toUpperCase()}</h1>
-        <div className="bike-card">
-          {hasError ? (
-            <MessageError />
-          ) : (
-            <CardProduct category={category} onError={handleError} />
-          )}
+  if (location.pathname === "/vintageBike") {
+    category = "vélos vintage";
+    console.log(category);
+
+    return (
+      <div className="bike-display">
+        <SideFilter />
+        <div className="bike-parent-title-card">
+          <h1 className="bike-title">{category.toUpperCase()}</h1>
+          <div className="bike-card">
+            {category ? <CardProduct category={category} /> : <MessageError />}
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }

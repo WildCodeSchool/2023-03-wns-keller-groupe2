@@ -20,10 +20,10 @@ import Contact from "./Pages/Contact/Contact";
 import Rgpd from "./Pages/Rgpd/Rgpd";
 import CartStepTwo from "./Pages/CartStepTwo/CartStepTwo";
 import CartStepThree from "./Pages/CartStepThree/CartStepThree";
-import "./index.scss";
 import OrderProvider from "./services/context/orderContext";
 import UserModify from "./Components/UserModify/UserModify";
 import ShopModify from "./Components/ShopModify/ShopModify";
+import "./index.scss";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/",

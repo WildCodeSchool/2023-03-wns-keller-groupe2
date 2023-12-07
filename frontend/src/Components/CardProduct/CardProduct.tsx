@@ -1,7 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
 import ButtonMoreInfo from "../ButtonMoreInfo/ButtonMoreInfo";
 import ButtonRent from "../ButtonRent/ButtonRent";
-import { useEffect } from "react";
 import "./cardProduct.scss";
 
 interface Product {
@@ -18,7 +17,6 @@ interface Image {
 
 interface CardProductProps {
   category: string;
-  onLoadingChange?: (loading: boolean) => void;
 }
 
 const GET_ALL_BIKE = gql`
@@ -36,48 +34,49 @@ const GET_ALL_BIKE = gql`
   }
 `;
 
-export default function CardProduct({
-  category,
-  onLoadingChange,
-}: CardProductProps) {
-  const { loading, data } = useQuery(GET_ALL_BIKE);
+export default function CardProduct({ category }: CardProductProps) {
+  const { data, loading, error } = useQuery(GET_ALL_BIKE);
 
-  useEffect(() => {
-    if (onLoadingChange) {
-      onLoadingChange(loading);
-    }
-  }, [loading, onLoadingChange]);
-
-  const filteredProducts = data?.getAllBike.filter(
-    (product: Product) => product.bikeCategoriesId.name === category
-  );
-
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error : {error.message}</p>;
+  console.log("props", category);
+  console.log("fetch ", data.getAllBike.bikeCategoriesId.name);
   return (
     <div className="cardproduct-container">
       <div className="cardproduct-grid">
-        {filteredProducts.map((product: Product) => (
-          <div className="cardproduct" key={product.id}>
-            <img
-              src={product.imageId[0].url}
-              alt={product.name}
-              className="cardproduct-image "
-            />
-            <div className="cardproduct-layout-button">
-              <div>
-                <p className="cardproduct-name">{product.name}</p>
-                <p>{product.price}</p>
-              </div>
-              <div>
-                <div className="cardproduct-margin-button">
-                  <ButtonMoreInfo id={product.id} />
+        {data.getAllBike
+          .filter((product: Product) => {
+            if (product.bikeCategoriesId.name !== category) {
+              console.log(false);
+              return false;
+            } else {
+              console.log(true);
+              return true;
+            }
+          })
+          .map((product: Product) => (
+            <div className="cardproduct" key={product.id}>
+              <img
+                src={product.imageId[0].url}
+                alt={product.name}
+                className="cardproduct-image "
+              />
+              <div className="cardproduct-layout-button">
+                <div>
+                  <p className="cardproduct-name">{product.name}</p>
+                  <p>{product.price}</p>
                 </div>
                 <div>
-                  <ButtonRent id={product.id} />
+                  <div className="cardproduct-margin-button">
+                    <ButtonMoreInfo id={product.id} />
+                  </div>
+                  <div>
+                    <ButtonRent id={product.id} />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );
