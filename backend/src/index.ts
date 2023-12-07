@@ -64,19 +64,6 @@ const start = async (): Promise<void> => {
   // we need this because "cookie" is true in csrfProtection
   app.use(cookieParser());
 
-  // setup route middlewares
-  const csrfProtection = csrf({ cookie: true });
-  const parseForm = express.urlencoded({ extended: false });
-
-  app.get("/form", csrfProtection, function (req, res) {
-    // pass the csrfToken to the view
-    res.render("send", { csrfToken: req.csrfToken() });
-  });
-
-  app.post("/process", parseForm, csrfProtection, function (req, res) {
-    res.send("data is being processed");
-  });
-
   // Apply rate limit middleware
   const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
