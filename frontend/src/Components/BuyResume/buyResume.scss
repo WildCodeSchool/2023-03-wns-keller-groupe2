@@ -3,11 +3,19 @@
 .buy-resume {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  background: variables.$white-color;
+  margin: 2rem auto;
+  box-shadow: 4px 4px 5px #999999;
+  padding-bottom: 2rem;
+  border-radius: 10px;
+  padding-top: 0;
 }
 
 .bike-picture-list {
   display: flex;
   flex-direction: row;
+  margin: 0 0.5rem;
 }
 
 .bike-picture {

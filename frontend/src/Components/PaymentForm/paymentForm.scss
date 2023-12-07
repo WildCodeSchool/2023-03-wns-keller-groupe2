@@ -1,21 +1,9 @@
 @use "../../../src/variables.scss";
 
-.input-wrapper {
-  position: relative;
-  width: 100%;
-}
-
 .form-input {
   padding-right: 40px;
 }
 
-.icon {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
 .style-form {
   background: variables.$white-color;
   width: 22rem;
@@ -25,15 +13,6 @@
   padding-bottom: 2rem;
   border-radius: 10px;
   padding-top: 0;
-}
-.form-title {
-  height: 2rem;
-  font-size: 1rem;
-  background-color: variables.$darkblue-color;
-  color: variables.$white-color;
-  padding: 1rem 0 0 0;
-  border-radius: 10px 10px 0 0;
-  margin-top: 0;
 }
 
 .form-input {
@@ -61,4 +40,10 @@
   background-color: variables.$lightblue-color;
   color: variables.$darkblue-color;
   cursor: pointer;
+}
+
+.payment-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
