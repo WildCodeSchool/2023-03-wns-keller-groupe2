@@ -47,7 +47,7 @@ describe("CardProduct", () => {
   it("should render loading state", () => {
     render(
       <MockedProvider mocks={mocks} addTypename={false}>
-        <CardProduct />
+        <CardProduct category="electrique" />
       </MockedProvider>
     );
     expect(screen.getByText("Loading..."));
@@ -62,7 +62,7 @@ describe("CardProduct", () => {
     };
     render(
       <MockedProvider mocks={[errorMock]} addTypename={false}>
-        <CardProduct />
+        <CardProduct category="electrique" />
       </MockedProvider>
     );
     const errorElement = await screen.findByText("Error : An error occurred");
@@ -72,7 +72,7 @@ describe("CardProduct", () => {
   it("should render product cards", async () => {
     render(
       <MockedProvider mocks={mocks} addTypename={false}>
-        <CardProduct />
+        <CardProduct category="electrique" />
       </MockedProvider>
     );
     expect(true).toBe(true);
