@@ -2,7 +2,7 @@ import CardProduct from "../../Components/CardProduct/CardProduct";
 import SideFilter from "../../Components/sideFilter/SideFilter";
 import "./vtt.scss";
 
-export default function VTT() {
+export default function Vtt() {
   return (
     <div className="bike-display">
       <SideFilter />
