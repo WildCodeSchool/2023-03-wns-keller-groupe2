@@ -7,10 +7,8 @@ interface ProductId {
 
 export default function ButtonMoreInfo({ id }: ProductId) {
   return (
-    <>
-      <Link to={`/moreinfoaboutbike/${id}`} className="button-more-info">
-        Plus d'infos
-      </Link>
-    </>
+    <Link to={`/moreinfoaboutbike/${id}`} className="button-more-info">
+      Plus d'infos
+    </Link>
   );
 }
