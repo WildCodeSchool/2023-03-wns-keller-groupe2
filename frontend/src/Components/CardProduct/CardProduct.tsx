@@ -39,20 +39,13 @@ export default function CardProduct({ category }: CardProductProps) {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
-  console.log("props", category);
-  console.log("fetch ", data.getAllBike.bikeCategoriesId.name);
+
   return (
     <div className="cardproduct-container">
       <div className="cardproduct-grid">
         {data.getAllBike
           .filter((product: Product) => {
-            if (product.bikeCategoriesId.name !== category) {
-              console.log(false);
-              return false;
-            } else {
-              console.log(true);
-              return true;
-            }
+            return product.bikeCategoriesId[0].name === category;
           })
           .map((product: Product) => (
             <div className="cardproduct" key={product.id}>

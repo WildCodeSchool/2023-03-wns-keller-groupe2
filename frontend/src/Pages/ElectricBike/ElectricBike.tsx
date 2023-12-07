@@ -1,4 +1,3 @@
-import { useState } from "react";
 import CardProduct from "../../Components/CardProduct/CardProduct";
 import SideFilter from "../../Components/sideFilter/SideFilter";
 import { useLocation } from "react-router-dom";
@@ -11,15 +10,25 @@ export default function ElectricBike() {
 
   if (location.pathname === "/veloElec") {
     category = "electrique";
-    console.log(category);
 
     return (
       <div className="bike-display">
         <SideFilter />
         <div className="bike-parent-title-card">
-          <h1 className="bike-title">{category.toUpperCase()}s</h1>
+          <h1 className="bike-title">{category.toUpperCase()}</h1>
           <div className="bike-card">
-            {category ? <CardProduct category={category} /> : <MessageError />}
+            <CardProduct category={category} />
+          </div>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="bike-display">
+        <SideFilter />
+        <div className="bike-parent-title-card">
+          <div className="bike-card">
+            <MessageError />
           </div>
         </div>
       </div>
