@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SideFilter from "../../Components/sideFilter/SideFilter";
-import "./accessories.scss";
 import MessageError from "../../Components/MessageError/MessageError";
+import "./accessories.scss";
 
 export default function Accessories() {
   const [

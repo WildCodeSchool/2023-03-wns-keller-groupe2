@@ -10,28 +10,16 @@ export default function VintageBike() {
 
   if (location.pathname === "/vintageBike") {
     category = "vélos vintage";
-
-    return (
-      <div className="bike-display">
-        <SideFilter />
-        <div className="bike-parent-title-card">
-          <h1 className="bike-title">{category.toUpperCase()}</h1>
-          <div className="bike-card">
-            <CardProduct category={category} />
-          </div>
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className="bike-display">
-        <SideFilter />
-        <div className="bike-parent-title-card">
-          <div className="bike-card">
-            <MessageError />
-          </div>
-        </div>
-      </div>
-    );
   }
+  return (
+    <div className="bike-display">
+      <SideFilter />
+      <div className="bike-parent-title-card">
+        <h1 className="bike-title">{category.toUpperCase()}</h1>
+        <div className="bike-card">
+          <CardProduct category={category} />
+        </div>
+      </div>
+    </div>
+  );
 }
