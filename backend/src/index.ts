@@ -2,8 +2,6 @@ import "dotenv/config";
 import "reflect-metadata";
 import * as jwt from "jsonwebtoken";
 import express from "express";
-import cookieParser from "cookie-parser";
-import csrf from "csurf";
 import rateLimit from "express-rate-limit";
 import { buildSchema } from "type-graphql";
 import { ApolloServer } from "apollo-server-express";
@@ -60,9 +58,6 @@ const start = async (): Promise<void> => {
 
   // create express app
   const app = express();
-
-  // we need this because "cookie" is true in csrfProtection
-  app.use(cookieParser());
 
   // Apply rate limit middleware
   const limiter = rateLimit({
