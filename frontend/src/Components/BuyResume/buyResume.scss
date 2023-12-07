@@ -1,0 +1,40 @@
+@use "../../../src/variables.scss";
+
+.buy-resume {
+  display: flex;
+  flex-direction: column;
+}
+
+.bike-picture-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.bike-picture {
+  margin: 0.5rem;
+}
+
+.tenant-name,
+.tenant-adress,
+.shop-name,
+.shop-adress {
+  margin: 0;
+}
+
+.shop-location {
+  margin-top: 1rem;
+  border: none;
+  background-color: variables.$darkblue-color;
+  color: variables.$white-color;
+  height: 2rem;
+  width: 10rem;
+  font-size: 1rem;
+  box-shadow: 4px 4px 5px #999999;
+  border-radius: 10px;
+}
+
+.shop-location:hover {
+  background-color: variables.$lightblue-color;
+  color: variables.$darkblue-color;
+  cursor: pointer;
+}
