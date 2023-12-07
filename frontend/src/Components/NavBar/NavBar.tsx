@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/Logo.png";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { VscAccount } from "react-icons/vsc";
@@ -12,14 +12,19 @@ export default function NavBar() {
   const handleMenuClick = () => {
     setIsOpen(!isOpen);
   };
+  const navigate = useNavigate();
+  
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
 
   return (
     <>
       <Menu
         width={"100%"}
         isOpen={isOpen}
-        onStateChange={({ isOpen }) => setIsOpen(isOpen)}
-      >
+        onStateChange={({ isOpen }) => setIsOpen(isOpen)}>
         <Link to="/" className="navbar-link">
           Accueil
         </Link>
@@ -43,6 +48,9 @@ export default function NavBar() {
         </Link>
         <Link to="/login" className="navbar-link">
           Mon compte
+        </Link>
+        <Link to="/" className="navbar-link">
+          Déconnexion
         </Link>
       </Menu>
 
@@ -97,6 +105,11 @@ export default function NavBar() {
             <Link to="/login" className="navbar-link">
               Mon compte
             </Link>
+          </li>
+          <li className="navbar-list navbar-list-icon">
+            <button onClick={handleLogout} className="navbar-link">
+              Déconnexion
+            </button>
           </li>
         </ul>
       </nav>
