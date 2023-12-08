@@ -13,6 +13,9 @@ const GET_ALL_BIKE = gql`
       imageId {
         url
       }
+      bikeCategoriesId {
+        name
+      }
     }
   }
 `;
@@ -29,13 +32,13 @@ const mocks = [
             id: 1,
             name: "Bike 1",
             imageId: [{ url: "https://example.com/image1.png" }],
-            price: "10$",
+            bikeCategoriesId: { name: "electrique" },
           },
           {
             id: 2,
             name: "Bike 2",
             imageId: [{ url: "https://example.com/image2.png" }],
-            price: "20$",
+            bikeCategoriesId: { name: "electrique" },
           },
         ],
       },
@@ -47,7 +50,7 @@ describe("CardProduct", () => {
   it("should render loading state", () => {
     render(
       <MockedProvider mocks={mocks} addTypename={false}>
-        <CardProduct />
+        <CardProduct category="electrique" />
       </MockedProvider>
     );
     expect(screen.getByText("Loading..."));
@@ -62,7 +65,7 @@ describe("CardProduct", () => {
     };
     render(
       <MockedProvider mocks={[errorMock]} addTypename={false}>
-        <CardProduct />
+        <CardProduct category="electrique" />
       </MockedProvider>
     );
     const errorElement = await screen.findByText("Error : An error occurred");
@@ -72,7 +75,7 @@ describe("CardProduct", () => {
   it("should render product cards", async () => {
     render(
       <MockedProvider mocks={mocks} addTypename={false}>
-        <CardProduct />
+        <CardProduct category="electrique" />
       </MockedProvider>
     );
     expect(true).toBe(true);

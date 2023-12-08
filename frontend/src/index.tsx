@@ -9,7 +9,7 @@ import RentProvider from "./services/context/rentContext";
 import Login from "./Pages/Login/Login";
 import Cart from "./Pages/Cart/Cart";
 import ElectricBike from "./Pages/ElectricBike/ElectricBike";
-import VTT from "./Pages/Vtt/Vtt";
+import Vtt from "./Pages/Vtt/Vtt";
 import ProBike from "./Pages/ProBike/ProBike";
 import VintageBike from "./Pages/VintageBike/VintageBike";
 import Accessories from "./Pages/Accessories/Accessories";
@@ -20,10 +20,10 @@ import Contact from "./Pages/Contact/Contact";
 import Rgpd from "./Pages/Rgpd/Rgpd";
 import CartStepTwo from "./Pages/CartStepTwo/CartStepTwo";
 import CartStepThree from "./Pages/CartStepThree/CartStepThree";
-import "./index.scss";
 import OrderProvider from "./services/context/orderContext";
 import UserModify from "./Components/UserModify/UserModify";
 import ShopModify from "./Components/ShopModify/ShopModify";
+import "./index.scss";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/",
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       { path: "/cartStepTwo", element: <CartStepTwo /> },
       { path: "/cartStepThree", element: <CartStepThree /> },
       { path: "/veloElec", element: <ElectricBike /> },
-      { path: "/vtt", element: <VTT /> },
+      { path: "/vtt", element: <Vtt /> },
       { path: "/proBike", element: <ProBike /> },
       { path: "/vintageBike", element: <VintageBike /> },
       { path: "/accessories", element: <Accessories /> },

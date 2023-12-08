@@ -1,0 +1,14 @@
+@use "../../../src/variables.scss";
+
+.messageError {
+  font-family: variables.$font-family;
+  color: variables.$darkblue-color;
+  font-size: 1.5rem;
+  text-align: center;
+  min-width: 75vw;
+  max-width: 85vw;
+}
+
+.iconError {
+  font-size: 2rem;
+}
