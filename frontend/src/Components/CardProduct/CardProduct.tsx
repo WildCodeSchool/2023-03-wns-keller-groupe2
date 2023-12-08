@@ -4,6 +4,7 @@ import ButtonRent from "../ButtonRent/ButtonRent";
 import "./cardProduct.scss";
 
 interface Product {
+  bikeCategoriesId: any;
   id: number;
   name: string;
   imageId: Image[];
@@ -14,6 +15,10 @@ interface Image {
   url: string;
 }
 
+interface CardProductProps {
+  category: string;
+}
+
 const GET_ALL_BIKE = gql`
   query GetAllShop {
     getAllBike {
@@ -22,19 +27,27 @@ const GET_ALL_BIKE = gql`
       imageId {
         url
       }
+      bikeCategoriesId {
+        name
+      }
     }
   }
 `;
 
-export default function CardProduct() {
-  const { loading, error, data } = useQuery(GET_ALL_BIKE);
+export default function CardProduct({ category }: CardProductProps) {
+  const { data, loading, error } = useQuery(GET_ALL_BIKE);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
+
   return (
     <div className="cardproduct-container">
       <div className="cardproduct-grid">
-        {data.getAllBike.map((product: Product) => {
-          return (
+        {data.getAllBike
+          .filter((product: Product) => {
+            return product.bikeCategoriesId[0].name === category;
+          })
+          .map((product: Product) => (
             <div className="cardproduct" key={product.id}>
               <img
                 src={product.imageId[0].url}
@@ -56,8 +69,7 @@ export default function CardProduct() {
                 </div>
               </div>
             </div>
-          );
-        })}
+          ))}
       </div>
     </div>
   );
