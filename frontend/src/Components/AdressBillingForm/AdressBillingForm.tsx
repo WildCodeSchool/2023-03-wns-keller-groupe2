@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { BillingContext } from "../../services/context/billlingContext";
 import "./AdressBillingForm.scss";
 
 export default function AdressBillingForm() {
+  const billingContext = useContext(BillingContext);
   const [adressBilling, setAdressBilling] = useState({
     adress: "",
     additionalAddress: "",
@@ -18,6 +20,14 @@ export default function AdressBillingForm() {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log(adressBilling);
+    if (billingContext) {
+      billingContext.setBilling({
+        adress: adressBilling.adress,
+        additionnalAdress: adressBilling.additionalAddress,
+        zipCode: adressBilling.zipCode,
+        city: adressBilling.city,
+      });
+    }
     navigate("/cartStepFour");
   };
 
