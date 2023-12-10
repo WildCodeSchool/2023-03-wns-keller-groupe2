@@ -1,10 +1,13 @@
-import FormAdress from "../../Components/FormAdress/FormAdress";
+import AdressBillingForm from "../../Components/AdressBillingForm/AdressBillingForm";
+import BuyProgressBar from "../../Components/BuyProgressBar/BuyProgressBar";
+import "./CartStepThree.scss";
 
 export default function CartStepThree() {
   return (
     <section className="cart-step-three">
-      <h2>Lieu de récupération</h2>
-      <FormAdress />
+      <BuyProgressBar />
+      <h2>Adresse de facturation</h2>
+      <AdressBillingForm />
     </section>
   );
 }
