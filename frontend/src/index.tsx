@@ -6,6 +6,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import UserProvider from "./services/context/userContext";
 import RentProvider from "./services/context/rentContext";
+import BillingProvider from "./services/context/billlingContext";
 import Login from "./Pages/Login/Login";
 import Cart from "./Pages/Cart/Cart";
 import ElectricBike from "./Pages/ElectricBike/ElectricBike";
@@ -65,7 +66,9 @@ root.render(
       <UserProvider>
         <RentProvider>
           <OrderProvider>
-            <RouterProvider router={router} />
+            <BillingProvider>
+              <RouterProvider router={router} />
+            </BillingProvider>
           </OrderProvider>
         </RentProvider>
       </UserProvider>

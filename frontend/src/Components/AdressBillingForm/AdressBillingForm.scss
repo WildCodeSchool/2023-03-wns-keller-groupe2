@@ -1,0 +1,48 @@
+@use "../../../src/variables.scss";
+
+.style-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: variables.$white-color;
+  width: 22rem;
+  margin: 2rem auto;
+  box-shadow: 4px 4px 5px #999999;
+  padding-bottom: 2rem;
+  border-radius: 10px;
+  padding-top: 0;
+}
+
+.form-input {
+  margin: 20px 0px;
+  width: 18rem;
+  padding-right: 40px;
+  border: none;
+  padding: 0.25rem 0;
+  border-bottom: solid 1px variables.$darkblue-color;
+  color: variables.$darkblue-color;
+  background-color: variables.$white-color;
+}
+
+.form-button {
+  border: none;
+  background-color: variables.$darkblue-color;
+  color: variables.$white-color;
+  height: 2rem;
+  width: 10rem;
+  font-size: 1rem;
+  box-shadow: 4px 4px 5px #999999;
+  border-radius: 10px;
+}
+
+.form-button:hover {
+  background-color: variables.$lightblue-color;
+  color: variables.$darkblue-color;
+  cursor: pointer;
+}
+
+.form-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
