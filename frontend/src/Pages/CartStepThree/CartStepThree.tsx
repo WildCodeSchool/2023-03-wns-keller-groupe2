@@ -1,6 +1,6 @@
 import AdressBillingForm from "../../Components/AdressBillingForm/AdressBillingForm";
 import BuyProgressBar from "../../Components/BuyProgressBar/BuyProgressBar";
-import "./CartStepThree.scss";
+import "./cartStepThree.scss";
 
 export default function CartStepThree() {
   return (

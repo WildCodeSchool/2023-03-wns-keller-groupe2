@@ -47,14 +47,23 @@ export default function FormAdress() {
   console.log(orderContext?.order);
 
   return (
-    <form className="form-adress" onSubmit={handleSubmit}>
+    <form className="style-form" onSubmit={handleSubmit}>
       <label htmlFor="dateOfStart" className="adress-form-label">
         Date de départ
-        <input type="date" name="dateOfStart" onChange={handleChange} />
+        <input
+          type="date"
+          name="dateOfStart"
+          onChange={handleChange}
+          className="form-input"
+        />
       </label>
       <label htmlFor="locationOfStart" className="adress-form-label">
         Magasin de récupération
-        <select name="locationOfStart" onChange={handleChange}>
+        <select
+          name="locationOfStart"
+          onChange={handleChange}
+          className="form-input"
+        >
           <option value="">--Choisissez le magasin</option>
           {data.getAllShop.map((shop: Shop) => {
             return <option value={shop.location}>{shop.name}</option>;
@@ -63,18 +72,27 @@ export default function FormAdress() {
       </label>
       <label htmlFor="dateOfEnd" className="adress-form-label">
         Date de fin
-        <input type="date" name="dateOfEnd" onChange={handleChange} />
+        <input
+          type="date"
+          name="dateOfEnd"
+          onChange={handleChange}
+          className="form-input"
+        />
       </label>
       <label htmlFor="locationOfEnd" className="adress-form-label">
         Magasin de retour
-        <select name="locationOfEnd" onChange={handleChange}>
+        <select
+          name="locationOfEnd"
+          onChange={handleChange}
+          className="form-input"
+        >
           <option value="">--Choisissez le magasin</option>
           {data.getAllShop.map((shop: Shop) => {
             return <option value={shop.location}>{shop.name}</option>;
           })}
         </select>
       </label>
-      <input type="submit" value="Etape suivante" />
+      <input type="submit" value="Etape suivante" className="form-button" />
     </form>
   );
 }
