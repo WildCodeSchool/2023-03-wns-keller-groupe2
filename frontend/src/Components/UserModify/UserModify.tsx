@@ -78,6 +78,8 @@ export default function UserModify() {
     updateUser({ variables: { ...newUser, userId } });
   };
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error </p>;
   return (
     <section>
       <h1>Modification de l'utilisateur</h1>

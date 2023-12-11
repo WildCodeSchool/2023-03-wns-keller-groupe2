@@ -41,7 +41,7 @@ export default function FormAdress() {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    navigate("/cartPaymentStage");
+    navigate("/cart/payment");
   };
 
   console.log(orderContext?.order);
