@@ -20,7 +20,7 @@ import Home from "./Pages/Home/Home";
 import Contact from "./Pages/Contact/Contact";
 import Rgpd from "./Pages/Rgpd/Rgpd";
 import CartStepTwo from "./Pages/CartStepTwo/CartStepTwo";
-import CartStepThree from "./Pages/CartStepThree/CartStepThree";
+import CartStepFour from "./Pages/CartStepFour/CartStepFour";
 import OrderProvider from "./services/context/orderContext";
 import UserModify from "./Components/UserModify/UserModify";
 import ShopModify from "./Components/ShopModify/ShopModify";
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/cart", element: <Cart /> },
       { path: "/cartStepTwo", element: <CartStepTwo /> },
-      { path: "/cartStepThree", element: <CartStepThree /> },
+      { path: "/cartStepFour", element: <CartStepFour /> },
       { path: "/veloElec", element: <ElectricBike /> },
       { path: "/vtt", element: <Vtt /> },
       { path: "/proBike", element: <ProBike /> },
