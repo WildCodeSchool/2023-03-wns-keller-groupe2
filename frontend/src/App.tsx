@@ -8,7 +8,11 @@ function App() {
 
   return (
     <>
-      {location.pathname === "/" ? "" : <NavBar />}
+      {location.pathname === "/" || location.pathname === "/admin" ? (
+        ""
+      ) : (
+        <NavBar />
+      )}
       <main>
         <Outlet />
       </main>
