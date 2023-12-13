@@ -7,7 +7,23 @@ import {
   Image,
   useWindowDimensions,
 } from "react-native";
+import { useQuery, gql } from "@apollo/client";
 import Swiper from "react-native-swiper";
+
+const GET_BIKES = gql`
+  query GetAllBike {
+    getAllBike {
+      id
+      name
+      imageId {
+        url
+      }
+      bikeCategoriesId {
+        name
+      }
+    }
+  }
+`;
 
 function ColoredScreen({ children }) {
   return (
@@ -26,11 +42,13 @@ function ColoredScreen({ children }) {
 
 export function BikeScreen() {
   const windowDimensions = useWindowDimensions();
+  const { data } = useQuery(GET_BIKES);
+  console.log(data);
   return (
     <ScrollView style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
         {/* Premier Swiper */}
-        <Text>Electric Bike</Text>
+        <Text>Vélo électrique</Text>
         <Swiper
           style={[styles.wrapper, { height: windowDimensions.height * 0.26 }]} // Utilisez la hauteur de l'écran pour définir la hauteur du Swiper
           showsButtons={false}
@@ -38,22 +56,31 @@ export function BikeScreen() {
           dotStyle={styles.paginationDot}
           activeDotStyle={styles.activePaginationDot}
         >
+          {data.GetAllBike.filter(
+            (bike) => bike.bikeCategoriesId.name === "Vélo électrique"
+          ).map((bike) =>
+            console.log(bike)(
+              <ColoredScreen>
+                <Text>{bike.name}</Text>
+                <Image
+                  source={bike.imageId[0].url}
+                  style={{
+                    maxWidth: "100%",
+                    maxHeight: "100%",
+                    margin: "5%",
+                  }}
+                />
+              </ColoredScreen>
+            )
+          )}
+
           <ColoredScreen>
-            <Text>BikeScreen 1.1</Text>
-            <Image
-              source={require("../assets/bicycle.png")}
-              style={{ maxWidth: "100%", maxHeight: "100%", margin: "5%" }}
-            />
-          </ColoredScreen>
-          <ColoredScreen>
-            <Text>BikeScreen 1.2</Text>
             <Image
               source={require("../assets/bike.png")}
               style={{ maxWidth: "100%", maxHeight: "100%", margin: "5%" }}
             />
           </ColoredScreen>
           <ColoredScreen>
-            <Text>BikeScreen 1.3</Text>
             <Image
               source={require("../assets/bicycle.png")}
               style={{ maxWidth: "100%", maxHeight: "100%", margin: "5%" }}
@@ -62,7 +89,7 @@ export function BikeScreen() {
         </Swiper>
 
         {/* Deuxième Swiper */}
-        <Text>Vintage Bike</Text>
+        <Text>VTT</Text>
         <Swiper
           style={[styles.wrapper, { height: windowDimensions.height * 0.26 }]}
           showsButtons={false}
@@ -71,21 +98,18 @@ export function BikeScreen() {
           activeDotStyle={styles.activePaginationDot}
         >
           <ColoredScreen>
-            <Text>BikeScreen 1.3</Text>
             <Image
               source={require("../assets/bicycle.png")}
               style={{ maxWidth: "100%", maxHeight: "100%", margin: "5%" }}
             />
           </ColoredScreen>
           <ColoredScreen>
-            <Text>BikeScreen 1.3</Text>
             <Image
               source={require("../assets/bicycle.png")}
               style={{ maxWidth: "100%", maxHeight: "100%", margin: "5%" }}
             />
           </ColoredScreen>
           <ColoredScreen>
-            <Text>BikeScreen 1.3</Text>
             <Image
               source={require("../assets/bicycle.png")}
               style={{ maxWidth: "100%", maxHeight: "100%", margin: "5%" }}
@@ -94,7 +118,7 @@ export function BikeScreen() {
         </Swiper>
 
         {/* Troisième Swiper */}
-        <Text>Professional Bike</Text>
+        <Text>Vélo professionnel</Text>
         <Swiper
           style={[styles.wrapper, { height: windowDimensions.height * 0.26 }]}
           showsButtons={false}
@@ -123,7 +147,34 @@ export function BikeScreen() {
         </Swiper>
 
         {/* Quatriéme Swiper */}
-        <Text>Mountain Bike</Text>
+        <Text>Vélo Vintage</Text>
+        <Swiper
+          style={[styles.wrapper, { height: windowDimensions.height * 0.26 }]}
+          showsButtons={false}
+          showsPagination={true}
+          dotStyle={styles.paginationDot}
+          activeDotStyle={styles.activePaginationDot}
+        >
+          <ColoredScreen>
+            <Image
+              source={require("../assets/bicycle.png")}
+              style={{ maxWidth: "100%", maxHeight: "100%", margin: "5%" }}
+            />
+          </ColoredScreen>
+          <ColoredScreen>
+            <Image
+              source={require("../assets/bicycle.png")}
+              style={{ maxWidth: "100%", maxHeight: "100%", margin: "5%" }}
+            />
+          </ColoredScreen>
+          <ColoredScreen>
+            <Image
+              source={require("../assets/bicycle.png")}
+              style={{ maxWidth: "100%", maxHeight: "100%", margin: "5%" }}
+            />
+          </ColoredScreen>
+        </Swiper>
+        <Text>Accessoires</Text>
         <Swiper
           style={[styles.wrapper, { height: windowDimensions.height * 0.26 }]}
           showsButtons={false}
