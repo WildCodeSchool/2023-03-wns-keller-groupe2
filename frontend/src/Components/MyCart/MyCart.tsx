@@ -3,8 +3,8 @@ import { BiMinus } from "react-icons/bi";
 import { useState, useContext } from "react";
 import { RentContext } from "../../services/context/rentContext";
 import { gql, useQuery } from "@apollo/client";
-import "./style.scss";
 import CardError from "../CardError/CardError";
+import "./style.scss";
 
 const GET_BIKE_BY_ID = gql`
   query GetAllBike($getBikeById: Float!) {
@@ -32,9 +32,12 @@ export default function MyCart({ setSum }: setSumProps) {
   const { loading, error, data } = useQuery(GET_BIKE_BY_ID, {
     variables: { getBikeById: rentContext?.rent.id },
   });
+
   if (loading) return <p>Loading ...</p>;
   if (error) return <CardError />;
+
   setSum(data.getBikeById.price);
+
   return (
     <div className="myCart">
       <img src={data.getBikeById.imageId[0].url} alt={data.getBikeById.name} />
@@ -51,8 +54,7 @@ export default function MyCart({ setSum }: setSumProps) {
           type="button"
           onClick={() => {
             setCount(count + 1);
-          }}
-        >
+          }}>
           <BsPlusLg />
         </button>
         <p className="productCount">{count}</p>
@@ -61,8 +63,7 @@ export default function MyCart({ setSum }: setSumProps) {
           type="button"
           onClick={() => {
             setCount(count - 1);
-          }}
-        >
+          }}>
           <BiMinus />
         </button>
         <button className="deletButton" type="button">

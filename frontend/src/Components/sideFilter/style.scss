@@ -72,3 +72,9 @@
 //     font-family: variables.$font-family;
 //   }
 // }
+
+@media (max-width: 850px) {
+  .sideFilter {
+    display: none;
+  }
+}

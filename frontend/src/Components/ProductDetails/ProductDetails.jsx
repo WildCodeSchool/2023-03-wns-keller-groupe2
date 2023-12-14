@@ -1,4 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
+import ButtonRent from "../ButtonRent/ButtonRent";
+import IconBack from "../IconBack/IconBack";
 import "./style.scss";
 
 const GET_BIKE_BY_ID = gql`
@@ -24,21 +26,25 @@ export default function ProductDetails({ id }) {
   });
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-  console.log(data);
+
   return (
-    <section className="productDetail">
-      <article className="productIllustration">
-        <img
-          className="porductIllustration"
-          src={data.getBikeById.imageId[0].url}
-          alt="Vélo hollandais"
-        />
-      </article>
-      <article className="productDescription">
-        <h2>{data.getBikeById.name}</h2>
-        <p>Cadre de type: {data.getBikeById.gender}</p>
-        <p>{data.getBikeById.description}</p>
-      </article>
-    </section>
+    <div>
+      <IconBack />
+      <section className="productDetail">
+        <article className="productIllustration">
+          <img src={data.getBikeById.imageId[0].url} alt="Vélo hollandais" />
+        </article>
+        <article className="productDescription">
+          <h2>{data.getBikeById.name}</h2>
+          <p>Cadre de type: {data.getBikeById.gender}</p>
+          <p>{data.getBikeById.description}</p>
+        </article>
+        <div>
+          <div className="button-rent">
+            <ButtonRent id={newId} />
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

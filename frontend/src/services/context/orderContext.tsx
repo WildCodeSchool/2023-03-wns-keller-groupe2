@@ -5,9 +5,9 @@ interface ProviderProps {
 }
 
 interface Order {
-  locationOfStart: Date | null;
+  locationOfStart: string | null;
   dateOfStart: string | null;
-  locationOfEnd: Date | null;
+  locationOfEnd: string | null;
   dateOfEnd: string | null;
 }
 

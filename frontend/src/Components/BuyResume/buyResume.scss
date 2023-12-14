@@ -5,11 +5,36 @@
   flex-direction: column;
   align-items: center;
   background: variables.$white-color;
-  margin: 2rem auto;
+  margin: 2rem 2rem;
   box-shadow: 4px 4px 5px #999999;
-  padding-bottom: 2rem;
+  padding: 2rem;
   border-radius: 10px;
   padding-top: 0;
+  h2 {
+    text-align: center;
+  }
+}
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.section-container-shop-end,
+.section-container-shop-start {
+  display: flex;
+  flex: column;
+}
+
+.shop-start,
+.shop-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0.5rem;
 }
 
 .bike-picture-list {
@@ -45,4 +70,10 @@
   background-color: variables.$lightblue-color;
   color: variables.$darkblue-color;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .buy-resume {
+    flex-direction: column;
+  }
 }

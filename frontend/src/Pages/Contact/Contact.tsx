@@ -4,6 +4,7 @@ import "./contact.scss";
 
 import { useRef } from "react";
 import CustomForm from "../../Components/CustomForm/CustomForm";
+import IconBack from "../../Components/IconBack/IconBack";
 
 export default function Contact() {
   const form = useRef<HTMLFormElement>(null);
@@ -27,18 +28,21 @@ export default function Contact() {
     e.target.reset();
   };
   return (
-    <div className="contact-padding">
-      <CustomForm
-        ref={form}
-        onSubmit={sendEmail}
-        title="Contactez-nous !"
-        buttonText="Envoyer"
-        fields={[
-          { type: "text", placeholder: "Nom" },
-          { type: "email", placeholder: "E-mail" },
-          { type: "textarea", placeholder: "Message" },
-        ]}
-      />
+    <div>
+      <IconBack />
+      <div className="contact-padding">
+        <CustomForm
+          ref={form}
+          onSubmit={sendEmail}
+          title="Contactez-nous !"
+          buttonText="Envoyer"
+          fields={[
+            { type: "text", placeholder: "Nom" },
+            { type: "email", placeholder: "E-mail" },
+            { type: "textarea", placeholder: "Message" },
+          ]}
+        />
+      </div>
     </div>
   );
 }
