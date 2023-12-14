@@ -1,0 +1,13 @@
+.icon-back {
+  display: none;
+}
+
+@media (max-width: 850px) {
+  .icon-back {
+    display: flex;
+    font-size: 2rem;
+    margin: 2rem;
+    align-items: flex-start;
+    text-align: left;
+  }
+}

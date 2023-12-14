@@ -12,7 +12,7 @@
 .cardproduct-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 2fr);
+  grid-auto-rows: minmax(20rem, auto);
   grid-gap: 5px;
 }
 
@@ -38,9 +38,11 @@
   justify-content: center;
 }
 .cardproduct-margin-button {
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 .cardproduct-name {
+  text-transform: uppercase;
+  font-weight: bold;
   max-width: 10rem;
   padding-right: 1rem;
 }
@@ -48,5 +50,15 @@
 @media screen and (max-width: 768px) {
   .cardproduct-grid {
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-gap: 5px;
+  }
+
+  .cardproduct {
+    min-width: 10rem;
+  }
+
+  .cardproduct-image {
+    width: 10rem;
+    margin-bottom: 1rem;
   }
 }

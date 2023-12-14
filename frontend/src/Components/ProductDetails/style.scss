@@ -3,10 +3,33 @@
   flex-direction: row;
 }
 
-.porductIllustration {
+.productIllustration {
   margin: 3rem;
 }
 
 .productDescription {
   margin: 3rem;
+}
+.button-rent {
+  text-align: center;
+}
+@media (max-width: 850px) {
+  .productIllustration {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    img {
+      max-width: 10rem;
+      align-items: center;
+    }
+    .productDescription {
+      align-items: center;
+      margin: 1rem;
+    }
+  }
+  .productDetail {
+    flex-direction: column;
+  }
 }

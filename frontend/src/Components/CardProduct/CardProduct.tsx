@@ -65,7 +65,7 @@ export default function CardProduct({ category }: CardProductProps) {
                   </div>
                   <div>
                     <ButtonRent id={product.id} />
-                  </div>
+                  </div>{" "}
                 </div>
               </div>
             </div>
