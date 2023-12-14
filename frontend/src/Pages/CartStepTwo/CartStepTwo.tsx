@@ -14,11 +14,12 @@ export default function CartStepTwo() {
       ) : (
         <section className="connexion">
           <header>
-            <h2>Connexion</h2>
             <p>Veuillez vous connecter a votre compte</p>
           </header>
           <LoginForm />
-          <Link to="/login">Se créer un compte</Link>
+          <Link to="/login" className="button-more-info">
+            Se créer un compte
+          </Link>
         </section>
       )}
     </>

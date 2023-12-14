@@ -23,10 +23,13 @@ export default function MySum({ sum }: Sum) {
         <h4>{totalToPay} €</h4>
       </article>
       <article className="actionButton">
-        <Link to="/" className="mySumActionButton">
+        <Link to="/" className="mySumActionButton button-more-info">
           Continuer mes achats
         </Link>
-        <Link to="/cartStepTwo" className="mySumActionButton" type="button">
+        <Link
+          to="/cartStepTwo"
+          className="mySumActionButton button-more-info"
+          type="button">
           Commander
         </Link>
       </article>

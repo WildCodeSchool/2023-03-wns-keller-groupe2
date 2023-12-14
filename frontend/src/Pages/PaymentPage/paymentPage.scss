@@ -4,3 +4,11 @@
   justify-content: space-around;
   align-items: center;
 }
+
+@media screen and (max-width: 768px) {
+  .payment-resume {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
