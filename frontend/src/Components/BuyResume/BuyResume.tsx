@@ -14,9 +14,9 @@ export default function BuyResume() {
     return null;
   }
 
-  const { user, setUser } = userContext;
-  const { billing, setBilling } = billingContext;
-  const { order, setOrder } = orderContext;
+  const { user } = userContext;
+  const { billing } = billingContext;
+  const { order } = orderContext;
 
   return (
     <article className="buy-resume">
