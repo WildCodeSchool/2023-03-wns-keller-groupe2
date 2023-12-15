@@ -1,3 +1,31 @@
 @use "../../../src/variables.scss";
 
-@use "../ElectricBike/electricBike.scss";
+.accessories-display {
+  display: flex;
+  flex-direction: row;
+}
+
+.accessories-parent-title-card {
+  min-width: 75vw;
+  max-width: 85vw;
+  min-height: 72vmin;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.accessories-title {
+  font-family: variables.$font-family;
+  color: variables.$darkblue-color;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.accessories-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
