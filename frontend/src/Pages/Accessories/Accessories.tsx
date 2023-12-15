@@ -15,11 +15,11 @@ export default function Accessories() {
   //   setHasError(true);
   // };
   return (
-    <div className="bike-display">
+    <div className="accessories-display">
       <SideFilter />
-      <div className="bike-parent-title-card">
-        <h1 className="bike-title">Accessoires</h1>
-        <div className="bike-card">
+      <div className="accessories-parent-title-card">
+        <h1 className="accessories-title">Accessoires</h1>
+        <div className="accessories-card">
           {hasError ? <MessageError /> : <MessageError />}
         </div>
       </div>
