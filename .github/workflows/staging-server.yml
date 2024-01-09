@@ -1,4 +1,4 @@
-# .github/workflows/staging-server.yml
+# .github/workflows/staging-client.yml
 name: Compile and push server image for staging
 
 # Controls when the workflow will run
@@ -20,6 +20,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # login with Docker
       - uses: docker/login-action@v1
         name: Login to Docker Hub
         with:
@@ -38,4 +41,4 @@ jobs:
           context: ./backend
           file: ./backend/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_SERVER_IMAGE_NAME }}:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_CLIENT_IMAGE_NAME }}:latest
