@@ -3,6 +3,7 @@ name: Compile and push client image
 on:
   push:
     branches: ["satging"]
+
   workflow_dispach:
 
 jobs:
