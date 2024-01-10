@@ -10,7 +10,6 @@ export default function Vtt() {
 
   if (location.pathname === "/vtt") {
     category = "vtt";
-    console.log(category);
   }
   return (
     <div>

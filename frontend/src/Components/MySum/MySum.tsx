@@ -4,18 +4,13 @@ import "./style.scss";
 import { Sum } from "../../Pages/Cart/Cart";
 
 export default function MySum({ sum }: Sum) {
-  const totalToPay = sum + 200;
+  const totalToPay = sum;
 
   return (
     <section className="mySum">
       <article className="totalTtc">
         <h4>Total produit TTC:</h4>
         <h4>{sum} €</h4>
-      </article>
-      <div className="sumPartition"></div>
-      <article className="totalShippingCosts">
-        <h4>Total frais de port</h4>
-        <h4>200 €</h4>
       </article>
       <div className="sumPartition"></div>
       <article className="sum">

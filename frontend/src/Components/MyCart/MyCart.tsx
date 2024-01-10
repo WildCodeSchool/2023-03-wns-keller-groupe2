@@ -40,7 +40,7 @@ export default function MyCart({ setSum }: setSumProps) {
 
   return (
     <div className="myCart">
-      <img src={data.getBikeById.imageId[0].url} alt={data.getBikeById.name} />
+      <img className="image-mycart" src={data.getBikeById.imageId[0].url} alt={data.getBikeById.name} />
       <section className="productInfo">
         <h4 className="productName">{data.getBikeById.name}</h4>
         <p className="dateOfRent">Date de location: 12/05 au 15/05</p>
