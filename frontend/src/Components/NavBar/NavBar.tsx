@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../../assets/Logo.png";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { VscAccount } from "react-icons/vsc";
@@ -11,12 +11,6 @@ export default function NavBar() {
 
   const handleMenuClick = () => {
     setIsOpen(!isOpen);
-  };
-  const navigate = useNavigate();
-  
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/login");
   };
 
   return (
@@ -47,7 +41,7 @@ export default function NavBar() {
           Mon panier
         </Link>
         <Link to="/login" className="navbar-link">
-          Mon compte
+          Se connecter / S'inscrire
         </Link>
         <Link to="/" className="navbar-link">
           Déconnexion
@@ -91,25 +85,18 @@ export default function NavBar() {
             </Link>
           </li>
           <li className="navbar-list navbar-list-icon">
-            <div className="navbar-icon">
-              <AiOutlineShoppingCart />
-            </div>
             <Link to="/cart" className="navbar-link">
-              Mon panier
+              <div className="navbar-icon">
+                <AiOutlineShoppingCart />
+              </div>
             </Link>
           </li>
           <li className="navbar-list navbar-list-icon">
-            <div className="navbar-icon">
-              <VscAccount />
-            </div>
             <Link to="/login" className="navbar-link">
-              Mon compte
+              <div className="navbar-icon">
+                <VscAccount />
+              </div>
             </Link>
-          </li>
-          <li className="navbar-list navbar-list-icon">
-            <button onClick={handleLogout} className="navbar-link">
-              Déconnexion
-            </button>
           </li>
         </ul>
       </nav>
