@@ -10,6 +10,7 @@ import ShopResolver from "./resolver/ShopResolver";
 import UsersResolver from "./resolver/UsersResolver";
 import RentResolver from "./resolver/RentResolver";
 import BikeCategoriesResolver from "./resolver/BikeCategoriesResolver";
+import ImageResolver from "./resolver/ImageResolver";
 
 const start = async (): Promise<void> => {
   await dataSource.initialize();
@@ -22,6 +23,7 @@ const start = async (): Promise<void> => {
       RentResolver,
       UsersResolver,
       BikeCategoriesResolver,
+      ImageResolver,
     ],
     authChecker: ({ context }) => {
       console.log("context from authChecker", context);
