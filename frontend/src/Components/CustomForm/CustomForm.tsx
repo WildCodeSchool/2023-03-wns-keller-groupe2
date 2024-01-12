@@ -4,7 +4,8 @@ import "./customForm.scss";
 
 interface Field {
   type: string;
-  placeholder: string;
+  placeholder?: string;
+  label?: string;
   isPassword?: boolean;
   options?: string[];
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -12,13 +13,27 @@ interface Field {
 
 interface CustomFormProps {
   onSubmit: (e: React.FormEvent) => void;
+  secondOnSubmit?: (e: React.MouseEvent) => void;
   title: string;
   fields: Field[];
   buttonText: string;
+  secondButtonText?: string;
+  buttonType?: "button" | "submit";
 }
 
 const CustomForm = React.forwardRef<HTMLFormElement, CustomFormProps>(
-  ({ onSubmit, title, fields, buttonText }, ref) => {
+  (
+    {
+      onSubmit,
+      secondOnSubmit,
+      title,
+      fields,
+      buttonText,
+      secondButtonText,
+      buttonType,
+    },
+    ref
+  ) => {
     const [showPassword, setShowPassword] = useState(false);
     const [password, setPassword] = useState("");
 
@@ -53,16 +68,30 @@ const CustomForm = React.forwardRef<HTMLFormElement, CustomFormProps>(
             );
           }
           return (
-            <input
-              key={index}
-              className="form-input"
-              placeholder={field.placeholder}
-              type={field.type}
-              onChange={field.onChange}
-            />
+            <div key={index}>
+              {field.label && <label>{field.label}</label>}
+              <input
+                className="form-input"
+                placeholder={field.placeholder}
+                type={field.type}
+                onChange={field.onChange}
+              />
+            </div>
           );
         })}
-        <button className="form-button">{buttonText}</button>
+        <div className="form-button-container">
+          <button type="submit" className="form-button-first">
+            {buttonText}
+          </button>
+          {secondButtonText && (
+            <button
+              type="button"
+              className="form-button-second"
+              onClick={(e) => secondOnSubmit && secondOnSubmit(e)}>
+              {secondButtonText}
+            </button>
+          )}
+        </div>
       </form>
     );
   }
