@@ -21,7 +21,7 @@
     "react-router-dom": "^6.12.0",
     "react-scripts": "5.0.1",
     "sass": "^1.62.1",
-    "sweetalert2": "^11.9.0",
+    "sweetalert2": "^11.10.2",
     "swiper": "^9.3.2",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
@@ -51,6 +51,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-burger-menu": "^2.8.3"
+    "@types/react-burger-menu": "^2.8.3",
+    "@types/react-modal": "^3.16.3"
   }
 }

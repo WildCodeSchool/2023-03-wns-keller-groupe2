@@ -4,7 +4,6 @@ import { gql, useMutation } from "@apollo/client";
 import { UserContext } from "../../services/context/userContext";
 import CustomForm from "../CustomForm/CustomForm";
 
-
 const LOGIN = gql`
   mutation Mutation($password: String!, $email: String!) {
     login(password: $password, email: $email)
@@ -15,6 +14,7 @@ export default function LoginForm() {
   const userContext = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  
   const [login, { data, error }] = useMutation(LOGIN);
 
   const location = useLocation();
@@ -53,7 +53,7 @@ export default function LoginForm() {
           firstName: response.data.firstName,
         });
       }
-      console.log(response.data);
+      console.error(response.data);
     } catch (error) {
       console.error(error);
     }

@@ -47,18 +47,34 @@
   background-color: variables.$white-color;
 }
 
-.form-button {
+.form-button-first {
   border: none;
-  background-color: variables.$darkblue-color;
+  background-color: rgb(24, 170, 214);
   color: variables.$white-color;
   height: 2rem;
-  width: 10rem;
+  min-width: 8rem;
   font-size: 1rem;
   box-shadow: 4px 4px 5px #999999;
   border-radius: 10px;
 }
+.form-button-second {
+  border: none;
+  background-color: variables.$darkblue-color;
+  color: variables.$white-color;
+  height: 2rem;
+  min-width: 8rem;
+  font-size: 1rem;
+  box-shadow: 4px 4px 5px #999999;
+  border-radius: 10px;
+}
+.form-button-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
 
-.form-button:hover {
+.form-button-first:hover,
+.form-button-second:hover {
   background-color: variables.$lightblue-color;
   color: variables.$darkblue-color;
   cursor: pointer;
