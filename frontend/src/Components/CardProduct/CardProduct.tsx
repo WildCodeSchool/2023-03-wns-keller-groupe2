@@ -1,6 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 import ButtonMoreInfo from "../ButtonMoreInfo/ButtonMoreInfo";
 import ButtonRent from "../ButtonRent/ButtonRent";
+import FetchError from "../FetchError/FetchError";
 import "./cardProduct.scss";
 
 interface Product {
@@ -38,7 +39,7 @@ export default function CardProduct({ category }: CardProductProps) {
   const { data, loading, error } = useQuery(GET_ALL_BIKE);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : {error.message}</p>;
+  if (error) return <FetchError />;
 
   return (
     <div className="cardproduct-container">
