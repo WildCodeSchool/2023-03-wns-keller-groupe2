@@ -1,6 +1,6 @@
 import RangeSlide from "../RangeSlide/RangeSlide";
 
-export default function Filter() {
+export default function Filter(value: any, newValue: any) {
   return (
     <div className="filter">
       <h2>Vos Filtres</h2>
@@ -8,7 +8,9 @@ export default function Filter() {
       <RangeSlide />
       <h3>Genre:</h3>
       <ul>
-        <li>Homme</li>
+        <label htmlFor="">
+          <input type="checkbox" value={} />
+        </label>
         <li>Femme</li>
         <li>Enfant</li>
       </ul>
